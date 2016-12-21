@@ -1,0 +1,17 @@
+th {
+  text-align: right;
+  color: #224466;
+  white-space: nowrap;
+  vertical-align: top;
+  padding-top: 4px;
+  padding-bottom: 10px;
+}
+
+label a {
+  color: #36b8ea;
+}
+
+h1 {
+  font: bold 38px/40px arial;
+  margin: 15px 0;
+}

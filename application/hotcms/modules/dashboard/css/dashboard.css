@@ -1,0 +1,111 @@
+h2.welcome {
+  margin-bottom: 10px;
+}
+#container {
+  width: 1500px;
+}
+#rightContent {
+  /*width: 1310px;*/
+  padding: 0;
+  border: none;
+  color: #686d67;
+  font-family: Arial,"Lucida Grande",sans-serif;
+}
+
+#dashboard_stats {
+  padding: 0;
+}
+.stats {
+  width: 250px;
+  height: 110px;
+  border: 1px solid #b6b6b6;
+  float: left;
+  margin: 5px 10px 5px 0;
+  background-color: #e6ebe5;
+}
+.stats_label {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  font-size: 18px;
+}
+.stats_detail {
+  height: 60px;
+  line-height: 60px;
+  background-color: #fff;
+  border-top: 1px solid #b6b6b6;
+  border-bottom: 1px solid #b6b6b6;
+  padding: 0 15px;
+  font-size: 32px;
+}
+.stats_detail.brand {
+  font-size: 18px
+}
+.stats_detail a {
+  color: #686D67;
+  text-decoration: none;
+}
+
+#dashboard_charts {
+  margin-top: 10px;
+}
+#report_chart {
+  width: 775px;
+  height: 560px;
+  border: 1px solid #b6b6b6;
+  background-color: #e6ebe5;
+  float: left;
+  margin-right: 10px;
+}
+#chart_graph {
+  height: 510px;
+  background-color: #fff;
+  border-top: 1px solid #b6b6b6;
+  border-bottom: 1px solid #b6b6b6;
+}
+
+#report_filters {
+  width: 250px;
+  height: 560px;
+  border: 1px solid #b6b6b6;
+  background-color: #e6ebe5;
+  float: left;
+}
+#filter_form_div {
+  height: 500px;
+  background-color: #fff;
+  border-top: 1px solid #b6b6b6;
+  border-bottom: 1px solid #b6b6b6;
+  padding: 5px 10px;
+}
+
+.row label {
+  color: #333;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 5px 0 0;
+}
+.row label#benchmarking {
+  display: inline-block;
+  float: none;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  vertical-align: top;
+}
+.row input {
+  display: inline-block;
+  float: none;
+}
+#from_filter_range, #to_filter_range {
+  width: 63px;
+}
+#report_filters  .date_range button {
+    border: 0;
+    background: transparent;
+    
+}
+#report_filters  .date_range button img {
+    padding-left: 5px;
+    vertical-align: bottom;
+}

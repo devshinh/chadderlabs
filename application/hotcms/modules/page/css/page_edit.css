@@ -1,0 +1,296 @@
+/**************************************************************
+ * page publisher styles
+ **************************************************************/
+
+#page-content {
+  padding: 0 0 30px 0;
+}
+.content-zone {
+  margin: 10px 2px;
+}
+.droppable-zone {
+  border: 1px dashed #666;
+  padding: 7px 0;
+}
+.drag-helper {
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 50px;
+  border: 2px dotted #faa;
+  background-color: #fff;
+}
+.drop-placeholder {
+  height: 40px;
+  line-height: 30px;
+  border: 1px solid #fed22f;
+  background-color: #fffcb1;
+}
+
+.section-buttons {
+  display: none;
+  position: absolute;
+  height: 24px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  z-index: 99;
+  background-color: #ccd1cd;
+  border-top: 1px #b5b8b1 solid;
+  border-bottom: 1px #b5b8b1 solid;
+  color: #686d67;
+  font-size: 13px;
+}
+.section-button {
+  display: inline-block;
+  float: left;
+  border-left: 1px dotted #b5b8b1;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 6px;
+}
+.section-edit,
+.section-config,
+.section-delete {
+  cursor: pointer;
+}
+.section-move {
+  cursor: move;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.section-button .move-icon {
+  background: url('../../../asset/images/actions/icons-wysiwig-actions.png') no-repeat 0 -4px;
+  padding-left: 23px;
+}
+.section-move:hover,
+.section-edit:hover,
+.section-delete:hover,
+.section-config:hover{
+  color: #c63a3b;
+}
+.section-move:hover .move-icon{
+ background-position: -18px -4px;
+}
+.section-button .edit-icon {
+ background: url('../../../asset/images/actions/icons-wysiwig-actions.png') no-repeat 0 -23px;
+ padding-left: 23px;
+}
+.section-edit:hover .edit-icon,
+.section-config:hover .edit-icon {
+ background-position: -18px -23px;
+}
+.section-button .delete-icon {
+ background: url('../../../asset/images/actions/icons-wysiwig-actions.png') no-repeat 0 -41px;
+ padding-left: 23px;
+}
+.section-delete:hover .delete-icon{
+ background-position: -18px -41px;
+}
+#templateHeaderWrapper{
+ border-bottom: 1px solid #b6b8b5;
+ height: 25px;
+ line-height: 25px;
+ padding: 4px 10px;
+ margin-bottom: 10px;
+}
+#templateHeaderWrapper.maximazed {
+  background-color: #ccd1cd;
+  color: #686d69;
+}
+#templateHeaderWrapper.minimazed {
+  background-color: #e6e8e5;
+}
+#templateHeaderWrapper.minimazed #templateHeader {
+  color: #a9aba8;
+}
+#templateHeaderWrapper #minmaxWrapper {
+ border-left: 1px dotted #b6b8b5;
+ padding-left: 10px;
+}
+#templateHeader {
+  float: left;
+  height: 25px;
+  font: 14px/25px Arial, sans-serif;
+  font-weight: bold;
+}
+#minmaxWrapper {
+  float: right;
+  height: 25px;
+  line-height: 25px;
+  cursor: pointer;
+}
+#minmaxWrapper:hover {
+ color: #BF1F2B;
+}
+/*widget library menu */
+#new-widgets .section-buttons {
+  display: block;
+  position: relative;
+  width:100%;
+  height: 24px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  z-index: 99;
+  background-color: #ccd1cd;
+  border-top: 1px #b5b8b1 solid;
+  border-bottom: 1px #b5b8b1 solid;
+  color: #686d67;
+}
+#new-widgets .section-button {
+  display: inline-block;
+  float: left;
+  border-left: 1px dotted #b5b8b1;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 6px;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: "HelveticaNeueBold",sans-serif !important;
+  color: #686d67;
+}
+
+#new-widgets .awesome-icon{
+  padding-right: 7px;
+}
+#new-widgets .section-widget:hover i,
+#new-widgets .section-widget:hover div {
+    color: #c42e2f;
+}
+/* .cloneable, */
+.editable {
+  border: 2px dotted #faa;
+  overflow: hidden;
+}
+/* .cloneable:hover, */
+.editable:hover {
+  border: 2px dotted #f00;
+  background-color: #ddd;
+}
+
+.cloneable {
+  border: 1px solid #B3B8B4;
+  overflow: hidden;
+  margin: 1px 0;
+}
+.cloneable:hover {
+  border: 1px solid #faa;
+  background-color: #fff;
+}
+
+.cloneable {
+  background-color: #fff;
+}
+.cloneable .section-text {
+  display: none;
+}
+.cloneable .section-buttons {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.cloneable:hover .section-buttons {
+  background-color: #fff;
+}
+.cloneable .section-move {
+  margin-right: 0;
+  width: 92%;
+}
+
+
+.layouts {
+}
+.layout-option {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+}
+
+#widget-panel {
+  width: 196px;
+  position: fixed;
+  /* left: 1225px; */
+  right: 10px;
+  top: 143px;
+  border: 1px solid #B3B8B4;
+  padding: 0 0 20px 0;
+  z-index: 199;
+  background-color: #E6EBE5;
+}
+#widget-help-text {
+  padding: 0 10px 5px;
+  font-family: "HelveticaNeueMed",sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: #E6EBE5;
+}
+#widget-panel .module_header {
+  overflow: auto;
+}
+#widget-panel .module_header span {
+    float: left;
+    color: #ffffff;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: "HelveticaNeueBold",sans-serif;    
+}
+#widget-panel .widget_expander {
+    float: right;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+}
+#widget-help-text p {
+  font-style:italic;
+  padding-top: 0;
+  margin: 5px 0 0;
+}
+#new-widgets {
+  margin: 2px;
+  height: 450px;
+  overflow-y: auto;
+}
+.section-text {
+  /* padding: 0 5px; */
+  position: relative;
+}
+#new-widgets .section-text {
+  padding: 0 6px;
+}
+
+/* text-editor widget */
+.ui-dialog {
+  padding: 0 !important;
+}
+.ui-dialog .ui-dialog-titlebar {
+ background: black;
+
+}
+.ui-dialog .ui-dialog-titlebar span {
+ font-family: "HelveticaNeueBold",sans-serif;
+ font-size: 14px;
+ color: white;
+
+}
+
+#menu_editor {
+ border-top: 1px #b3b8b2 dotted;
+ padding: 10px 0;
+ background-color: #e6ebe5;
+}
+.jstree-default li {
+ padding-bottom: 10px !important;
+}
+.jstree a span,
+.jstree a {
+ color: #bf1f2b !important;
+ font-size: 13px !important;
+ font-family: arial;
+}
+span.note {
+ font-style: italic;
+ font-family: arial;
+ font-size: 10px;
+}

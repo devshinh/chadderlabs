@@ -1,0 +1,206 @@
+/**
+ * layout.css
+ *
+ * Controls the layout of the site, including header, footer, content containers, etc.
+ *
+ * Copyright 2010 - 2012 Hot Tomali Communications Inc.
+ */
+
+/**************************************************************
+ *  containers and basic layout
+ **************************************************************/
+
+body {
+  background: transparent url('../images/img-bg-tile.jpg') 0 0 repeat;
+}
+
+#head-wrapper {
+  height: 150px;
+  background: transparent url('../images/img-red-header-bg.png') 0 0 repeat-x;
+}
+#header {
+	margin: 0 auto;
+	width: 950px;
+  height: 150px;
+}
+
+#content-wrapper {
+	float: left;
+	width: 100%;
+}
+#content-wrapper2 {
+	margin: 0 auto;
+	width: 940px;
+}
+#content-wrapper3 {
+	float: left;
+	width: 940px;
+}
+#page-content {
+	clear: left;
+	float: left;
+	width: 940px;
+	padding: 10px 0 30px 0;
+  margin: 0;
+	display: inline;
+}
+
+#footer-wrapper {
+	clear: left;
+}
+#footer {
+	margin: 0 auto;
+  border-top: solid 1px #929489;
+	width: 940px;
+	padding: 5px 0;
+}
+
+
+/**************************************************************
+ *  header area layout
+ **************************************************************/
+
+#site-logo {
+  float: left;
+  margin-top: 8px;
+}
+#site-logo a {
+  display: block;
+  width: 296px;
+  height: 132px;
+  background: transparent url('../images/logo-fragile.png') top left no-repeat;
+}
+#site-logo span {
+  display: none;
+}
+
+#quick-links {
+	float: right;
+	width: 644px;
+}
+#quick-links ul {
+ float: right;
+ list-style-type: none;
+ margin: 0 0;
+}
+#quick-links ul li {
+ float: left;
+ height: 40px;
+ padding: 15px 5px 15px 15px;
+}
+#quick-links ul li a {
+ display: block;
+}
+#quick-links ul li a span {
+ display: none;
+}
+#ql-cov {
+  width: 102px;
+  height: 40px;
+}
+a#ql-youtube {
+  background-image: url('../images/btn-youtube.png');
+}
+a#ql-facebook {
+  background-image: url('../images/btn-facebook.png');
+}
+a#ql-twitter {
+  background-image: url('../images/btn-twitter.png');
+}
+a.hover-icon {
+  width: 24px;
+  height: 24px;
+  margin-top: 17px;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+a.hover-icon:hover {
+  background-position: 0 100%;
+}
+
+#main-nav {
+  float: left;
+	width: 644px;
+  padding-top: 30px;
+}
+
+#main-nav ul {
+  float: right;
+}
+
+#main-nav ul li {
+	list-style-type: none;
+	display: inline;
+}
+
+#main-nav li a {
+	display: block;
+	float: left;
+	color:  #aaa;
+	text-decoration: none;
+	text-align: center;
+	height: 20px;
+	line-height: 20px; 
+  padding: 0 0 0 8px;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+#main-nav li a span {
+  display: none;
+}
+#main-nav li a#nav-about {
+  background-image: url('../images/nav-about.png');
+  width: 61px;
+}
+#main-nav li a#nav-pedestrians {
+  background-image: url('../images/nav-pedestrians.png');
+  width: 102px;
+}
+#main-nav li a#nav-cyclists {
+  background-image: url('../images/nav-cyclists.png');
+  width: 76px;
+}
+#main-nav li a#nav-drivers {
+  background-image: url('../images/nav-drivers.png');
+  width: 71px;
+}
+#main-nav li a#nav-resources-links {
+  background-image: url('../images/nav-resources-links.png');
+  width: 142px;
+}
+#main-nav li a#nav-survey {
+  background-image: url('../images/nav-survey.png');
+  width: 67px;
+}
+#main-nav li a.last {
+  border:0;
+}
+#main-nav li a.current {
+  background-position: 50% -40px;
+}
+#main-nav li a:hover {
+  background-position: 50% -20px;
+}
+
+
+/**************************************************************
+ *  main content area layout
+ *  see content.css
+ **************************************************************/
+
+
+/**************************************************************
+ *  footer area layout
+ **************************************************************/
+
+#footer p {
+  font-size: 11px;
+}
+#footer p a {
+  color: #bc202b;
+  font-size: 11px;
+}
+
+#footer p a#fl-cov {
+  color: #3d3d3b;
+}

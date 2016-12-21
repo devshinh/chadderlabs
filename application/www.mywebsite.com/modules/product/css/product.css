@@ -1,0 +1,42 @@
+/* 
+    Document   : product.css
+    Created on : 13-Dec-2011, 11:26:18 AM
+    Author     : antlik
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#addAsset {
+   margin: 5px 0; 
+   display: block;
+   width: 61px;
+}
+#mediaLib { 
+ display: none
+}
+.itemHeader:hover {
+  cursor: move;
+}
+
+#quantity {
+  width: 40px;
+}
+#purchase-form label.error {
+  width:200px;
+  display: block;
+}
+#purchase-message {
+  margin-top: 20px;
+}
+.product_item {
+    margin-bottom: 20px;
+}
+label.error {
+    border: 1px solid #D893A1;
+    color: #AA0000;
+    background: none repeat scroll 0 0 #FBE6F2;
+    padding: 10px 12px;
+}
+.product_item .item-name {
+    width:180px;
+}

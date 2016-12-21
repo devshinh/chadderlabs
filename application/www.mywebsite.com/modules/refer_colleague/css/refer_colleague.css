@@ -1,0 +1,14 @@
+#refer_history .tableHeader > .span1,
+#refer_history .tableRow > .span1 {
+  text-align: center;
+}
+@media(max-width: 767px) {
+  #refer_history .tableHeader > .span3,
+  #refer_history .tableRow > .span3 {
+    text-align: center;
+  }
+  #refer_history .row-fluid [class*="span"]:first-child,
+  #refer_history .row-fluid [class*="span"]:last-child {
+    padding: 0;
+  }
+}

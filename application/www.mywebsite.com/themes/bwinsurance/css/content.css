@@ -1,0 +1,93 @@
+/**
+ * content.css
+ *
+ * Content styles of the website
+ * Includes all fonts and text background in the main content area.
+ * This file is also used on WYSIWYG editors.
+ *
+ * Copyright 2011 Hot Tomali Communications Inc.
+ */
+
+body, div, dl, dt, h1, h2, h3, li, span, textarea, p, ul, a {
+  color: #666;
+  font: 13px/18px arial, sans-serif;
+}
+
+body {
+  background: url('../images/bg-main.jpg') repeat-x #fffcf5;
+}
+
+h1 {
+  color: #5ad;
+  font: bold 38px/40px arial;
+}
+
+h2 {
+  color: #5ad;
+  font: bold 20px/200% arial;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: #012F46;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif !important;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+h4 {
+  color: #107cd4;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif !important;  
+  font-style: italic;
+}
+p {
+  margin: 14px 0;
+  font-family: 'Merriweather',serif;
+}
+
+.em {
+  color: #5ad;
+  font: bold 13px arial;
+}
+
+a {
+  color: #00aeef;
+  text-decoration: none;
+}
+
+a img {
+  border: 0;
+}
+
+a.triangle {
+  padding-right: 17px;
+  background: url( ../images/triangle_right.png ) center right no-repeat;
+}
+a.triangleDown {
+  color: #00aeef;
+  padding-right: 17px;
+  background: url( ../images/triangle_down.png ) center right no-repeat;
+}
+
+p.description {
+  font: 13px/18px arial;
+  color: #434344;
+  margin-top:10px;
+}
+
+.footnote, .footnote a {
+  font-size: 11px;
+}
+
+.red {
+  color: #f00;
+}
+.orange {
+  color: #E57547;
+}
+.darkBlue {
+  color:#022e45;
+  font-weight: bold;
+}

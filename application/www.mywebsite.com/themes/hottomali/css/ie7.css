@@ -1,0 +1,31 @@
+div#divMenu ul li {
+  margin: 0 12px;
+}
+
+#wrapHome{
+  background: url( ../images/bg_home_header_ie.jpg ) top center no-repeat;
+}
+
+div#divRotate {
+  display: none;
+  visibility: hidden;
+}
+
+div#divMain {
+  overflow:hidden; 
+}
+
+.ui-tabs .ui-tabs-nav li {
+  position: relative;
+  top:-1px;
+}
+
+div.framedbox {
+	display: inline;
+}
+
+div.divFeaturesList ul {
+	padding-left:20px;
+	margin-left:0px;
+  width:135px;
+}

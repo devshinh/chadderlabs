@@ -1,0 +1,202 @@
+/**
+ * content.css
+ *
+ * Controls content styles of the site, includes all fonts 
+ * and text background in the main content area.
+ * This file is also used in WYSIWYG editors.
+ *
+ * Copyright 2010-2012 Hot Tomali Communications Inc.
+ */
+
+/**************************************************************
+ * General content styles
+ **************************************************************/
+
+body, div, dl, dt, li, textarea, p, ul, a { /*have to remove span - conflict with CMS*/
+  color: #3d3d3b;
+  /*font: 12px/18px arial, sans-serif;*/
+  font-size: 12px;
+  line-height: 18px;
+  font-family: arial, sans-serif;
+}
+
+h1 {
+  color: #3d3d3b;
+  font: normal 38px/40px arial;
+  margin: 10px 0;
+  font-family: sans-serif;
+}
+
+h2,
+h2 span {
+  color: #3d3d3b;
+  font: normal 20px/200% arial;
+  font-family: sans-serif;
+}
+
+h3 {
+  color: #3d3d3b; 
+  font: bold 15px arial;
+  padding-bottom: 10px;
+}
+
+p {
+  margin: 12px 0;
+}
+
+.em {
+  color: #246;
+  font: bold 12px arial;
+}
+
+a {
+  color: #b73331;
+  text-decoration: none;
+}
+
+a img {
+  border: 0;
+}
+
+a.triangle {
+  padding-right: 17px;
+  background: url( ../images/triangle_right.png ) center right no-repeat;
+}
+a.triangleDown {
+  color: #00aeef;
+  padding-right: 17px;
+  background: url( ../images/triangle_down.png ) center right no-repeat;
+}
+
+p.description {
+  font: 12px/18px arial;
+  color: #434344;
+  margin-top:10px;
+}
+
+.footnote, .footnote a {
+  font-size: 11px;
+}
+
+.red {
+  color: #f00;
+}
+
+#page-content {
+  background: url("../images/img-bg-tile.jpg") repeat scroll 0 0 transparent;
+}
+  
+#page-content ul {
+  margin: 3px 0;
+  padding-left: 16px;
+}
+#page-content ul li {
+  padding: 4px 0 4px 16px;
+}
+
+
+/**************************************************************
+ * Custom content styles
+ **************************************************************/
+
+#upper_zone {
+  overflow: auto;
+}
+#upper_zone p {
+  margin: 0;
+  padding: 0;
+}
+#upper_zone img {
+  border: 10px solid #dfdcd5;
+}
+
+#middle_zone .section-text,
+#middle_center_zone .section-text {
+  margin-top: 10px;
+}
+#middle_zone .section-text:first-child ul,
+#middle_center_zone .section-text:first-child ul {
+  list-style-image: url('/themes/practiceroadsafety/images/img-red-bullet.png');
+}
+
+#middle_zone h2 img,
+#middle_center_zone h2 img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+#middle_center_zone {
+  width: 620px;
+  float: left;
+}
+
+#leftbar_zone {
+  width: 300px;
+  float: left;
+  margin-right: 20px;
+}
+#rightbar_zone {
+  width: 300px;
+  margin: 15px 0 0 20px;
+  float: right;
+}
+
+.content-zone h2 {
+  background: transparent url('/themes/practiceroadsafety/images/bg-heading.png') 0 55% repeat-x;
+  margin-top: 10px;
+}
+.content-zone h2 span {
+  display: inline-block;
+  padding-right: 10px;
+  background: url("/themes/practiceroadsafety/images/img-bg-tile.jpg") repeat scroll 0 0 transparent;
+}
+.content-zone h3 {
+  font-size: 14px;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  background-color: #e0ddd6;
+  border-bottom: 4px solid #93958a;
+}
+.content-zone hr {
+  background-color:#fff;
+  border:0 none;
+  clear:both;
+  color:#fff;
+  height:1px;
+  text-align:center;
+  width:100%;
+}
+.content-zone a.arrow-link {
+  display: block;
+  width: 208px;
+  height: 46px;
+  line-height: 46px;
+  color: #b63134;
+  background: transparent url('/themes/practiceroadsafety/images/img-arrow.png') 80px 50% no-repeat;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin: 0 2px;
+  padding-left: 8px;
+}
+.content-zone a.arrow-link img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.content-zone .random-info {
+  display: block;
+  margin: 0;
+  width: 220px;
+  height: 203px;
+}
+.content-zone .random-info span {
+  display: none;
+}
+#rightbar_zone .random-info {
+  width: 300px;
+  height: 375px;
+}
+
+
+

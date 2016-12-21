@@ -1,0 +1,623 @@
+/**
+ * layout.css
+ *
+ * Controls the layout of the site, including header, footer, 
+ * content containers, and menus.
+ *
+ * Copyright 2010 Hot Tomali Communications Inc.
+ */
+
+/**************************************************************
+ *  containers and basic layout
+ **************************************************************/
+
+#header {
+	margin: 0 auto;
+	width: 900px;
+	padding: 20px;
+}
+
+#main-nav-wrapper {
+	float: left;
+	width: 100%;
+	background-color: #CD202A;
+}
+
+#main-nav {
+	margin: 0 auto;
+	width: 940px;
+}
+
+#main-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+#main-nav ul li {
+	list-style-type: none;
+	display: inline;
+}
+
+#main-nav li a {
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#main-nav li a:hover {
+  background: #f00;
+}
+
+#content-wrapper {
+	float: left;
+	width: 100%;
+}
+
+#content-wrapper2 {
+	margin: 0 auto;
+	width: 940px;
+}
+
+#content-wrapper3 {
+	float: left;
+	width: 940px;
+}
+
+#content {
+	clear: left;
+	float: left;
+	width: 600px;
+	padding: 20px 0;
+	margin: 0 0 0 30px;
+	display: inline;
+}
+
+#side-column {
+	float: right;
+	width: 240px;
+	padding: 20px 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+#footer-wrapper {
+	clear: left;
+	background-color: #CD202A;
+}
+
+#footer {
+	margin: 0 auto;
+	width: 940px;
+	text-align: right;
+	color: #fff;
+	padding: 20px;
+}
+
+/**************************************************************
+ *  header area layout
+ **************************************************************/
+
+#wrapHeader{
+  width: 100%;
+  text-align: center;
+  min-width: 980px;
+  height: 135px; 
+  background: url( ../images/bg_header.jpg ) top left repeat-x;
+}
+
+div#divHeader {
+  width: 960px;
+  height: 135px;
+  margin: 0 auto;
+  clear: both;
+}
+
+div#divLogo {
+  width: 225px;
+  height: 108px;
+  position: relative;
+  top: 15px;
+  /*left: -15px;*/
+  float: left;
+  /*margin-right: 20px;*/
+}
+
+div#divQuickLink {
+  text-align: right;
+  width: 700px;
+  height: 50px;
+  background: url( ../images/bg_header_splitter.jpg ) bottom center no-repeat;
+  padding-top: 25px;
+  float: left;
+}
+
+div#divQuickLink form{
+  width: 660px;
+  float: right; 
+}
+
+div#divQuickLink span.quickLink {
+  display: block;
+  height: 40px;
+  float: left;
+}
+div#divQuickLink span.quickLinkInput {
+  line-height: 40px;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+div#divQuickLink span.quickLinkInput input {
+  line-height: 15px;
+  vertical-align: middle;
+}
+div#divQuickLink span.quickLinkInput input#searchText {
+  width: 140px; 
+}
+div#divQuickLink span.quickLinkSplitter {
+  display: block;
+  width: 3px;
+  height: 38px;
+  float: left;
+  background: url( ../images/bg_header_splitter_v.jpg ) top center no-repeat;
+  margin: 1px 8px;
+}
+
+div#divHeader div#divMenu {
+  text-align: left;
+  height: 50px; 
+  float: left;
+  display: block;
+}
+
+div#divHeader div#divMenuWrapper {
+ overflow: hidden;
+ float: left;
+ width: 700px;
+ padding-left: 25px;
+}
+
+div#divMenu a#buy-online-icon {
+  /*float: right;*/
+  display: block;
+  width: 26px;
+  height: 21px;
+  text-indent: -9999px;
+  background: url(../images/buy-online/cart-header-icon.png) top center no-repeat;
+  vertical-align: top;
+}
+div#divMenu a#buy-online-icon:hover,
+div#divMenu li.current a#buy-online-icon {
+  background-position: bottom center;  
+}
+
+
+div#divBreadcrumb {
+  display: inline-block;
+  width: 800px;
+}
+div#divBreadcrumb ul {
+  list-style: none;
+  color: #999;
+  margin: 0;
+}
+div#divBreadcrumb ul li {
+  display: inline;
+  color: #193e68;
+  font-size: 11px;
+}
+div#divBreadcrumb ul li a {
+  color: #36b8ea;
+  font-size: 11px;
+}
+
+div#divPageHeader {
+  margin: 2px 0;
+  height: 28px;
+}
+div#divPageHeader a#logout {
+  display: inline-block;
+  margin-right: 50px;
+  float: right;
+}
+div#divPageHeader a#logout img {
+  vertical-align: top;
+}
+
+
+/**************************************************************
+ *  top navigation styles
+ **************************************************************/
+
+div#divMenu ul {
+  text-align: left;
+  width:700px;
+  height:25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div#divMenu ul li {
+  display: block;
+  float: left;
+  height: 38px;
+  margin-right: 32px;
+  padding-top: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+div#divMenu ul li.last {
+  float: right;
+  padding-top: 11px;
+}
+div#divMenu ul li.lasttext,
+div#divMenu ul li.last {
+  margin-right: 0;  
+}
+
+div#divMenu ul li.main a {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+div#divMenu ul li.hidden {
+  display:none;
+}
+div#divMenu ul li a span {
+  display:none;
+}
+
+div#divMenu ul li a:hover,
+div#divMenu ul li a.current{
+  color: #5ce;
+}
+div#divSubmenu {
+  clear: both;
+  margin: 0 auto;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  background: transparent url( ../images/bg_subnav.png ) top left repeat-x;
+  position: absolute;
+  left: 0;
+  top: 135px;
+  z-index: 999;
+}
+div#subMenuWrapper {
+ clear: both;
+ overflow: hidden;
+ height: 40px;
+ position: relative;
+ width: 960px;
+ margin: 0 auto;
+ padding: 0;
+ text-align: left;
+}
+div#divSubmenu ul {
+  clear: both;
+  overflow: auto;
+  margin-left: 245px;
+  padding-left: 0;
+}
+div#divSubmenu ul li {
+  overflow: hidden;
+  float: left;
+  margin-left: 0;
+  padding-left: 0;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+div#divSubmenu ul li a {
+  overflow: auto;
+  display: block;
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 29px;
+  margin: 0;
+  height: 40px;
+  *line-height: 40px;  
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+div#divSubmenu ul li a:hover,
+div#divSubmenu ul li a.current{
+  color: #5ce;
+}
+
+
+/**************************************************************
+ *  main content area layout
+ **************************************************************/
+
+#wrap {
+  background: #e9f8fd url( ../images/bg_main_border_top.png ) top left repeat-x;
+  width: 100%;
+  min-width: 980px;
+  /* padding-bottom: 30px; */
+}
+
+div#divMain {
+  background: transparent;
+  width: 960px;
+  height: auto !important; 
+  /* AS - 2011-04-27 - Removed as this was causing with short pages not looking properly.
+  /* min-height: 100%; */
+  margin: 0 auto;
+  padding-top: 45px;
+  padding-right:10px;
+  padding-left:10px;
+  clear: both;
+}
+
+div#divMain div.content {
+  width: 943px;
+  padding: 1px 1px 20px;   
+  z-index: 21;
+}
+
+div#divMain div.content a {
+  color: #38B7EA;
+}
+
+div#divMain div.content div.left {
+  float: left;
+  width: 400px; 
+}
+
+div#divMain div.content div.right {
+  float: left;
+}
+
+
+/**************************************************************
+ *  footer area layout
+ **************************************************************/
+
+div#divFooter {
+  width: 100%;
+  min-width: 980px;
+  height: 255px;
+  background: url( ../images/bg_footer.jpg ) repeat;
+}
+
+div#divFooter div.content {
+  width: 960px;
+  margin: 0 auto;
+  clear: both;
+  height: 239px;
+  padding-top: 8px;
+  color: #fff;
+}
+div#divFooter div.content a {
+  color: #fff;
+}
+
+div#divFooter div.divFooterBorder {
+  background: url( ../images/bg_footer_vertical_border.png ) repeat;
+  width: 2px;
+  float: left;
+  height: 92%;
+}
+
+div#divFooterLeft {
+  overflow: auto;
+  width: 300px;
+  float: left;
+  vertical-align: middle;
+}
+div#divFooterLeft div#divSocialLinks {
+  margin: 24px 5px;
+}
+
+div#divFooterRight {
+  margin-top: 9px;
+  overflow: hidden;
+  width: 660px;
+  text-align: right;
+  float: left;
+}
+div#divFooterRight div#divFooterCopyright {
+  width: 660px;
+}
+div#divFooterRight p {
+  margin: 0;
+  margin-top: 5px;
+}
+div#divFooterRight ul#listFooter {
+  width: 620px;
+  margin: 0;
+}
+div#divFooterRight ul#listFooter li {
+  display: inline;
+  color: white;
+  margin: 0 0 0 10px;
+}
+div#divFooterRight ul#listFooter li a {
+  color: white;
+  font: 13px arial;
+}
+div#divFooterRight div#divFooterCopyright p{
+  font: 11px arial;
+  float: right;
+  clear: both;
+}
+
+
+/**************************************************************
+ *  Footer sitemap styles
+ **************************************************************/
+
+div#divFooterSitemap ul {
+  height: 169px;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+div#divFooterSitemap ul ul {
+  height: 110px;
+  padding: 0;
+  margin: 0;
+}
+div#divFooterSitemap ul li.main{
+  margin: 0px 22px 3px 8px;
+  vertical-align: top;
+  display:inline-block;
+  *display: inline;
+  zoom: 1;
+}
+div#divFooterSitemap ul li.main,
+div#divFooterSitemap ul li.main a{
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+div#divFooterSitemap ul li.main ul li.subNav{
+  display: block;
+  margin: 2px;
+}
+div#divFooterSitemap ul li.main ul li.subNav,
+div#divFooterSitemap ul li.main ul li.subNav a{
+  color: #38b7ea;
+  font-weight: bold;
+  text-transform: none;
+  font-size: 12px;
+  line-height: 160%;
+  color: #38b7ea;
+} 
+#divFooterCopyright p {
+  color: white; 
+}
+
+
+/**************************************************************
+ *  Right side promotion column style
+ **************************************************************/
+div#divSidePromo {
+  width: 350px;
+  float: right;
+  text-align: center;
+  margin-top: 100px;
+} 
+
+/**************************************************************
+ *  framed box style
+ **************************************************************/
+div.framedbox {
+  display: inline-block;
+  background: url( ../images/bg_box_tl.png ) top left no-repeat;
+  padding: 0 0 0 1px;
+} 
+div.framedbox .innerbox {
+  display: inline-block;
+  padding: 12px 12px 14px 10px;
+  background: url( ../images/bg_box_br.png ) bottom right no-repeat;
+} 
+
+
+/**************************************************************
+ *  buttons
+ **************************************************************/
+a.aTriangleButton,
+a.aDocumentButton,
+a.aPrintButton {
+  display: block;
+  width: 210px;
+  height: 22px;
+  color: #223366 !important;
+  padding: 8px 0 0 10px;
+  text-transform: uppercase;
+  font: bold 12px arial, sans-serif;
+  border: 1px solid #819bb3;
+}
+a.aTriangleButton:hover,
+a.aDocumentButton:hover,
+a.aPrintButton:hover {
+  color: #fff !important;
+  background-color: #183e68;
+}
+
+a.aTriangleButton {
+  background: #fff url( ../images/buttons/icon_triangle.png ) top right no-repeat;
+}
+a.aDocumentButton {
+  background: #fff url( ../images/buttons/icon_document.png ) top right no-repeat;
+}
+a.aPrintButton {
+  background: #fff url( ../images/buttons/icon_print.png ) top right no-repeat;
+}
+
+input.plus, input.minus,
+input.document,
+input.mail,
+input.print,
+input.triangle,
+input.voucher,
+input.cancel {
+  display: block;
+  width: 200px !important;
+  height: 32px;
+  color: #236;
+  margin: 15px 15px 15px 0;
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+  font: bold 12px arial, sans-serif;
+  border: 1px solid #819bb3;
+  text-align: left;
+  cursor: pointer;
+}
+input.plus:hover, input.minus:hover,
+input.document:hover,
+input.mail:hover,
+input.print:hover,
+input.triangle:hover,
+input.voucher:hover,
+input.cancel:hover {
+  color: #fff;
+  background-color: #183e68;
+}
+
+@-moz-document url-prefix() {
+  input.document { padding: 0 0 2px 10px; }
+  input.mail { padding: 0 0 2px 10px; }
+  input.print { padding: 0 0 2px 10px; }
+  input.triangle { padding: 0 0 2px 10px; }
+  input.voucher { padding: 0 0 2px 10px; }
+  input.cancel { padding: 0 0 2px 10px; }
+  input.plus { padding: 0 0 2px 10px; }
+  input.minus { padding: 0 0 2px 10px; }
+} 
+
+input.document {
+  background: #fff url( ../images/buttons/icon_document.png ) top right no-repeat;
+}
+input.mail {
+  background: #fff url( ../images/buttons/icon_mail.png ) top right no-repeat;
+}
+input.print {
+  background: #fff url( ../images/buttons/icon_print.png ) top right no-repeat;
+}
+input.triangle {
+  background: #fff url( ../images/buttons/icon_triangle.png ) top right no-repeat;
+}
+input.voucher {
+  background: #fff url( ../images/buttons/icon_voucher.png ) top right no-repeat;
+}
+input.cancel {
+  background: #fff url( ../images/buttons/icon_x.png ) top right no-repeat;
+}
+input.plus {
+  background: #fff url( ../images/buttons/icon_plus.png ) top right no-repeat;
+}
+input.minus {
+  background: #fff url( ../images/buttons/icon_minus.png ) top right no-repeat;
+}
+

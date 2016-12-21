@@ -1,0 +1,51 @@
+/* index.php page */
+
+.clear {
+  clear:both; 
+}
+.content a {
+  color:#38B7EA;
+}
+
+#mainPromotion {
+  padding-top: 12px;
+  padding-left: 12px;
+  background: url( "../img/bg_main_promo.png") no-repeat;
+  height:424px;
+}
+
+.smallPromotion {
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-left: 12px;
+  background: url( "../img/bg_small_promo.png") no-repeat;
+  float: left;
+  height: 263px;
+  width: 451px;
+}
+
+.marginRight {
+  margin-right: 14px; 
+}
+
+/* detail.php page */
+#imageBg {
+  padding-top: 12px;
+  padding-left: 12px;
+  background: url( "../img/bg_promo_detail_image.png") no-repeat;
+  margin: 0;
+}
+#bodyBg {
+  padding-left: 12px;
+  background: url( "../img/bg_promo_detail_body.png") repeat-y;
+  height: 100%;
+  padding-top: 6px;
+}
+#bodyBg p {
+  width: 920px; 
+}
+#footBg {
+  background: url( "../img/bg_promo_detail_foot.png") repeat-y;
+  height: 15px;
+  margin-left: 1px;
+}

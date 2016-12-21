@@ -1,0 +1,200 @@
+@import 'layout.css';
+@import 'content.css';
+
+/**
+ * global.css
+ *
+ * General styles for all HotCMS sites
+ *
+ * Copyright 2010 Hot Tomali Communications Inc.
+ */
+
+/**************************************************************
+ *  global styles
+ **************************************************************/
+
+@font-face {
+	font-family: 'AvantGardEFBold';
+	src: url('../fonts/avantgarde-bold-webfont.eot');
+	src: local('AvantGardEF'), local('AvantGardEFBold'), url('../fonts/avantgarde-bold-webfont.woff') format('woff'), url('../fonts/avantgarde-bold-webfont.ttf') format('truetype'), url('../fonts/avantgarde-bold-webfont.svgz#webfontuHBrmXTe') format('svg'), url('../fonts/avantgarde-bold-webfont.svg#webfontuHBrmXTe') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, div, dl, dt, h2, h3, li, span, textarea, a {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: white;
+}
+
+hr {
+  color: #bac7cd;
+  z-index: 21;  
+}
+
+div.head {
+  border-bottom: 2px solid #F4F4F4;
+  height: 45px;
+  padding-bottom:5px;
+  margin-bottom:5px;
+}
+
+div.heading {
+  float: left; 
+}
+
+div#divSeo {
+  width: 45%;
+  margin: 10px;
+  padding: 15px;
+  float: left;
+  background:white;
+}
+
+ul#seoList {
+  list-style: url( ../images/list_pointer.png ) inside; 
+  margin-top: 15px;  
+}
+
+ul#seoList li {
+  margin-bottom: 10px; 
+    font: 13px/18px arial;
+  color: #434344;
+}
+  
+hr {
+  border: 0;
+  color: #b9c6cc;
+  background-color: #b9c6cc;
+  height: 1px;
+  width: 100%;
+  text-align: left;
+  clear: both;
+}
+
+/**************************************************************
+ *  form related styles
+ **************************************************************/
+
+optgroup {
+  font: bold 11px/14px arial, sans-serif;
+}
+
+div#divContent div.content div.right form {
+  padding: 20px 0 0;
+  margin: 0;
+}
+
+div#divContent div.content div.right form div input.text,
+div#divContent div.content div.right form div textarea {
+  width: 200px;
+  font-size: 11px;
+  padding: 2px 3px;
+  border: 1px solid #9E9E9E;
+}
+
+div#divContent div.content div.right form div textarea {
+  height: 200px;
+  line-height: 15px;
+  overflow: auto;
+}
+
+.formnote {
+  font-size: 12px;
+  color: red;
+  text-align: right;
+}
+
+div.clear {
+ clear:both; 
+}
+
+
+/**************************************************************
+ *  message styles
+ **************************************************************/
+
+div.message,
+div.error {
+  margin: 10px 0;
+  padding: 10px 12px;
+}
+
+div.message,
+div.message p { background: #EDFFED; }
+
+div.error,
+div.error p { background: #FBE6F2; }
+
+div.message { border: 1px solid #48B448; color: #070; }
+div.error { border: 1px solid #D893A1; color: #A00; }
+
+div.message p,
+div.error p {
+  font-weight: bold;
+}
+
+/**************************************************************
+ *  sticky footer
+ **************************************************************/
+#wrap {
+  min-height: 100%;
+}
+
+#divMain {
+  overflow:auto;
+	padding-bottom: 255px;  /* must be same height as the footer */
+} 
+
+#divFooter {
+  position: relative;
+	margin-top: -255px; /* negative value of footer height */
+	height: 255px;
+	clear:both;} 
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+/**************************************************************
+ *  captcha
+ **************************************************************/
+div#divCaptcha {
+  display: block;
+  width: 255px;
+}
+div#divCaptcha a#refreshCaptcha{
+  vertical-align: top;
+  margin: 0 0 3px 3px;
+}
+
+/**************************************************************
+ *  loading screen
+ **************************************************************/
+#loading {
+  background-color:#fff;
+  border:1px dashed #999;
+  display:none;
+  left:30%;
+  margin:0 auto;
+  padding:30px;
+  position:absolute;
+  text-align:center;
+  top:50%;
+  width:400px;
+}
+#loading img {
+  vertical-align:middle;
+}

@@ -1,0 +1,90 @@
+#carousel img {
+	border: 0;
+}
+.carousel {
+	overflow: auto;
+}
+#carouselBorder
+{
+	overflow: hidden;
+	background-color: #dfdcd5;
+	height: 500px;
+	width: 940px;
+}
+#carouselWrapper {
+	height: 480px;
+	width: 920px;
+	margin: 10px;
+	/*margin-top: 10px;*/
+}
+#carousel {
+	clear: both;
+}
+#carouselNavWrap {
+	overflow: hidden;
+	clear: both;
+	overflow: hidden;
+	/* width: 200px; */
+	text-align: center;
+	float: right;
+	position: relative;
+	margin-top: 15px;
+	vertical-align: middle;
+	line-height:18px;
+}
+#carouselNavWrap > a {
+	border: none;
+	text-decoration: none;
+}
+#carouselNavWrap a img {
+	float: left;
+	display: block;
+	margin: 0 4px;
+	border: none;
+}
+span#carouselNav {
+	/* display: inline-block; */
+  float: right;
+}
+body #carouselNav a {
+	background-image: url(/themes/practiceroadsafety/images/img-inactive-carousel-dot.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	color: #97978d;
+	font-size: 8px;
+	margin-top: 2px;
+	margin-left: 5px;
+	height: 12px !important;
+	width: 13px !important;
+	line-height: 10px;
+	display: block;
+	float: left;
+}
+#carouselNav a.activeSlide {
+	background-image: url(/themes/practiceroadsafety/images/img-active-carousel-dot.png);
+	color: #b33133;
+}
+
+#carouselNavWrap .carouselNavControl
+{
+	display: block;
+	float: right;
+	height: 16px !important;
+	width: 17px;
+	background-position: 0 0;
+	background-repeat: no-repeat;								
+}
+
+#navLeft {
+	background-image: url(/themes/practiceroadsafety/images/btn-previous-carousel.png);				
+}
+#navRight {
+	background-image: url(/themes/practiceroadsafety/images/btn-next-carousel.png);					
+	margin-left: 5px;
+}
+#navRight:hover,
+#navLeft:hover
+{
+	background-position: 0 -20px;
+}

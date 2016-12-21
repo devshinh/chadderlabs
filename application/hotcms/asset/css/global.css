@@ -1,0 +1,621 @@
+/*
+    Document   : global
+    Created on : 30-Aug-2011, 4:02:30 PM
+    Author     : antlik
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/**************************************************************
+ *  general styles
+ **************************************************************/
+
+@font-face {
+  font-family: 'HelveticaNeueMed';
+  src: url('../fonts/helvetica-neue-med/helveticaneueltstd-mdcn-webfont.eot');
+  src: url('../fonts/helvetica-neue-med/helveticaneueltstd-mdcn-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/helvetica-neue-med/helveticaneueltstd-mdcn-webfont.woff') format('woff'),
+    url('../fonts/helvetica-neue-med/helveticaneueltstd-mdcn-webfont.ttf') format('truetype'),
+    url('../fonts/helvetica-neue-med/helveticaneueltstd-mdcn-webfont.svg#HelveticaNeueLTStd67MdCn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueBold';
+  src: url('../fonts/helvetica-neue-bold/helveticaneueltstd-bdcn-webfont.eot');
+  src: url('../fonts/helvetica-neue-bold/helveticaneueltstd-bdcn-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/helvetica-neue-bold/helveticaneueltstd-bdcn-webfont.woff') format('woff'),
+    url('../fonts/helvetica-neue-bold/helveticaneueltstd-bdcn-webfont.ttf') format('truetype'),
+    url('../fonts/helvetica-neue-bold/helveticaneueltstd-bdcn-webfont.svg#HelveticaNeueLTStd77BdCn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+h1, h2, label, p, td, th {
+  font: 12px/15px Arial, sans-serif;
+}
+h2 {
+  font: 15px/30px Arial, sans-serif;
+  font-weight: bold;
+  color: #555;
+}
+h3 {
+  font: 14px/24px Arial, sans-serif;
+}
+
+a img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+table.tablesorter {
+  width: 100%;
+}
+table.tablesorter td.title {
+  white-space: pre-line;
+  max-width: 330px;
+  display: table-cell;
+
+}
+
+ul {
+  list-style: none;
+}
+
+#header {
+  height: 61px;
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: Arial;
+  color: white;
+}
+#header_left {
+  float:left;
+}
+#logoSmall {
+  float:left;
+  color: white;
+  height: 61px;
+  line-height: 61px;
+}
+#logo_link {
+  width: 183px;
+  height: 61px;
+  display: block;
+  background: url('../images/logo-cl.png') no-repeat;
+  float: left;
+  text-indent: -9999px;
+}
+#cms_version {
+  float: left;
+  font-weight: normal;
+  font-size: 20px;
+  font-family: "HelveticaNeueBold", sans-serif;
+  line-height: 55px;
+  color: white;
+}
+#htc_text {
+  color: white;
+  clear:both;
+  font-weight: normal;
+  font-size: 13px;
+}
+.red {
+  color: #CD202B;
+}
+#htc_text a {
+  color:white;
+  text-decoration: none;
+}
+#htc_text a:hover {
+  color: #CD202B;
+}
+#loginInfo {
+  float:right;
+  font-size: 13px;
+  color: white;
+}
+#loginInfo ul {
+  overflow: auto;
+  font-size: 13px;
+  color: white;
+}
+#loginInfo ul li {
+  display: inline;
+  font-size: 13px;
+  color: white;
+}
+#loginInfo ul li a {
+  color: white !important;
+  text-decoration: none;
+  font-size: 13px;
+}
+#cboSite_global {
+    width: 240px;
+}
+.content {
+  overflow: hidden;
+  margin: 0 22px;
+}
+#wrap
+{
+  min-width: 1430px;
+}
+#footer {
+  background-color: black;
+  font-family: arial;
+  font-size: 13px;
+  min-width: 1430px;
+}
+#footer p.copyright {
+  float: left;
+  color: white;
+  font-size: 12px;
+  margin-top: 17px;
+  font-family: arial;
+}
+#footer div.powered {
+  float: right;
+  color: white;
+  font-size: 12px;
+  margin-top: 17px;
+  font-family: arial;
+  height: 24px;
+  line-height: 24px;
+}
+#footer div.powered p {
+    float: left;
+    margin-top: 3px;
+    margin-right: 8px;
+}
+#footer div.powered img {
+    float: right;
+}
+#mainMenu,
+#logoBig{
+  width: 230px;
+  float:left;
+}
+
+#mainContent {
+  clear: both;
+  float:left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h1.module {
+  color: #900;
+  font-size: 20px;
+  line-height: 24px;
+}
+/* data table style */
+.table {
+  width: 100%;
+  border-right: none;
+  height: 100%;
+}
+
+.table table th {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
+  background-color: #000000;
+  font-family: "HelveticaNeueBold", sans-serif;
+}
+
+.table table td,
+.table table th {
+  white-space: nowrap;
+  padding: 10px 15px;
+}
+.table table th.filter {
+    padding: 10px 3px;
+    width: 6px;
+}
+.table table td.date {
+  width: 125px;
+}
+
+.table table td.wrap {
+  white-space: normal;
+}
+
+.table table td {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid #AAAAAA;
+  border-right: 1px solid #AAAAAA;
+  background-color: #e6ebe5;
+  color: #686d69;
+}
+.table table td.centered {
+  text-align: center;
+}
+.table table td.centered a {
+  text-align: center;
+}
+.table table td.last {
+  border-right: none;
+}
+.table table tr:hover td{
+  background-color: white;
+}
+
+#variant_table {
+    max-width: 100%;
+    table-layout: fixed;
+}
+.table table td.variant-preview {
+    white-space: normal;
+}
+h2.welcome {
+  margin-bottom: 20px;
+}
+
+.module {
+  margin-bottom: 10px;
+}
+
+.row {
+  overflow: auto;
+  margin: 8px 0;
+  clear: both;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+}
+.row label {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  width: 130px;
+}
+#filters-modal .row label {
+  width: 110px;
+}
+.row label.error {
+  display: block;
+  float: none;
+  clear: both;
+  width: 100%;
+}
+.row input {
+  display: block;
+  float: left;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+}
+.row textarea {
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+}
+.row input[type=text],
+.row input[type=password],
+.row select,
+.row textarea {
+  border: 1px solid #B3B8B4;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  line-height: 18px;
+  background: white;
+  padding: 0 2px;
+  color: #333;
+}
+.row input[type=text].error,
+.row input[type=password].error,
+.row select.error,
+.row textarea.error {
+  border-color: #f00;
+}
+.row input[type=text],
+.row input[type=password] {
+  width: 200px;
+  height: 22px;
+}
+.row textarea {
+  width: 200px;
+  height: 80px;
+}
+.row select {
+  width: 205px;
+  padding: 3px 0;
+}
+.row select.auto_width {
+  width: auto;
+}
+#loginForm .row input[type=text],
+#loginForm .row input[type=password] {
+  min-width: 200px;
+  height: 22px;
+}
+.row.checkbox p {
+  width: 500px;
+}
+.row.checkbox label {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.row .flexlabel label {
+  width: auto;
+}
+.row.checkbox input {
+  width: auto;
+}
+.row img.ui-datepicker-trigger {
+  margin-left: 5px;
+}
+.row p {
+  margin: 0;
+  line-height: 14px;
+}
+.col {
+  overflow: auto;
+  display: inline-block;
+  margin: 4px;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+}
+.col label {
+  display: inline-block;
+  margin-right: 5px;
+}
+.col input.red_button {
+  padding: 1px 5px;
+  margin: 0;
+}
+
+.submit {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+div.module div ul.modulesList {
+  border: 1px solid #A5ACB2;
+  overflow: auto;
+  width: 328px;
+}
+div.module div ul.modulesList li {
+  height: 20px;
+  padding: 2px 5px;
+  width: 301px;
+}
+.clear {
+  clear: both;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/**************************************************************
+ *  form styles
+ **************************************************************/
+
+input[type=text], option, select, textarea {
+  color: #555;
+}
+
+fieldset {
+  border: 1px dashed #999;
+  padding: 2px 10px 10px 10px;
+  margin: 10px;
+}
+legend {
+  background-color: #fff;
+  padding: 0px 2px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.configform table {
+  float: left;
+}
+.configform th,
+.configform td {
+  padding: 3px 5px;
+}
+
+input.button, button, a.button, .red_button {
+  font-family: "HelveticaNeueBold", sans-serif;
+}
+a.button,
+input.button {
+  text-decoration: none;
+  color: #555;
+  background: #dadada;
+  border: 1px solid #aaa;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+a.button {
+  text-decoration: none;
+  padding: 3px 5px;
+}
+a.button:hover,
+input.button:hover {
+  cursor:pointer;
+  background: #eaeaea;
+}
+
+.editinline input {
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 2px;
+}
+.editinline input:hover {
+  border: 1px solid #555;
+}
+
+.editinline input.edited {
+  border: 1px solid #5f5;
+}
+
+/**************************************************************
+ *  Messages style
+ **************************************************************/
+
+.message {
+  margin: 20px 0;
+  font-family: "HelveticaNeueBold",sans-serif;
+  font-weight: normal;
+}
+
+.message.alert,
+.message.confirm,
+.message.error {
+  padding: 15px;
+}
+
+.message.error,
+.message.error p {
+  background: #FBE6F2;
+  font-family: "HelveticaNeueBold",sans-serif;
+}
+
+.message.confirm,
+.message.confirm p { background: #EDFFED; }
+
+.message.alert,
+.message.alert p { background: #FFFBCC; }
+
+.message.error   { border: 1px solid #D893A1; color: #A00; }
+.message.confirm { border: 1px solid #48B448; color: #070; }
+.message.alert   { border: 1px solid #E6DB55; color: #997417; }
+
+.message.alert p,
+.message.confirm p,
+.message.error p,
+.message.confirm {
+  line-height: 18px;
+  font-size: 12px;
+}
+
+.message .message_close {
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+}
+.message .message_close a {
+  color: #AA0000;
+  font-weight: bold;
+  font: 12px/15px "HelveticaNeueBold",sans-serif;
+}
+.message.confirm .message_close a {
+  color: #007700;
+}
+.message .underline {
+  margin: 0;
+}
+.underline {
+  background: none repeat scroll 0 0 #AAAAAA;
+  height: 1px;
+  margin: 20px 0;
+}
+.error {
+  font-weight: bold;
+  color: #A00;
+  font: 10px/12px arial,sans-serif;
+}
+
+/**************************************************************
+ *  menu styles
+ **************************************************************/
+
+#top_menu_bg {
+  background: #cdd1cd;
+  border-bottom: solid 1px #b3b8b4;
+  margin-bottom: 20px;
+  z-index:1;
+  height: 36px;
+}
+
+#top_menu {
+  overflow: none;
+  margin: auto 22px;
+  color: #b3b8b4;
+  font-family: Arial, "Lucida Grande", sans-serif;
+  z-index:1;
+}
+#top_menu li
+{
+  float: left;
+  display: block;
+  cursor: pointer;
+  border-left: 1px solid #b3b8b4;
+  position: relative;
+  z-index:1;
+}
+#top_menu li:hover,
+#top_menu li.active{
+  background: #dadcd9;
+}
+#top_menu li:hover a,
+#top_menu li.active a{
+  color: #CD202B;
+}
+#top_menu li.last
+{
+  border-right: 1px dotted #b3b8b4;
+}
+#top_menu li a:hover
+{
+  color: #CD202B;
+}
+#top_menu li a
+{
+  text-decoration: none;
+  color: #686d67;
+  font-size: 14px;
+  padding: 10px;
+  display: inline-block;
+}
+#top_menu li ul {
+    display: none;
+    z-index: 1000000;
+    position: absolute;
+    top: 36px;
+    left:0;
+    border-bottom: 1px solid #b3b8b4;
+}
+#top_menu li ul li{
+    clear:both;
+    position: relative;
+    width:200px;
+    background-color: #CDD1CD;
+    border-right: 1px solid #b3b8b4;
+}
+#top_menu li:hover ul li a {
+    color: #686D67;
+}
+#top_menu li ul li:hover a{
+  color: #CD202B;
+}
+#top_menu li ul li a {
+    color: #686D67;
+}
+
+#menu_page_publisher
+{
+  float: left;
+  width: 300px;
+}
+#brand_logo {
+    height: auto;
+    margin-left: 20px;
+    vertical-align: text-top;
+}
+.hidden {
+  display: none;
+}
+.strong {
+  font-weight: bold;
+}

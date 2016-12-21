@@ -1,0 +1,46 @@
+#upper_zone {
+  padding-top:0 !important;
+  padding-bottom: 45px !important;
+}
+#upper_zone .overlay_home {
+  top:0px;
+}
+#map_wrapper {
+ padding-bottom: 5px;
+}
+#middle_zone .section-widget {
+  margin-bottom: 20px;
+}
+#upper_zone .overlay {
+  top: 0 !important;
+}
+.location_items ul li,
+.location_items ul li .location-details {
+  width: 98px;
+}
+.questionnaire .row {
+  width:290px;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+  margin: 0 0 9px 0;
+}
+.questionnaire .row label {
+  width: 175px;
+  display: block;
+  float: left;
+}
+.questionnaire .row label.error {
+  display: block;
+  float: left;
+  width: 190px;
+  line-height: 11px;
+}
+.questionnaire .row input[type=text],
+.questionnaire .row select {
+  float: right;
+  width: 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

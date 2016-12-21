@@ -1,0 +1,39 @@
+#quiz-setting .submit {
+  margin-left: 0;
+}
+.quiz_section {
+  margin-bottom: 5px;
+  float: left;
+  background-color: white;
+  padding: 10px;
+  margin-right: 30px;
+  width: 338px;
+}
+.add_section a {
+ margin-top: 0;
+ float: right;
+ margin-bottom: 0;
+ margin-right: 22px;
+}
+.quiz_type {
+  background-color: #e8ebe4;
+  border: 1px solid #B6B8B5;
+  padding: 10px;
+}
+#add_new_type {
+  float:left;
+  margin: 0px;
+}
+.sections {
+  overflow: auto;
+}
+input.required.error {
+  background: #FBE6F2;
+}
+.row.required {
+  padding-bottom: 10px;
+}
+#quiz-type-info{
+  float:right;
+  padding-top: 10px;
+}

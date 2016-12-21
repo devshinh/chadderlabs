@@ -1,0 +1,38 @@
+.groupWrapper
+{
+}
+.serializer
+{
+	clear: both;
+}
+.groupItem
+{
+	margin-bottom: 20px;
+}
+.groupItem .itemHeader
+{
+	cursor: move;
+	position: relative;
+}
+
+.groupItem .itemHeader a
+{
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	font-weight: normal;
+	font-size: 11px;
+	text-decoration: none;
+}
+.sortHelper
+{
+	border: 1px dashed #666;
+	width: auto !important;
+}
+.groupWrapper p
+{
+	height: 1px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}

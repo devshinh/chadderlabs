@@ -1,0 +1,20 @@
+div#divMenu ul li {
+  margin: 0 12px;
+}
+
+#wrapHome{
+  background: url( ../images/bg_home_header_ie.jpg ) top center no-repeat;
+}
+
+div#divRotate {
+  display: none;
+  visibility: hidden;
+}
+
+#wrap {
+  display:table;
+  height:100%
+}
+.questionnaire label.error {
+  line-height: 8px;
+}

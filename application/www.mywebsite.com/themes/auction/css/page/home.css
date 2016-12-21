@@ -1,0 +1,67 @@
+h1 {
+  font: bold 18px/30px arial;
+  text-transform: uppercase;
+}
+
+#wrapHome{
+  width: 100%;
+  height: 317px; 
+  /* background: url( ../../images/bg_home_header.jpg ) top center no-repeat; */
+  min-width: 960px;
+}
+
+div#divHomeFlash{
+  width: 960px;
+  height: 317px;
+  margin: 0 auto;
+  clear: both;
+}
+
+div#divManageAccount {
+  width: 220px;
+  height: 220px;
+  padding: 182px 0 0 730px;
+  /* background: url( ../../images/bg_manage_account.png ) 729px 132px no-repeat; */
+}
+
+div#divManageAccount ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div#divManageAccount ul li{
+  width: 191px;
+  height: 30px;
+  padding: 6px 0 6px 9px;
+}
+
+div#divManageAccount ul li a{
+  width: 188px;
+}
+
+div#divRotate {
+  width: 300px;
+  height: 210px;
+  margin: 100px 0 0 230px;
+  float: left;
+  /* Firefox */
+  -moz-transform: rotate(-15deg);
+  /* Safari */
+  -webkit-transform: rotate(-15deg);
+  /* Opera */
+  -o-transform: rotate(-15deg);
+  /* Internet Explorer won't work, ignore IE */
+  /* filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2); */
+  /* Internet Explorer 9 roate support - added by added AS - 2011-04-27 */
+  -ms-transform: rotate(-15deg);
+}
+div#divRotate p {
+  line-height: 150%;
+  font-size: 22px;
+  font-weight: 300;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+
+

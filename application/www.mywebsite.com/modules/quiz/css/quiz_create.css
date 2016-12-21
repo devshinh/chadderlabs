@@ -1,0 +1,17 @@
+/* 
+    Document   : quiz_create.css
+    Created on : 12-Jul-2012, 3:29:48 PM
+    Author     : antlik
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.cms_dropdown { 
+  width: 206px;
+  font-family: Arial,sans-serif;
+  font-size: 14px;  
+}
+.cms_dropdown option{
+  padding: 0 3px;
+}
+

@@ -1,0 +1,63 @@
+.yes {
+  text-indent: -9999px;
+  background: url('../images/icons/accept.png') no-repeat center center;
+}
+.no {
+  text-indent: -9999px;
+  background: url('../images/icons/cancel.png') no-repeat center center;
+}
+
+/* commented out 05/14/2012 - not used - will be deleted
+
+TODO -delete
+#divMain div.answer.closed {
+  display: none; 
+}
+#divMain  .answer {
+ font-style: italic; 
+ margin-bottom: 20px;
+}
+#divMain ul {
+ list-style-position: inside; 
+ margin-top:0;
+ margin-bottom:0; 
+}
+#divMain ul li {
+  font-style: italic;
+}
+
+#divMain h3 {
+ margin-bottom: 10px;
+}
+#divMain div.question {
+ cursor: pointer; 
+}
+#divMain h3.headerQuestion {
+ font-weight: normal; 
+ background: url("../img/bubble.jpg") no-repeat scroll 0px -1px transparent;
+ padding-left: 28px;
+ line-height: 28px;
+}
+#divMain hr {
+ margin-bottom: 15px; 
+}
+
+#divMain div.answer {
+ margin-left: 31px;
+}
+
+#divMain div.answer p {
+  font-style: italic;
+}
+#divMain .faqGroup a {
+  color: #38B7EA;
+  font-style: italic;
+}
+#divMain .faqGroup a:hover {
+  text-decoration: underline;
+}
+
+img.ui-datepicker-trigger:hover {
+ opacity: 0.5;
+}
+*/

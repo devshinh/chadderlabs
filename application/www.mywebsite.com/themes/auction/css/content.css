@@ -1,0 +1,76 @@
+/**
+ * content.css
+ *
+ * Controls content styles of the site, includes all fonts 
+ * and text background in the main content area.
+ * This file is also used on WYSIWYG editors.
+ *
+ * Copyright 2010 Hot Tomali Communications Inc.
+ */
+
+body, div, dl, dt, h1, h2, h3, li, textarea, p, ul, a {
+  color: #3a3d3f;
+  font: 13px/18px arial, sans-serif;
+}
+
+h1 {
+  color: #54585B;
+  font: normal 38px/40px arial;
+  margin: 10px 0;
+  font-family: "AvantGardEFBold",sans-serif;
+}
+
+h2 {
+  color: #54585B;
+  font: normal 20px/200% arial;
+  font-family: "AvantGardEFBold",sans-serif;
+}
+
+h3 {
+  color: #54585B; 
+  font: bold 15px arial;
+  padding-bottom: 10px;
+}
+
+p {
+  margin: 12px 0;
+}
+
+.em {
+  color: #246;
+  font: bold 13px arial;
+}
+
+a {
+  color: #BC202B;
+  text-decoration: none;
+}
+
+a img {
+  border: 0;
+}
+
+a.triangle {
+  padding-right: 17px;
+  background: url( ../images/link_arrow.png ) center right no-repeat;
+}
+a.triangleDown {
+  color: #00aeef;
+  padding-right: 17px;
+  background: url( ../images/triangle_down.png ) center right no-repeat;
+}
+
+p.description {
+  font: 13px/18px arial;
+  color: #434344;
+  margin-top:10px;
+}
+
+.footnote, .footnote a {
+  font-size: 11px;
+}
+
+.red {
+  color: #f00;
+}
+  

@@ -1,0 +1,41 @@
+/* 
+    Document   : target
+    Created on : Nov 25, 2013, 7:27:45 PM
+    Author     : Tao
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.col-1-half {
+  display: inline-block;
+  min-width: 320px;
+  vertical-align: top;
+  width: 49%;
+}
+.row > * {
+  clear: both;
+}
+.row {
+  overflow: visible;
+}
+.row > label + input {
+  display: inline-block;
+  float: none;
+}
+#reportTable_length select {
+    width: 40%;
+}
+#reportTable_filter label {
+    float:left;
+} 
+#reportTable_filter input {
+    float: right;
+    width: auto;
+}
+
+#reportTable td:hover{
+    cursor: pointer;
+}
+#reportTable tr.odd {
+    background: #d6d6d6;
+}

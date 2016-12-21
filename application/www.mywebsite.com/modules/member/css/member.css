@@ -1,0 +1,32 @@
+h1 {
+  padding-left: 30px;
+  background: url( /asset/images/icon_account.jpg ) top left no-repeat;
+}
+
+p.title {
+  display: block;
+  width: 440px;
+  height: 18px;
+  border: 1px solid #193e68;
+  background: url( /asset/images/bg_title.jpg ) top left repeat-x;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+#divMain th {
+  color: #246;
+  font-weight: bold;
+  text-align: right;
+}
+
+#divMain a {
+  color: #38B7EA;
+}
+
+#divMain input[type=text],
+#divMain input[type=password]{
+  width: 250px;
+  margin: 5px 0;
+}

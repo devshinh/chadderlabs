@@ -1,0 +1,110 @@
+/**************************************************************
+ * quote form styles
+ **************************************************************/
+
+div#quoteform {
+  clear: both;
+  min-height: 360px;
+  width: 720px;
+}
+.left-column {
+  float: left;
+  width: 295px;
+}
+.right-column {
+  float: left;
+  margin: 0 0 0 30px;
+  width: 295px;
+}
+
+/* form styles */
+.row {
+  margin: 10px 0;
+  clear: both;
+}
+
+label {
+  color: #fff;
+}
+label.error {
+  color: #e67549;
+  display: block;
+  clear: both;
+  font-size: 12px;
+}
+.questionnaire label.error {
+  line-height: 1px;
+}
+.buttons {
+  position: absolute;
+  left: 360px;
+  top: 450px;
+}
+.btn-continue {
+  background: transparent url('/themes/bwinsurance/images/btn-form-continue.png') no-repeat 0 -51px;
+}
+.btn-quote {
+  background: transparent url('/themes/bwinsurance/images/btn-form-get-a-quote.png') no-repeat 0 -51px;
+}
+.btn-continue,
+.btn-quote {
+  width: 214px;
+  height: 51px;
+  color: transparent;
+  border: none;
+  overflow: hidden;
+  text-indent: -999px;
+  font-size: 0;
+  display:block;
+  line-height: 0;  
+}
+.btn-continue:hover,
+.btn-quote:hover {
+  background-position: 0 0;
+}
+
+input.year,
+input.short { width: 70px; }
+
+.hidden_field {
+  margin-left: 20px;
+}
+.quote-info,
+.questionnaire{
+  width: 100%;
+}
+.quote-info input[type=text]
+{
+  width: 275px;
+}
+.questionnaire input[type=text] {
+  float: right;
+  width: 100px;
+}
+.questionnaire select {
+  float: right;
+  min-width: 105px;
+}
+.questionnaire textarea {
+  width: 290px;
+  margin-bottom: 7px;
+}
+.questionnaire input.year, 
+.questionnaire input.short {
+  width: 70px;
+}
+
+.quote-info h2,
+.questionnaire h2{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+}
+.quote-info h2 span,
+.questionnaire h2 span{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: white;
+}

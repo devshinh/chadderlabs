@@ -1,0 +1,43 @@
+<?php
+
+print('<html>');
+print('<head>');
+print('<style>');
+print('body {position:relative;text-align:center;}');
+print('#nameTable {position: absolute; top: 200px;left: 0;}');
+print('#dateTable {position: absolute; top: 400px;}');
+print('</style>');
+print('</head>');
+print('<body>');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');
+print('<table cellpadding="1" cellspacing="1" border="0" id="nameTable">');
+print('<tr>');
+print('<td style="text-align:center;">');
+printf('<div style="color:#98722a;font-size:20px;text-transform:uppercase; font-family: arial; font-weight: bold;">%s %s</div>',$first_name, $last_name);
+print('</td>');
+print('</tr>');
+print('</table>');
+print('<br />');print('<br />');print('<br />');print('<br />');
+print('<br />');
+print('<table  cellpadding="1" cellspacing="10" border="0" >');
+print('<tr>');
+print('<td>');
+print('</td>');
+print('<td style="padding-top: 10px;">');
+printf('<div style="color:#4d4d4e;font-size:14px;text-transform:uppercase; text-align: left;font-family: arial; ">%s</div>',$date_issued);
+print('</td>');
+print('</tr>');
+print('</table>');
+print('</body>');
+print('</html>');
+

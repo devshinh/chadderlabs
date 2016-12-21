@@ -1,0 +1,1052 @@
+/**
+ * layout.css
+ *
+ * Controls the layout of the site, including header, footer, 
+ * content containers, and menus.
+ *
+ * Copyright 2010 Hot Tomali Communications Inc.
+ */
+
+/**************************************************************
+ *  containers and basic layout
+ **************************************************************/
+#user-menu-wrapper {
+	float: left;
+	width: 100%;
+	background-color: #f4f4f6;
+}
+#user-menu {
+	margin: 0 auto;
+	width: 940px;
+  color: #54585b;
+}
+#user-menu p {
+ float: left;
+ margin: 5px 0;
+}
+#user-menu p a {
+ color: #bc202b;
+ font-family: "AvantGardEFBold",sans-serif;
+}
+#user-menu ul {
+ float: right;
+ list-style-type: none;
+ margin: 0 0;
+}
+#user-menu ul li {
+ float: left;
+ padding: 5px 25px;
+ border-left: dashed 1px white;
+ border-right: dashed 1px white;
+}
+#user-menu ul li a {
+ color: #54585b;
+ font-weight: normal;
+ font-family: "AvantGardEFBold",sans-serif;
+}
+#user-menu ul li:hover a,
+#user-menu ul li.current a {
+ color: #bc202b;
+}
+#user-menu ul li:hover,
+#user-menu ul li.current{
+ background: #e4e4e6;
+}
+#header {
+	margin: 0 auto;
+	width: 900px;
+}
+
+#main-nav-wrapper {
+	float: left;
+	width: 100%;
+}
+
+#main-nav {
+	margin: 0 auto;
+	width: 940px;
+  	border-top: solid 3px #d4d5d7;
+  	overflow: auto;
+  	padding-top: 4px;    		
+}
+
+#main-nav .menuItemContainer {
+	overflow: auto;
+	display: block;
+	float: left;
+	background-image:url('../images/menu-bottom.png');
+	background-repeat:no-repeat;
+	background-position: center bottom;
+	height: 60px;
+	width: 235px;
+	text-align: center;	
+}
+
+#main-nav li.current .menuItemContainer {
+	background-image:url('../images/menu-bottom-current.png');	
+}
+
+#main-nav ul {
+	margin: 0 0;
+	padding: 0;
+}
+
+#main-nav ul li {
+	list-style-type: none;
+	display: inline;
+}
+
+#main-nav li a {
+	display: block;
+	float: left;
+	color:  #d4d5d7;
+	text-decoration: none;
+  	border-right: dashed 1px #d4d5d7;
+  	font-family: "AvantGardEFBold",sans-serif;
+  	font-size: 16px;
+	width: 234px;
+	text-align: center;
+	height: 42px;
+	line-height: 42px;  	
+	font-weight: normal;
+}
+#main-nav li a.last {
+  border:0
+}
+#main-nav li a.current {
+ color:#bc202b;
+ /*background: url( '../images/menu_indicator.jpg' ) no-repeat bottom center;
+ position: relative;
+ height: 29px;*/
+}
+#main-nav li:hover {
+  color:#bc202b;
+}
+
+#main-nav li a:hover {
+  color:#bc202b;
+}
+
+#content-wrapper {
+	float: left;
+	width: 100%;
+  margin-top: 20px;
+}
+
+#content-wrapper2 {
+	margin: 0 auto;
+	width: 940px;
+}
+
+#content-wrapper3 {
+	float: left;
+	width: 940px;
+}
+
+#content {
+	clear: left;
+	float: left;
+	width: 940px;
+	padding: 20px 0;
+  margin: 0;
+	display: inline;
+}
+
+#side-column {
+	float: right;
+	width: 240px;
+	padding: 20px 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+#footer-wrapper {
+	clear: left;
+	background-color: #f4f4f6;
+  	border-top: solid 3px #d4d5d7;
+  	zoom: 1;
+  	overflow: auto;
+}
+
+#footer {
+	margin: 0 auto;
+	width: 940px;
+	text-align: right;
+	color: #5c6262;
+	padding: 20px;
+}
+
+#footer p {
+ margin:0;
+ vertical-align: middle;
+}
+#table_form tr{
+ height: 38px;
+} 
+#table_form th {
+ text-align: left;
+  width: 150px;
+}
+#table_form input {
+ font-size: 18px;
+ width: 300px;
+ border: 1px solid black;
+ padding: 3px 15px 3px 10px;
+} 
+#table_form #submit {
+ font-size: 12px;
+}
+#table_form input.error {
+ background: url( ../images/icons/cancel.png ) center right no-repeat #FBE6F2;
+}
+#table_form input.valid {
+ padding-right: 17px;
+ background: url( ../images/icons/accept.png ) center right no-repeat #EDFFED;
+} 
+#table_form label.error {
+ color: #BC202B;
+ margin-left: 5px;
+}
+#table_form input.valid#postal,
+#table_form input.valid#cell_phone{
+ background: white; 
+}
+form#table_form input {
+ width: 200px; 
+}
+form#table_form input[type=submit] {
+ font-size: 1em;
+}
+/**************************************************************
+ *  header area layout
+ **************************************************************/
+
+#wrapHeader{
+  width: 100%;
+  text-align: center;
+  min-width: 980px;
+  height: 135px; 
+  background: url( ../images/bg_header.jpg ) top left repeat-x;
+}
+
+div#divHeader {
+  width: 960px;
+  height: 135px;
+  margin: 0 auto;
+  clear: both;
+}
+
+div#divLogo {
+  width: 225px;
+  height: 108px;
+  position: relative;
+  top: 15px;
+  /*left: -15px;*/
+  float: left;
+  /*margin-right: 20px;*/
+}
+
+div#divQuickLink {
+  text-align: right;
+  width: 700px;
+  height: 50px;
+  background: url( ../images/bg_header_splitter.jpg ) bottom center no-repeat;
+  padding-top: 25px;
+  float: left;
+}
+
+div#divQuickLink form{
+  width: 660px;
+  float: right; 
+}
+
+div#divQuickLink span.quickLink {
+  display: block;
+  height: 40px;
+  float: left;
+}
+div#divQuickLink span.quickLinkInput {
+  line-height: 40px;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+div#divQuickLink span.quickLinkInput input {
+  line-height: 15px;
+  vertical-align: middle;
+}
+div#divQuickLink span.quickLinkInput input#searchText {
+  width: 140px; 
+}
+div#divQuickLink span.quickLinkSplitter {
+  display: block;
+  width: 3px;
+  height: 38px;
+  float: left;
+  background: url( ../images/bg_header_splitter_v.jpg ) top center no-repeat;
+  margin: 1px 8px;
+}
+
+div#divHeader div#divMenu {
+  text-align: left;
+  height: 50px; 
+  float: left;
+  display: block;
+}
+
+div#divHeader div#divMenuWrapper {
+ overflow: hidden;
+ float: left;
+ width: 700px;
+ padding-left: 25px;
+}
+
+div#divMenu a#buy-online-icon {
+  /*float: right;*/
+  display: block;
+  width: 26px;
+  height: 21px;
+  text-indent: -9999px;
+  background: url(../images/buy-online/cart-header-icon.png) top center no-repeat;
+  vertical-align: top;
+}
+div#divMenu a#buy-online-icon:hover,
+div#divMenu li.current a#buy-online-icon {
+  background-position: bottom center;  
+}
+
+
+div#divBreadcrumb {
+  display: inline-block;
+  width: 800px;
+}
+div#divBreadcrumb ul {
+  list-style: none;
+  color: #999;
+  margin: 0;
+}
+div#divBreadcrumb ul li {
+  display: inline;
+  color: #54585B;
+  font-size: 11px;
+}
+div#divBreadcrumb ul li a {
+  color: #BC202B;
+  font-size: 11px;
+}
+
+div#divPageHeader {
+  margin: 2px 0;
+  height: 28px;
+}
+div#divPageHeader a#logout {
+  display: inline-block;
+  margin-right: 50px;
+  float: right;
+}
+div#divPageHeader a#logout img {
+  vertical-align: top;
+}
+
+span#username {
+ font-size: 11px;
+ font-style: italic; 
+ color: #BC202B;
+ padding-left: 10px;
+}
+/**************************************************************
+ *  top navigation styles
+ **************************************************************/
+
+div#divMenu ul {
+  text-align: left;
+  width:700px;
+  height:25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+div#divMenu ul li {
+  display: block;
+  float: left;
+  height: 38px;
+  margin-right: 32px;
+  padding-top: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+div#divMenu ul li.last {
+  float: right;
+  padding-top: 11px;
+}
+div#divMenu ul li.lasttext,
+div#divMenu ul li.last {
+  margin-right: 0;  
+}
+
+div#divMenu ul li.main a {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+div#divMenu ul li.hidden {
+  display:none;
+}
+div#divMenu ul li a span {
+  display:none;
+}
+
+div#divMenu ul li a:hover,
+div#divMenu ul li a.current{
+  color: #5ce;
+}
+div#divSubmenu {
+  clear: both;
+  margin: 0 auto;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  background: transparent url( ../images/bg_subnav.png ) top left repeat-x;
+  position: absolute;
+  left: 0;
+  top: 135px;
+  z-index: 999;
+}
+div#subMenuWrapper {
+ clear: both;
+ overflow: hidden;
+ height: 40px;
+ position: relative;
+ width: 960px;
+ margin: 0 auto;
+ padding: 0;
+ text-align: left;
+}
+div#divSubmenu ul {
+  clear: both;
+  overflow: auto;
+  margin-left: 245px;
+  padding-left: 0;
+}
+div#divSubmenu ul li {
+  overflow: hidden;
+  float: left;
+  margin-left: 0;
+  padding-left: 0;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+div#divSubmenu ul li a {
+  overflow: auto;
+  display: block;
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 29px;
+  margin: 0;
+  height: 40px;
+  *line-height: 40px;  
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+div#divSubmenu ul li a:hover,
+div#divSubmenu ul li a.current{
+  color: #5ce;
+}
+
+
+/**************************************************************
+ *  main content area layout
+ **************************************************************/
+
+
+div#divMain {
+  background: transparent;
+  width: 960px;
+  height: auto !important; 
+  /* AS - 2011-04-27 - Removed as this was causing with short pages not looking properly.
+  /* min-height: 100%; */
+  margin: 0 auto;
+  padding-top: 45px;
+  padding-right:10px;
+  padding-left:10px;
+  clear: both;
+}
+
+div#divMain div.content {
+  width: 943px;
+  padding: 1px 1px 20px;   
+  z-index: 21;
+}
+
+div#divMain div.content a {
+  color: #38B7EA;
+}
+
+div#divMain div.content div.left {
+  float: left;
+  width: 400px; 
+}
+
+div#divMain div.content div.right {
+  float: left;
+}
+
+
+/**************************************************************
+ *  footer area layout
+ **************************************************************/
+
+div#divFooter {
+  width: 100%;
+  min-width: 980px;
+  height: 255px;
+  background: url( ../images/bg_footer.jpg ) repeat;
+}
+
+div#divFooter div.content {
+  width: 960px;
+  margin: 0 auto;
+  clear: both;
+  height: 239px;
+  padding-top: 8px;
+  color: #fff;
+}
+div#divFooter div.content a {
+  color: #fff;
+}
+
+div#divFooter div.divFooterBorder {
+  background: url( ../images/bg_footer_vertical_border.png ) repeat;
+  width: 2px;
+  float: left;
+  height: 92%;
+}
+
+div#divFooterLeft {
+  overflow: auto;
+  width: 300px;
+  float: left;
+  vertical-align: middle;
+}
+div#divFooterLeft div#divSocialLinks {
+  margin: 24px 5px;
+}
+
+div#divFooterRight {
+  margin-top: 9px;
+  overflow: hidden;
+  width: 660px;
+  text-align: right;
+  float: left;
+}
+div#divFooterRight div#divFooterCopyright {
+  width: 660px;
+}
+div#divFooterRight p {
+  margin: 0;
+  margin-top: 5px;
+}
+div#divFooterRight ul#listFooter {
+  width: 620px;
+  margin: 0;
+}
+div#divFooterRight ul#listFooter li {
+  display: inline;
+  color: white;
+  margin: 0 0 0 10px;
+}
+div#divFooterRight ul#listFooter li a {
+  color: white;
+  font: 13px arial;
+}
+div#divFooterRight div#divFooterCopyright p{
+  font: 11px arial;
+  float: right;
+  clear: both;
+}
+
+
+/**************************************************************
+ *  Footer sitemap styles
+ **************************************************************/
+
+div#divFooterSitemap ul {
+  height: 169px;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+div#divFooterSitemap ul ul {
+  height: 110px;
+  padding: 0;
+  margin: 0;
+}
+div#divFooterSitemap ul li.main{
+  margin: 0px 22px 3px 8px;
+  vertical-align: top;
+  display:inline-block;
+  *display: inline;
+  zoom: 1;
+}
+div#divFooterSitemap ul li.main,
+div#divFooterSitemap ul li.main a{
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+div#divFooterSitemap ul li.main ul li.subNav{
+  display: block;
+  margin: 2px;
+}
+div#divFooterSitemap ul li.main ul li.subNav,
+div#divFooterSitemap ul li.main ul li.subNav a{
+  color: #38b7ea;
+  font-weight: bold;
+  text-transform: none;
+  font-size: 12px;
+  line-height: 160%;
+  color: #38b7ea;
+} 
+#divFooterCopyright p {
+  color: white; 
+}
+
+
+/**************************************************************
+ *  Right side promotion column style
+ **************************************************************/
+div#divSidePromo {
+  width: 350px;
+  float: right;
+  text-align: center;
+  margin-top: 100px;
+} 
+
+/**************************************************************
+ *  framed box style
+ **************************************************************/
+div.framedbox {
+  display: inline-block;
+  background: url( ../images/bg_box_tl.png ) top left no-repeat;
+  padding: 0 0 0 1px;
+} 
+div.framedbox .innerbox {
+  display: inline-block;
+  padding: 12px 12px 14px 10px;
+  background: url( ../images/bg_box_br.png ) bottom right no-repeat;
+} 
+
+
+/**************************************************************
+ *  buttons
+ **************************************************************/
+a.aTriangleButton,
+a.aDocumentButton,
+a.aPrintButton {
+  display: block;
+  width: 210px;
+  height: 22px;
+  color: #223366 !important;
+  padding: 8px 0 0 10px;
+  text-transform: uppercase;
+  font: bold 12px arial, sans-serif;
+  border: 1px solid #819bb3;
+}
+a.aTriangleButton:hover,
+a.aDocumentButton:hover,
+a.aPrintButton:hover {
+  color: #fff !important;
+  background-color: #183e68;
+}
+
+a.aTriangleButton {
+  background: #fff;
+}
+a.aDocumentButton {
+  background: #fff;
+}
+a.aPrintButton {
+  background: #fff;
+}
+
+input.plus, input.minus,
+input.document,
+input.mail,
+input.print,
+input.triangle,
+input.voucher,
+input.cancel {
+  display: block;
+  width: 200px !important;
+  height: 32px;
+  color: #54585B;
+  margin: 15px 15px 15px 0;
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+  font: bold 12px arial, sans-serif;
+  border: 1px solid #54585B;
+  text-align: left;
+  cursor: pointer;
+}
+input.plus:hover, input.minus:hover,
+input.document:hover,
+input.mail:hover,
+input.print:hover,
+input.triangle:hover,
+input.voucher:hover,
+input.cancel:hover {
+  color: #fff;
+  background-color: #BC202B;
+}
+
+@-moz-document url-prefix() {
+  input.document { padding: 0 0 2px 10px; }
+  input.mail { padding: 0 0 2px 10px; }
+  input.print { padding: 0 0 2px 10px; }
+  input.triangle { padding: 0 0 2px 10px;}
+  input.voucher { padding: 0 0 2px 10px; }
+  input.cancel { padding: 0 0 2px 10px; }
+  input.plus { padding: 0 0 2px 10px; }
+  input.minus { padding: 0 0 2px 10px; }
+} 
+
+input.document {
+  background: #fff;
+}
+input.mail {
+  background: #fff;
+}
+input.print {
+  background: #fff;
+}
+input.triangle {
+  background: #fff;
+}
+input.voucher {
+  background: #fff;
+}
+input.cancel {
+  background: #fff;
+}
+input.plus {
+  background: #fff;
+}
+input.minus {
+  background: #fff;
+}
+
+/* auction-items-detail-page  ---> move to module css*/
+.item-detail {
+ clear: both;
+ width:920px !important;
+}
+.item-detail .left-col{
+ float: left;
+ width:660px;
+}
+.item-detail .right-col{
+ float: left;
+ width:260px;
+}
+ul#slides {
+ margin-bottom: 20px;
+}
+ul.thumbs li,
+ul#slides li {
+	list-style:none;
+}
+ul.thumbs {
+ display: inline;
+}
+ul.thumbs li {
+	-webkit-box-shadow:0px 2px 3px #999;
+	-moz-box-shadow:0px 2px 3px #999;
+	margin-bottom: 14px;
+  margin-right: 15px;
+}
+
+ul#slides img {
+	-webkit-box-shadow:0px 2px 3px #999;
+	-moz-box-shadow:0px 2px 3px #999;
+}
+
+.caption {
+	color: #999;
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+.pre_wrap {
+	background: #f9f9f9;
+	padding: 5px 5px 5px 14px;
+	margin-bottom: 33px;
+	margin-top: 32px;
+}
+
+.pre_wrap span.label {
+	color: #999;
+	font-size: 12px;
+	font-style: italic;
+	display: block;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+.bid-list li{
+ 	list-style:none;
+}
+#formBid {
+ margin:15px 0;
+}
+#formBid table{
+  text-align: left;
+}
+#formBid table th {
+ width: 119px;
+}
+#formBid #bid {
+ width: 50px;
+}
+
+/* auction-items-list-page  ---> move to module css*/
+.auction_items {
+  overflow: auto;
+  clear: both;
+  margin-bottom: 40px;
+}
+.auction_item {
+ overflow: auto;
+ display: block;
+ float: left;
+ text-align: center;
+ height: 280px;
+ position: relative;
+}
+.auction_item a 
+{
+  display: block;
+  overflow: hidden;
+}
+.auction_item a img {
+  padding:0;
+  margin:0 auto;
+  border:0;
+  vertical-align: middle;
+	-webkit-box-shadow:0px 2px 3px #999;
+	-moz-box-shadow:0px 2px 3px #999;  
+}
+
+.auction_item div.portrait 
+{
+  overflow: hidden;
+  border: 1px solid #d5d5d5;
+  border-bottom: 2px solid #54585b;  
+  margin:0;
+  text-decoration: none;
+  background-color: #f4f4f6;
+  width: 220px;
+  height: 270px;
+  line-height: 270px;
+  position:absolute; 
+  top:50%;
+  margin-top:-135px;
+                zoom: 1;
+                position: relative;
+}
+
+.auction_item div.portrait a {
+  line-height: 270px;  
+  vertical-align: middle;
+}
+
+.auction_item div.landscape a {
+  line-height: 220px;  
+  vertical-align: middle;
+}
+
+.auction_item div.landscape
+{
+  overflow: hidden;
+  border: 1px solid #d5d5d5;
+  border-bottom: 2px solid #54585b;  
+  margin:0;
+  text-decoration: none;
+  background-color: #f4f4f6;
+  width: 270px;
+  height: 220px;	
+  top:50%;
+  margin-top:-110px;  
+
+                zoom: 1;
+                position: relative;  
+}
+
+.auction_items .galleryRowContainer {
+	overflow: hidden;
+	height: 300px;
+	position: relative;
+	width: 940px;
+	margin-bottom: 22px;
+}
+
+.auction_items .galleryFirstRowContainer {
+	overflow: hidden;
+	height: 300px;
+	position: relative;
+	width: 940px;
+}
+
+
+.auction_items .left_item_landscape {
+	overflow: hidden;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 280px;
+	border-right: dashed 1px #D4D5D7;
+	height: 280px;
+}
+.auction_items  .left_item_portrait {
+	overflow: hidden;
+	padding-left: 45px;
+	padding-right: 45px;
+	width: 221px;
+	border-right: dashed 1px #D4D5D7;
+	height: 280px;
+}
+.auction_items  .center_item_landscape {
+	overflow: hidden;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 280px;	
+	height: 280px;
+}
+.auction_items .center_item_portrait {
+	overflow: hidden;
+	padding-left: 45px;
+	padding-right: 45px;
+	width: 221px;
+	height: 280px;
+}
+.auction_items .right_item_landscape {
+	overflow: hidden;
+	padding-left: 15px;
+	padding-right: 15px;	
+	width: 280px;	
+	border-left: dashed 1px #D4D5D7;	
+	height: 280px;	
+}
+.auction_items  .right_item_portrait {
+	overflow: hidden;
+	padding-left: 45px;
+	padding-right: 45px;
+	width: 221px;	
+	border-left: dashed 1px #D4D5D7;
+	height: 280px;	
+}
+.auction_items .auction_item_container {
+	overflow: hidden;
+	height: 1px;
+	width: 288px;
+	border-top: dashed 1px #D4D5D7;
+	margin: 0;
+	margin-left: 10px;
+	padding-top: 20px;
+}
+.auction_items .galleryRowContainer .needs_top_border {
+	border-top: dashed 1px #D4D5D7;	
+}
+.auction_items div.landscape .plus {
+	position: absolute;
+	z-index: 10;
+	top: 187px;
+	left: 238px;
+}
+.auction_items div.portrait .plus {
+	position: absolute;
+	z-index: 10;
+	top: 237px;
+	left: 188px;
+}
+
+
+.auction_item a {
+}
+/*profile page*/
+#user_items {
+ text-align: left;
+}
+#user_items tr {
+ margin:5px 0;
+}
+#user_items tr td{
+ padding-right: 20px;
+}
+.left {
+	float: left;
+}
+#UserBidList
+{
+	list-style: none;
+  width: 750px;
+}
+#UserBidList li
+{
+	overflow: auto;
+	border-top: 1px solid;
+}
+#UserBidList div.left
+{
+	padding: 10px;	
+}
+
+#UserBidList div.itemname
+{
+	width: 300px;
+}
+
+#UserBidList div.datefield
+{
+	width: 200px;
+}
+#UserBidList div.amount
+{
+	text-align: right;
+	width: 150px;
+}
+
+#edit-profile .ui-widget-content {
+ border: 1px solid #D4D5D7;
+}
+#edit-profile .ui-widget-header {
+ background: none;
+ border: 0;
+}
+#edit-profile .ui-state-active,
+#edit-profile .ui-widget-content .ui-state-active,
+#edit-profile .ui-widget-header .ui-state-active {
+ border: 1px solid #D4D5D7;
+}
+#edit-profile .ui-state-default,
+#edit-profile .ui-widget-content .ui-state-default,
+#edit-profile .ui-widget-header .ui-state-default {
+ border: 1px solid #D4D5D7;
+ background: white;
+}
+#edit-profile .ui-state-default a,
+#edit-profile .ui-state-default a:link,
+#edit-profile  .ui-state-default a:visited {
+ color: #D4D5D7;
+}
+#edit-profile .ui-state-active a,
+#edit-profile .ui-state-active a:link,
+#edit-profile .ui-state-active a:visited {
+ color: #BC202B;
+}
+#edit-profile .red {
+ color: #BC202B;
+}

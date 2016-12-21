@@ -1,0 +1,102 @@
+@import '../../../asset/css/jquery/smoothness/jquery-ui-1.8.2.custom.css'; 
+
+.clear {
+ clear: both; 
+}
+/* index page */
+#divPhones{
+  height: 100%;
+  width: 614px;
+  float: left;
+}
+.divPhone{
+  width: 292px;
+  float: left;
+  margin-bottom: 30px;
+}
+.divPhone.marginRight {
+  margin-right: 30px; 
+}
+.divPhoneInfoBox {
+  min-height: 210px; 
+}
+.divPhoneName h2 { 
+ font: bold 17px/40px arial; 
+}
+.divPhoneName h2 span {
+ color: #224466; 
+}
+.divPhone hr {
+ color: #c1d3e1;
+ margin-bottom: 15px; 
+}
+
+.divPhonePicture {
+ float: left;
+ width: 100px; 
+}
+
+.divPhoneInfo {
+ float: left;
+ margin-left:15px;
+}
+
+.divPhonePrice {
+  display: inline-block;
+  font: bold 22px arial; 
+  color: #224466;
+}
+
+.star {
+  vertical-align: top;
+}
+
+.divTaxes{
+ font: normal 10px arial;
+ color: #3b3c3e; 
+}
+
+.redColor {
+ color: #a81c1d; 
+}
+.divFeatures {
+ margin: 10px 0; 
+}
+.divFeaturesList ul {
+ list-style-image: url( ../img/top-features-list.png);
+ padding-top: 5px;
+ padding-left: 30px;
+ width: 145px;
+}
+.divFeaturesList ul li {
+ padding: 2px 0; 
+ list-style-image: url( ../img/top-features-list.png);
+}
+
+a.aPhoneButton {
+  width: 140px;
+}
+
+#divPromos {
+ float: right; 
+}
+
+#flipBoxSmall { 
+}
+
+#divPhoneAd {
+  background: url("../../../asset/images/bg_promo.png") no-repeat scroll 0 0 transparent;
+  margin-top: 15px;
+  width: 304px;
+  height:275px;
+}
+#divPhoneAd img {
+ margin-left: 14px;
+ margin-top:8px; 
+}
+#divSignUp {
+ margin-top: 15px;
+ margin-left: 39px; 
+}
+
+

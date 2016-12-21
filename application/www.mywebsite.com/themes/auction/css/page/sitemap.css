@@ -1,0 +1,13 @@
+ul.level_0 {
+  padding-top: 20px;
+  padding-left: 40px;
+}
+
+ul.level_1 {
+  padding-left: 25px;
+}
+ 
+li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

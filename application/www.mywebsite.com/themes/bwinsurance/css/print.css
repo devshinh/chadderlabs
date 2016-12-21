@@ -1,0 +1,31 @@
+#wrapHeader,
+#divPageHeader,
+#divFooter{
+  display: none;
+}
+
+#wrap{
+  background: none;
+  min-height: inherit;
+  width: 800px;
+  height: 500px;
+}
+#wrap #divMain {
+  background-color: #fff;
+  width: 800px;
+  height: 500px;
+}
+
+a.aPrintButton {
+  display: none; 
+}
+p.title {
+  background-image: none;
+  background: none;
+  border: 0;
+  padding-left: 0;
+  color: black;
+}
+#receipt-preamble {
+  display: none;
+}

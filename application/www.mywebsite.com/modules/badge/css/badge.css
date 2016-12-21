@@ -1,0 +1,33 @@
+/* 
+    Document   : badge
+    Created on : 16-Jul-2013, 8:01:01 AM
+    Author     : antlik
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#ui-sortable tr {
+    cursor: move;
+}
+
+#badge_list .badge_name{
+  color: #997119;
+  text-transform: uppercase;
+  padding-top: 10px;
+  width: 145px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#badge_list .badge_img.hover .img{
+    background-position: 0 0;
+    height: 145px;
+    width: 145px;
+}
+#badge_list .badge_img.hover:hover .img {
+    background-position: 0 -145px;
+}
+#badge_list .cheddar_badge.span3 {
+    margin-left: 17px;
+    margin-bottom: 10px;
+} 

@@ -1,0 +1,35 @@
+#middle_zone ul {
+  list-style-image: url('/themes/practiceroadsafety/images/img-orange-bullet.png');
+}
+.right-image-container
+{
+	overflow: auto;
+	float: right;	
+	margin: 0;
+	padding: 0;
+}
+.right-image-pane
+{
+	overflow: auto;
+	width: 190px;
+	height: 125px;
+	background-color: #dfdcd5;
+	padding: 10px;
+	overflow: hidden;
+}
+.right-image-description {
+	width: 210px;
+}
+.right-image-description p {
+	font-style: italic;
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	margin-top: 5px;
+}
+.left
+{
+	float: left;
+	width: 710px;
+}
+

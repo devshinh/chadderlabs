@@ -1,0 +1,48 @@
+<!-- h2><a href="<?php printf('/hotcms/%s',$module_url) ?>/create"><?php printf('%s', $add_new_text) ?></a></h2 -->
+<div class="module">
+<?php if (!empty( $items )){ ?>
+<div class="table">
+  <table id="tableCurrent" class="tablesorter">
+    <thead>
+      <tr>
+        <th class="title"><?php echo lang( 'hotcms_title' )?></th>
+        <th><?php echo lang( 'hotcms_status' )?></th>
+        <th><?php echo lang( 'hotcms_author' )?></th>
+        <th><?php echo lang( 'hotcms_date_created' )?></th>
+        <th><?php echo lang( 'hotcms_date_updated' )?></th>
+        <th><?php echo lang( 'hotcms_edit' )?></th>
+        <th><?php echo lang( 'hotcms_delete' )?></th>
+      </tr>
+    </thead>
+    <tbody>
+  <?php foreach ($items as $row){ ?>
+      <tr id="trData_<?php echo $row->id ?>">
+        <td class="title"><?php echo $row->title ?></td>
+        <td class="<?php if ($row->status == 1) { echo lang( 'hotcms_yes' ); } else { echo lang( 'hotcms_no' ); } ?>">
+        <?php
+        switch ($row->status) {
+          case 0: echo lang( 'hotcms_draft' );
+            break;
+          case 1: echo lang( 'hotcms_published' );
+            break;
+          case 2: echo lang( 'hotcms_archived' );
+            break;
+        }
+        ?>
+        </td>
+        <td><?php echo $row->username ?></td>
+        <td><?php echo date($this->config->item('timestamp_format'),$row->create_timestamp) ?></td>
+        <td><?php echo (empty($row->update_timestamp)?'&mdash;':date($this->config->item('timestamp_format'),$row->update_timestamp)); ?></td> 
+        <td>
+           <a href="<?php printf('/hotcms/%s/edit/%s', $module_url, $row->id)?>"><div class="btn-edit"></div></a>
+        </td>
+        <td  class="last">
+           <a onClick="return confirmDelete()" href="<?php printf('/hotcms/%s/delete/%s', $module_url, $row->id)?>"><div class="btn-delete"></div></a>
+        </td>
+      </tr>
+  <?php } ?>
+    </tbody>
+  </table>
+</div>
+<?php } ?>
+</div>

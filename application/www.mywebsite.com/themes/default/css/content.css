@@ -1,0 +1,78 @@
+/**
+ * content.css
+ *
+ * Content styles of the website
+ * Includes all fonts and text background in the main content area.
+ * This file is also used on WYSIWYG editors.
+ *
+ * Copyright 2011 Hot Tomali Communications Inc.
+ */
+
+body, div, dl, dt, h1, h2, h3, li, span, textarea, p, ul, a {
+  color: #666;
+  font: 13px/18px arial, sans-serif;
+}
+
+body {
+  background-color: #f2f3ee;
+}
+
+h1 {
+  color: #5ad;
+  font: bold 38px/40px arial;
+}
+
+h2 {
+  color: #5ad;
+  font: bold 20px/200% arial;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: #5ad; 
+  font: bold 15px arial;
+  padding-bottom: 10px;
+}
+
+p {
+  margin: 14px 0;
+}
+
+.em {
+  color: #5ad;
+  font: bold 13px arial;
+}
+
+a {
+  color: #00aeef;
+  text-decoration: none;
+}
+
+a img {
+  border: 0;
+}
+
+a.triangle {
+  padding-right: 17px;
+  background: url( ../images/triangle_right.png ) center right no-repeat;
+}
+a.triangleDown {
+  color: #00aeef;
+  padding-right: 17px;
+  background: url( ../images/triangle_down.png ) center right no-repeat;
+}
+
+p.description {
+  font: 13px/18px arial;
+  color: #434344;
+  margin-top:10px;
+}
+
+.footnote, .footnote a {
+  font-size: 11px;
+}
+
+.red {
+  color: #f00;
+}
+  

@@ -1,0 +1,102 @@
+#middle_zone1,
+#middle_zone2,
+#middle_zone3,
+#middle_zone4,
+#middle_zone5 {
+  clear: both;
+}
+#middle_zone1 h3,
+#middle_zone2 h3,
+#middle_zone3 h3,
+#middle_zone4 h3 {
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0;
+}
+
+.section-text ul
+{
+  list-style-image: url('/themes/practiceroadsafety/images/img-red-bullet.png');
+}
+
+#page-content .section-text ul li {
+	padding-left: 16px !important;
+}
+
+#left_zone1,
+#left_zone2,
+#left_zone3 {
+  float: left;
+  width: 460px;
+  margin: 10px 20px 10px 0;
+}
+#right_zone1,
+#right_zone2,
+#right_zone3 {
+  float: left;
+  width: 460px;
+  margin: 10px 0 15px 0;
+}
+
+#left_zone3,
+#right_zone3,
+#left_zone4,
+#middle_zone9,
+#right_zone4 {
+  background-color: #cccbc7;
+}
+#left_zone3 img,
+#right_zone3 img,
+#left_zone4 img,
+#middle_zone9 img,
+#right_zone4 img {
+  float: left;
+  border: 5px solid #dfdcd5;
+  margin: 2px 12px 4px 0;
+}
+
+#left_zone4,
+#middle_zone9,
+#right_zone4 {
+  float: left;
+  width: 300px;
+  margin: 10px 20px 20px 0;
+  background-color: #cccbc7;
+}
+#right_zone4 {
+  margin: 10px 0;
+}
+
+#middle_zone6,
+#middle_zone7,
+#middle_zone8 {
+  float: left;
+  width: 300px;
+  margin: 10px 20px 10px 0;
+  background-color: #cccbc7;
+}
+#middle_zone8 {
+  margin: 10px 0 10px 0;
+}
+
+.content-zone p {
+  margin: 0;
+  padding: 0;
+}
+
+.text-box3,
+.text-box4,
+.text-box5 {
+  margin: 0 2px;
+  padding: 8px 8px 12px;
+  border-bottom: 1px solid #fff;
+}
+.text-box3 {
+  height: 115px;
+}
+.text-box4 {
+  height: 170px;
+}
+.text-box5 {
+  height: 83px;
+}

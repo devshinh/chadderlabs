@@ -1,0 +1,25 @@
+/* 
+    Document   : product.css
+    Created on : 13-Dec-2011, 11:26:18 AM
+    Author     : antlik
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#addAsset {
+   margin: 5px 0; 
+   display: block;
+   width: 61px;
+}
+#mediaLib { 
+ display: none
+}
+.itemHeader:hover {
+  cursor: move;
+}
+

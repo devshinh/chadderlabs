@@ -1,0 +1,41 @@
+#assets {
+  width: 250px;
+}
+#assets li {
+ padding: 5px 10px;
+ background: #CDCDCD;
+}
+#assets li.odd {
+ background: #C0C0C0;
+}
+
+/* move to page css */
+#menu_editor {
+ border-top: 1px #b3b8b2 dotted;
+ padding: 10px 0;
+ background-color: #e6ebe5;
+}
+.jstree-default li {
+ padding-bottom: 10px !important;
+}
+.jstree a span,
+.jstree a {
+ color: #bf1f2b !important;
+ font-size: 13px !important;
+ font-family: arial;
+}
+span.note {
+ font-style: italic;
+ font-family: arial;
+ font-size: 10px;
+}
+
+span.widget-move-icon {
+ background: url('../images/icons/page-publisher-icons-move.png') no-repeat left;
+ background-position: -2px -22px;
+ padding-left: 20px;
+}
+
+#linktype {
+ margin: 10px 7px 20px;
+}

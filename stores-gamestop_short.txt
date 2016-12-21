@@ -1,0 +1,26 @@
+/store/view/516371/Game-Stop-Alabaster
+||store>>Game Stop (#5601) - Alabaster S/C in Alabaster, Alabama (games) -  Location & Hours||addr>>      300 Colonial Promenade Pkwy---Ste 3100---Alabaster, Alabama 35007---      ||phone>> Phone: (205) 621-3131--- 
+/store/view/516402/Game-Stop-Athens
+||store>>Game Stop (#3915) - French Farm Pavilion in Athens, Alabama (games) -  Location & Hours||addr>>      229 French Farm Blvd---Unit M---Athens, Alabama 35611---      ||phone>> Phone: (256) 233-3167--- 
+/store/view/516412/Game-Stop-Attalla
+||store>>Game Stop (#2989) - Attalla Plaza in Attalla, Alabama (games) -  Location & Hours||addr>>      977 Gilbert Ferry Rd. Se---.---Attalla, Alabama 35954---      ||phone>> Phone: (256) 538-2397--- 
+/store/view/516437/Game-Stop-Auburn
+||store>>GameStop - Mall (#4115) - Colonial University in Auburn, Alabama (games) -  Location & Hours||addr>>      1627-45 Opelika Rd---Auburn, Alabama 36830---      ||phone>> Phone: (334) 887-0333--- 
+/store/view/516364/Game-Stop-Bessemer
+||store>>Game Stop (#3917) - Colonial Promenade in Bessemer, Alabama (games) -  Location & Hours||addr>>      4933 Promenade Parkway---Ste 147---Bessemer, Alabama 35022---      ||phone>> Phone: (205) 425-4985--- 
+/store/view/516361/Game-Stop-Birmingham
+||store>>Game Stop (#1595) - Trussville S/C in Birmingham, Alabama (games) -  Location & Hours||addr>>      5964 Chalkville Mountain Rd---Birmingham, Alabama 35235---      ||phone>> Phone: (205) 661-6010--- 
+/store/view/516378/Game-Stop-Birmingham
+||store>>Game Stop (#3431) - Roebuck Center in Birmingham, Alabama (games) -  Location & Hours||addr>>      9256 Parkway East---Suite C---Birmingham, Alabama 35206---      ||phone>> Phone: (205) 836-4717--- 
+/store/view/516376/Game-Stop-Birmingham
+||store>>Game Stop (#3693) - Shops @ Eastwood in Birmingham, Alabama (games) -  Location & Hours||addr>>      1632 Montclair Blvd---Shops A-8---Birmingham, Alabama 35210---      ||phone>> Phone: (205) 957-2600--- 
+/store/view/516367/Game-Stop-Birmingham
+||store>>Game Stop (#3967) - Wildwood Centre in Birmingham, Alabama (games) -  Location & Hours||addr>>      223 Lakeshore Parkway---Suite 103---Birmingham, Alabama 35209---      ||phone>> Phone: (205) 917-2117--- 
+/store/view/516372/Game-Stop-Birmingham
+||store>>Game Stop (#5059) - River Ridge in Birmingham, Alabama (games) -  Location & Hours||addr>>      4507 Riverview Pkwy---Ste 107---Birmingham, Alabama 35242---      ||phone>> Phone: (205) 981-2121--- 
+/store/view/516369/Game-Stop-Birmingham
+||store>>GameStop - Mall (#0103) - Riverchase GallriaGS in Birmingham, Alabama (games) -  Location & Hours||addr>>      2000 Riverchase Galleria---Suite 201---Birmingham, Alabama 35244---      ||phone>> Phone: (205) 985-4396--- 
+/store/view/516374/Game-Stop-Birmingham
+||store>>GameStop - Mall (#4268) - Brookwood Village in Birmingham, Alabama (games) -  Location & Hours||addr>>      765 Brookwood Village---Space 205a---Birmingham, Alabama 35209---      ||phone>> Phone: (205) 871-3060--- 
+/store/view/516365/Game-Stop-Birmingham
+||store>>Gamestop&Movies2 (#3534) - Five Pointes West in Birmingham, Alabama (games) -  Location & Hours||addr>>      2239 Bessemer Road---Suite 14---Birmingham, Alabama 35208---      ||phone>> Phone: (205) 788-4035--- 

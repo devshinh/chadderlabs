@@ -1,0 +1,46 @@
+div#coverage_map {
+  width: 600px;
+  height: 300px;
+  position: relative;
+  border: 1px solid #ccc;
+  /* cursor: pointer; */
+}
+
+div#divMain div.wrapper {
+  float: left;
+  width: 640px;
+  /* border: 1px solid #aaa;
+  padding: 10px;
+  background-color: #fff; */
+  overflow: hidden;
+}
+
+span.mapinfo {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+div#divSelectProvince {
+  float: left;
+  margin-right: 20px;
+}
+div#divSelectCity {
+  float: left;
+}
+
+
+div#divSelectProvince select,
+div#divSelectCity select {
+  color: #333;
+}
+
+div#divMain p img {
+  vertical-align:text-bottom;
+  margin-right: 5px;
+}
+
+.leftColumn {
+  float: left;
+  width: 300px;
+  margin-right: 10px;
+}

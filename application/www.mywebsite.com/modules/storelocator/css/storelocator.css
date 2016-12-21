@@ -1,0 +1,36 @@
+div#map_canvas {
+  width: 940px;
+  height: 400px;
+}
+
+div#divMain div.storelocator {
+  width: 940px;
+  border: 1px solid #aaa;
+  padding: 10px;
+  background-color: #fff;
+}
+
+div#divMain div.content_middle div.content div.left {
+  float:left;
+  width:255px;
+  position: relative;
+}
+
+span.mapinfo {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+div#divSelectProvince {
+  float: left;
+  margin-right: 20px;
+}
+div#divSelectCity {
+  float: left;
+}
+
+
+div#divSelectProvince select,
+div#divSelectCity select {
+  color: #333;
+}

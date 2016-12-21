@@ -1,0 +1,6 @@
+.panel_hidden {
+	display: none;
+}
+.panel_visible {
+	display: block;
+}
