@@ -209,7 +209,7 @@ class Ion_auth
 			$this->ci->email->subject($this->ci->config->item('site_title', 'ion_auth') . ' - Forgotten Password Verification');
 			$this->ci->email->message($message);
 
-			if ($this->ci->email->send())
+			if ($this->ci->email->send(FALSE))
 			{
 				$this->set_message('forgot_password_successful');
 				return TRUE;

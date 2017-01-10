@@ -59,7 +59,7 @@ if (!function_exists('contact_form')) {
 
         // Validation rules
         $CI->form_validation->set_rules('firstname', 'First Name', 'trim|required|xss_clean');
-        $CI->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|xss_clean');
+        $CI->form_validation->set_rules('email', 'Email Address', 'trim|required|filter_var|xss_clean');
         $CI->form_validation->set_rules('postal', 'Postal Code', 'trim|required|xss_clean');
 
         $firstname = $CI->input->post('firstname');
@@ -160,7 +160,7 @@ if (!function_exists('contact_form')) {
 
             $data['message'] = $CI->session->flashdata('message');
             $data['error'] = $CI->session->flashdata('error');
-            
+
             $user_id = (int)($CI->session->userdata('user_id'));
 
             $address_1 = $CI->input->post('address_1');
@@ -205,7 +205,7 @@ if (!function_exists('contact_form')) {
                 'id' => 'user_id',
                 'type' => 'hidden',
                 'value' =>  $user_id,
-            );            
+            );
             // load module view
             return $CI->load->view('contact/contact_create_shipping', $data, TRUE);
         }

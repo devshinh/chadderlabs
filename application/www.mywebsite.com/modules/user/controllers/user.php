@@ -42,7 +42,7 @@ class User extends HotCMS_Controller {
             'Miss' => 'Miss'
         );
         $this->key_prefix = 'manage_user_';
-        
+
         $this->search_options = array('email' => 'Email','screenname' => 'Screen name');
     }
 
@@ -62,7 +62,7 @@ class User extends HotCMS_Controller {
         //$pagination_config['base_url'] = $this->config->item('base_url') . $this->module_url . '/index/';
         $default_per_page = $pagination_config['per_page'] = 10;
 
-        
+
         if ($this->input->post()) {
 
           $filters = array(
@@ -73,7 +73,7 @@ class User extends HotCMS_Controller {
           );
           $this->session->set_userdata('user_filters', $filters);
           redirect('user');
-        }        
+        }
 
         $filters = $this->session->userdata('user_filters');
         if (!is_array($filters)) {
@@ -81,7 +81,7 @@ class User extends HotCMS_Controller {
             'per_page' => $default_per_page,
             'keyword' => '',
             'keyword_column' => 'email',
-            'per_page' => $default_per_page,              
+            'per_page' => $default_per_page,
           );
         }
         $data['filters'] = $filters;
@@ -90,7 +90,7 @@ class User extends HotCMS_Controller {
         $data['form']['keyword_input'] = $this->_create_text_input('keyword', $filters['keyword'], 50, 20, 'text');
         $data['form']['hidden'] = array('per_page' => $filters['per_page'], 'keyword' => $filters['keyword']);
         $data['form']['per_page_options'] = list_page_options();
-        
+
         //$users = $this->user_model->user_list($filters, TRUE, $page_num, $pagination_config['per_page']);
 
     // paginate configuration
@@ -98,17 +98,17 @@ class User extends HotCMS_Controller {
     $pagination_config['base_url'] = $this->config->item('base_url') . $this->module_url . '/index/';
     $pagination_config['per_page'] = $filters['per_page'];
     $pagination_config['total_rows'] = $this->user_model->user_count($filters);
-    
+
     //var_dump($pagination_config['total_rows']);
     $users = $this->user_model->user_list($filters, TRUE, $page_num, $pagination_config['per_page']);
-    
+
 
     $right_data['aCurrent'] = $data['users'] = $users;
     // paginate
     $this->pagination->initialize($pagination_config);
     $data['pagination'] = $this->pagination->create_links();
     $this->session->set_userdata('user_index_page_num', $page_num);
-    
+
         // paginate
         //$this->pagination->initialize($pagination_config);
         //$right_data['pagination'] = $this->pagination->create_links();
@@ -122,7 +122,7 @@ class User extends HotCMS_Controller {
         $this->form_validation->set_rules('first_name', strtolower(lang('hotcms_name_first')), 'trim|required');
         $this->form_validation->set_rules('last_name', strtolower(lang('hotcms_name_last')), 'trim|required');
         $this->form_validation->set_rules('screen_name', strtolower(lang('hotcms_user_name')), 'trim|required');
-        $this->form_validation->set_rules('email', strtolower(lang('hotcms_email_address')), 'trim|required|valid_email');
+        $this->form_validation->set_rules('email', strtolower(lang('hotcms_email_address')), 'trim|required|filter_var');
         /* $this->form_validation->set_rules('username', strtolower(lang('hotcms_name_user')), 'trim|required|callback__validator_user');
           $this->form_validation->set_rules( 'roles', strtolower(lang( 'hotcms_role' )),  'required' ); */
         // if no password is present...
@@ -280,9 +280,9 @@ class User extends HotCMS_Controller {
         if (!$this->_has_access_to_user($id)) {
             show_error("You do not have privileges to edit this user.");
         }
-        
+
         $this->_validate();
-    
+
 
         if ($this->form_validation->run()) {
             $selected_roles = $this->input->post('roles');
@@ -323,13 +323,13 @@ class User extends HotCMS_Controller {
                   account_add_badge($id, 'cred');
                 }
                 //check if there was an referal for this user
-                $user_info = $this->refer_colleague_model->check_referral($data['current_item']->email);                
+                $user_info = $this->refer_colleague_model->check_referral($data['current_item']->email);
                 if(!empty($user_info) && $user_info->id > 0){
 //                    $user_id, $ce, $type, $ref_table = '', $ref_id = 0, $description = ''
                   account_add_contest_entries($user_info->referal_user_id, 50,'reffer_veri','refer_colleague',$user_info->id,' earned 50 contest entries because their <a href="http://earetailprofessionals.cheddarlabs.com/overview/refer-a-colleague">referral</a> verified themselves!');
                 //check for cred badge (5 successfull referrals for user)
                   $num_of_ref = $this->refer_colleague_model->get_number_of_referrals($user_info->referal_user_id);
-                  
+
                   if($num_of_ref == 5){
                       account_add_badge($user_info->referal_user_id, 'advocate');
                   }
@@ -437,7 +437,7 @@ class User extends HotCMS_Controller {
         if(!empty($referral_info)){
             $referral_user = $this->user_model->get_user_by_id($referral_info->referal_user_id);
             $data['ref_user'] = $referral_user;
-        
+
             $referral_award = $this->refer_colleague_model->check_previous_referral($referral_info->id,$referral_info->referal_user_id);
             if(!$referral_award){
                 $data['ref_award'] = $referral_user;
@@ -463,10 +463,10 @@ class User extends HotCMS_Controller {
             //$data['user_draws']['current'] = $user_draws;
             //$user_draws_lifetime = $this->account_model->get_user_draws($id, 'lifetime');
             //$data['user_draws']['lifetime'] = $user_draws_lifetime;
-            
+
             //# of quizzes
-            $data['quiz_number'] = quiz_get_number_of_user_quizzes($id);        
-        
+            $data['quiz_number'] = quiz_get_number_of_user_quizzes($id);
+
         //$right_data['message'] = self::setMessage(false);
         $this->load_messages();
         self::loadBackendView($data, 'user/user_submenu', NULL, 'user/user_edit', $right_data);
@@ -643,7 +643,7 @@ class User extends HotCMS_Controller {
             $message = array();
             $message['type'] = 'error';
             $message['value'] = validation_errors();
-            $this->edit($user_id, $message);            
+            $this->edit($user_id, $message);
         }
     }
 

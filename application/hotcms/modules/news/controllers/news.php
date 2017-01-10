@@ -243,7 +243,7 @@ class News extends HotCMS_Controller {
     if ($id > 0) {
       $news = new CmsNews($id);
       $draft = $news->draft;
-      if ($this->input->post() !== FALSE) {
+      if ($this->input->post() !== FALSE || is_null($this->input->post()) ) {
         $content = $this->input->post('txtTinyMCE');
         try {
           $result = $draft->update_body($content);
@@ -479,13 +479,13 @@ class News extends HotCMS_Controller {
     $json = array('result' => $result, 'messages' => $messages, 'content' => $content);
     echo json_encode($json);
   }
-  
+
   public function eaImport(){
-      
+
       //      $attr = $this->input->post();
-      
+
       $eanews = $this->news_model->load_ea_news();
-      
+
       foreach($eanews as $eanew){
           $attr = '';
 
@@ -493,16 +493,16 @@ class News extends HotCMS_Controller {
 
           //var_dump(html_entity_decode($eanew->Text));
           //die();
-          
-          $attr = array ('title' => $eanew->Title, 'sumary' =>  $eanew->Summary, 'created' =>  $time,'text' =>  html_entity_decode($eanew->Text));          
-          
+
+          $attr = array ('title' => $eanew->Title, 'sumary' =>  $eanew->Summary, 'created' =>  $time,'text' =>  html_entity_decode($eanew->Text));
+
           $news_id = $this->news_model->insert_news_ea($attr);
-          
+
           echo $news_id.'<br />';
       }
 
-      
-      
+
+
       die('done');
   }
 

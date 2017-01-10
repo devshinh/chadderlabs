@@ -26,7 +26,7 @@ class Target extends HotCMS_Controller {
     $this->load->library('pagination');
     $this->load->helper("array");
 
-    
+
     $this->module_url = $this->config->item('module_url', 'target');
     $this->module_header = "Manage Target";
     $this->add_new_text = $this->lang->line('hotcms_add_new') . ' ' . strtolower($this->lang->line("hotcms_target"));
@@ -185,7 +185,8 @@ class Target extends HotCMS_Controller {
       $this->add_message('error', $errors);
     }
 
-    $data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === FALSE) ? "" : $this->input->post("name")), 140, 20, 'text');
+    #$data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === FALSE) ? "" : $this->input->post("name")), 140, 20, 'text');
+    $data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === NULL) ? "" : $this->input->post("name")), 140, 20, 'text');
     $sites = $this->target_model->get_sites();
     $site_dropdown_options = array();
     foreach ($sites as $site) {
@@ -193,7 +194,7 @@ class Target extends HotCMS_Controller {
     }
     $data["form"]["site_options"] = array("" => "") + $site_dropdown_options;
     $data["form"]["selected_site"] = $this->input->post("site_id");
-    $data["form"]["description_input"] = $this->_create_text_input("description", (($this->input->post("description") === FALSE) ? "" : $this->input->post("description")), 250, 20, 'text');
+    $data["form"]["description_input"] = $this->_create_text_input("description", (($this->input->post("description") === NULL) ? "" : $this->input->post("description")), 250, 20, 'text');
     $data["form"]["type_options"] = $this->target_model->get_type_options();
     $data["form"]["selected_types"] = $this->input->post("types");
     $data["form"]["category_options"] = $this->target_model->get_category_options();
@@ -204,11 +205,11 @@ class Target extends HotCMS_Controller {
     $data["form"]["stores_tree"] = $this->target_model->get_stores_jstree($this->input->post("types"), $this->input->post("categories"), $this->input->post("organizations"), $this->input->post("stores"));
 
     $data['index_page_num'] = $this->session->userdata('target_index_page_num');
-    
+
     $this->load_messages();
     self::loadBackendView($data, 'target/target_leftbar', NULL, 'target/target_create', NULL);
   }
-  
+
   /**
    * Delete a target by id.
    * May abort if any active quiz or lab still using it.
@@ -251,7 +252,7 @@ class Target extends HotCMS_Controller {
     }
     redirect("target/index/".$this->session->userdata("target_index_page_num"));
   }
-  
+
   /**
    * Same as creating from blank, but populating data from a existing target by id.
    * @param int $target_id
@@ -313,15 +314,15 @@ class Target extends HotCMS_Controller {
       $this->add_message('error', $errors);
     }
 
-    $data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === FALSE) ? $target->name : $this->input->post("name")), 140, 20, 'text');
+    $data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === NULL) ? $target->name : $this->input->post("name")), 140, 20, 'text');
     $sites = $this->target_model->get_sites();
     $site_dropdown_options = array();
     foreach ($sites as $site) {
       $site_dropdown_options[$site->id] = $site->name;
     }
     $data["form"]["site_options"] = array("" => "") + $site_dropdown_options;
-    $data["form"]["selected_site"] = (($this->input->post("site_id") === FALSE) ? $target->site_id : $this->input->post("site_id"));
-    $data["form"]["description_input"] = $this->_create_text_input("description", (($this->input->post("description") === FALSE) ? $target->description : $this->input->post("description")), 250, 20, 'text');
+    $data["form"]["selected_site"] = (($this->input->post("site_id") === NULL) ? $target->site_id : $this->input->post("site_id"));
+    $data["form"]["description_input"] = $this->_create_text_input("description", (($this->input->post("description") === NULL) ? $target->description : $this->input->post("description")), 250, 20, 'text');
     $data["form"]["type_options"] = $this->target_model->get_type_options();
     $data["form"]["selected_types"] = $this->input->post("types");
     if (($data["form"]["selected_types"] === FALSE) && ( !empty($target->types))) {
@@ -380,11 +381,11 @@ class Target extends HotCMS_Controller {
     $data["form"]["stores_tree"] = $this->target_model->get_stores_jstree($data["form"]["selected_types"], $data["form"]["selected_categories"], $default_organizations, $default_stores);
 
     $data['index_page_num'] = $this->session->userdata('target_index_page_num');
-    
+
     $this->load_messages();
     self::loadBackendView($data, 'target/target_leftbar', $left_data, 'target/target_duplicate', NULL);
   }
-  
+
   /**
    * Editing a existing target by id.
    * Success will prompt a updated confirmation message.
@@ -436,15 +437,15 @@ class Target extends HotCMS_Controller {
       $this->add_message('error', $errors);
     }
 
-    $data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === FALSE) ? $target->name : $this->input->post("name")), 140, 20, 'text');
+    $data['form']["name_input"] = $this->_create_text_input("name", (($this->input->post("name") === NULL) ? $target->name : $this->input->post("name")), 140, 20, 'text');
     $sites = $this->target_model->get_sites();
     $site_dropdown_options = array();
     foreach ($sites as $site) {
       $site_dropdown_options[$site->id] = $site->name;
     }
     $data["form"]["site_options"] = array("" => "") + $site_dropdown_options;
-    $data["form"]["selected_site"] = (($this->input->post("site_id") === FALSE) ? $target->site_id : $this->input->post("site_id"));
-    $data["form"]["description_input"] = $this->_create_text_input("description", (($this->input->post("description") === FALSE) ? $target->description : $this->input->post("description")), 250, 20, 'text');
+    $data["form"]["selected_site"] = (($this->input->post("site_id") === NULL) ? $target->site_id : $this->input->post("site_id"));
+    $data["form"]["description_input"] = $this->_create_text_input("description", (($this->input->post("description") === NULL) ? $target->description : $this->input->post("description")), 250, 20, 'text');
     $data["form"]["type_options"] = $this->target_model->get_type_options();
     $data["form"]["selected_types"] = $this->input->post("types");
     if (($data["form"]["selected_types"] === FALSE) && ( !empty($target->types))) {
@@ -503,7 +504,7 @@ class Target extends HotCMS_Controller {
     $data["form"]["stores_tree"] = $this->target_model->get_stores_jstree($data["form"]["selected_types"], $data["form"]["selected_categories"], $default_organizations, $default_stores);
 
     $data['index_page_num'] = $this->session->userdata('target_index_page_num');
-    
+
     $this->load_messages();
     self::loadBackendView($data, 'target/target_leftbar', $left_data, 'target/target_edit', NULL);
   }
@@ -525,5 +526,5 @@ class Target extends HotCMS_Controller {
       return FALSE;
     }
     return TRUE;
-  }  
+  }
 }

@@ -232,7 +232,7 @@ class Product_model extends HotCMS_Model {
   {
     // assign values
     $this->db->set( 'name', $this->input->post( 'name' ) );
-    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'dash',TRUE ));
+    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'-',TRUE ));
     $this->db->set( 'short_description', $this->input->post( 'short_description' ) );
     $this->db->set( 'description', $this->input->post( 'description' ) );
     $this->db->set( 'category_id', $this->input->post( 'category' ) );

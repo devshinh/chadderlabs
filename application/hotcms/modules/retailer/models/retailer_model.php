@@ -89,17 +89,17 @@ class Retailer_model extends HotCMS_Model {
     //var_dump($this->db->last_query());
     return $result;
   }
-  
+
    /**
    * Load all active retailers
-   * 
+   *
    * @return array of objects
-   */ 
+   */
   public function retailer_load_active($sorting = 0){
       if(is_array($sorting)){
           $this->db->order_by($sorting['sort_by'],$sorting['sort_direction']);
       }
-      
+
       $query = $this->db->select('r.id, r.name, c.country, r.status, r.create_timestamp, r.logo_image_id, SUM(CASE WHEN s.status = 1 THEN 1 ELSE 0 END) AS active_store_count')
         ->join($this->tables['country'] . ' c', 'c.country_code = r.country_code')
         ->join($this->tables['store'] . ' s', 's.retailer_id = r.id')
@@ -108,8 +108,8 @@ class Retailer_model extends HotCMS_Model {
         //->order_by('active_store_count','DESC')
         ->get($this->tables['retailer'] . ' r');
     $result = $query->result();
-    return $result;      
-  }  
+    return $result;
+  }
 
   /**
    * Counts all items
@@ -159,7 +159,7 @@ class Retailer_model extends HotCMS_Model {
       ->get($this->tables['retailer'] . ' r');
     return $query->row();
   }
-  
+
   /**
    * get retailer from DB by slug
    * @param  string  slug
@@ -167,13 +167,13 @@ class Retailer_model extends HotCMS_Model {
    */
   public function get_retailer_by_slug($slug)
   {
-      
+
     $query = $this->db->select('r.*, c.country')
       ->join($this->tables['country'] . ' c', 'c.country_code = r.country_code')
       ->where('r.slug', $slug)
       ->get($this->tables['retailer'] . ' r');
     return $query->row();
-  }  
+  }
   /**
    * Insert a new record
    * @param  array  data
@@ -186,7 +186,7 @@ class Retailer_model extends HotCMS_Model {
         $author_id = (int) $this->session->userdata('user_id');
     } 
     $this->db->set('name', array_key_exists('name', $data) ? $data['name'] : '');
-    $this->db->set('slug', array_key_exists('name', $data) ? strtolower(url_title($data['name'],'dash')) : '');
+    $this->db->set('slug', array_key_exists('name', $data) ? strtolower(url_title($data['name'],'-')) : '');
     $this->db->set('website', array_key_exists('website', $data) ? $data['website'] : '');
     $this->db->set('country_code', array_key_exists('country_code', $data) ? $data['country_code'] : 'US');
     $this->db->set('status', array_key_exists('status', $data) ? $data['status'] : 0);
@@ -215,14 +215,14 @@ class Retailer_model extends HotCMS_Model {
     if (is_array($data)) {
       if (array_key_exists('name', $data)) {
         $this->db->set('name', $data['name']);
-        $this->db->set('slug', strtolower(url_title($data['name'],'dash')));
+        $this->db->set('slug', strtolower(url_title($data['name'],'-')));
       }
       if (array_key_exists('country_code', $data)) {
         $this->db->set('country_code', $data['country_code']);
       }
       if (array_key_exists('website', $data)) {
         $this->db->set('website', $data['website']);
-      }      
+      }
       if (array_key_exists('status', $data)) {
         $this->db->set('status', $data['status']);
       }
@@ -519,7 +519,7 @@ class Retailer_model extends HotCMS_Model {
     $row = $query->row();
     if ($row) {
       $retailer_roles['LD'] = $row->id;
-    }  
+    }
     // find the role that has visitor's permissions
     $query = $this->db->select('id')
       ->where('site_id', $this->site_id)
@@ -528,7 +528,7 @@ class Retailer_model extends HotCMS_Model {
     $row = $query->row();
     if ($row) {
       $retailer_roles['N'] = $row->id;
-    }        
+    }
     //var_dump($retailer_roles);
     //die();
     return $retailer_roles;
@@ -550,24 +550,24 @@ class Retailer_model extends HotCMS_Model {
     $query= $this->db->select('p.id, p.permission_key')
             ->where('p.category =', 'retailer_target')
             ->where('p.site_id =', $this->site_id)
-            ->get($this->tables['permission'].' p');    
+            ->get($this->tables['permission'].' p');
 
-    $permissions = $query->result();    
-    
+    $permissions = $query->result();
+
     foreach($permissions as $p){
       $retailer_permissions[$p->id] = $p->permission_key;
     }
 
-    $permission_id = array_search($permission_key, $retailer_permissions); 
-    
+    $permission_id = array_search($permission_key, $retailer_permissions);
+
 
       $this->db->set('retailer_id', $retailer_id);
       $this->db->set('permission_id', $permission_id);
       $result = $this->db->insert($this->tables['retailer_permission']);
-    
+
     return $result;
   }
-  
+
  /**
    * Update retailer permission
    * @param  int  retailer ID
@@ -580,33 +580,33 @@ class Retailer_model extends HotCMS_Model {
     if ((int) $retailer_id <= 0) {
       return $result;
     }
-    
+
     //get retailer permission for site id (category retailer_target)
     $query= $this->db->select('p.id, p.permission_key')
             ->where('p.category =', 'retailer_target')
             ->where('p.site_id =', $this->site_id)
-            ->get($this->tables['permission'].' p');    
+            ->get($this->tables['permission'].' p');
 
-    $permissions = $query->result();    
-    
+    $permissions = $query->result();
+
     foreach($permissions as $p){
       $retailer_permissions[$p->id] = $p->permission_key;
     }
-    
-    $permission_id = array_search($permission_key, $retailer_permissions); 
-    
+
+    $permission_id = array_search($permission_key, $retailer_permissions);
+
     $this->db->where('retailer_id', $retailer_id);
     $this->db->where('permission_id', $permission_id);
     $result = $this->db->delete($this->tables['retailer_permission']);
-    
+
     return $result;
-  }  
-  
+  }
+
  /**
    * Count retailer's locations (stores)
    * @param  int  retailer id
    * @return int
-   */  
+   */
   public function count_stores($rid, $status = 'all'){
       switch ($status) {
           case 'active':
@@ -629,13 +629,13 @@ class Retailer_model extends HotCMS_Model {
    * @param  int    row id
    * @param  string table name
    * @return int
-   */  
+   */
   public function count_users($row_id, $table = "retailer"){
       $query = $this->db->select('COUNT(distinct id) as count')
               ->where($table."_id =",$row_id)
               ->get($this->tables['user_profile']);
       return $query->row();
-  }  
+  }
   /**
    *  get_retailer_permissions_by_user_id() - get permission for retailer
    *
@@ -650,8 +650,8 @@ class Retailer_model extends HotCMS_Model {
             ->where('p.site_id =', $this->site_id)
             ->get($this->tables['permission'].' p');
     return $query->result();
-  }  
-  
+  }
+
   /**
    * Update logo image
    * @param  int  retailer id
@@ -665,8 +665,8 @@ class Retailer_model extends HotCMS_Model {
       ->where('id', $retailer_id)
       ->update($this->tables['retailer']);
     return TRUE;
-  }   
-  
+  }
+
  /**
    * list all items from DB
    * @param  array  filters, including search keyword, sorting field, and customized filter criteria
@@ -691,7 +691,7 @@ class Retailer_model extends HotCMS_Model {
       $this->db->limit($per_page, $offset);
     }
     if (is_array($filters)) {
-        
+
       if (array_key_exists('keyword', $filters) && $filters['keyword'] > '') {
         $this->db->like('p.screen_name', $filters['keyword']);
         //$this->db->where('(r.store_num = \'' . $filters['keyword'] . '\' OR r.store_name LIKE \'%' . $filters['keyword'] . '%\')');
@@ -744,7 +744,7 @@ class Retailer_model extends HotCMS_Model {
     }
     return $query->result();
   }
-  
+
 //retailer categories
   /**
    *  get_categories_names_by_reailer_id() - get categories for retailer
@@ -786,7 +786,7 @@ class Retailer_model extends HotCMS_Model {
     }
     return $types_names;
   }
-  
+
   /**
    * Get organization/retailer types from DB.
    *
@@ -794,8 +794,8 @@ class Retailer_model extends HotCMS_Model {
    */
   function get_all_types() {
     return $this->db->order_by('name', 'ASC')->get($this->tables['organization_type'])->result();
-  } 
-  
+  }
+
   /**
    * get retailer categories from DB
    *
@@ -807,7 +807,7 @@ class Retailer_model extends HotCMS_Model {
     $query = $this->db->order_by('name', 'ASC')->get($this->tables['retailer_category']);
     return $query->result();
   }
-  
+
   /**
    * delete retailer_categoty combinations
    * @param  int  $user_id
@@ -821,13 +821,13 @@ class Retailer_model extends HotCMS_Model {
     }
     return $this->db->delete($this->tables['retailers_categories']);
   }
-  
+
   public function insert_retailer_category($retailer_id, $category_id) {
     $this->db->set( 'retailer_id', $retailer_id );
     $this->db->set( 'category_id', $category_id );
     $this->db->insert( $this->tables['retailers_categories'] );
   }
-  
+
   /**
    * Delete organization in type relationship in database
    * @param  int  $organization_id row id in organization/retailer table
@@ -852,7 +852,7 @@ class Retailer_model extends HotCMS_Model {
     $this->db->set( 'type_id', $type_id );
     $this->db->insert( $this->tables['organization_in_type'] );
   }
-  
+
   /**
    * get retailer's category from DB
    * @param  int  category id
@@ -864,8 +864,8 @@ class Retailer_model extends HotCMS_Model {
       ->where('r.id', $id)
       ->get($this->tables['retailer_category'] . ' r');
     return $query->row();
-  }  
-  
+  }
+
   /**
    * Update a record
    * @param  int  unique ID
@@ -883,14 +883,14 @@ class Retailer_model extends HotCMS_Model {
     $this->db->set('update_timestamp', time());
     $this->db->where('id', $id);
     return $this->db->update($this->tables['retailer_category']);
-  }  
-  
+  }
+
   /**
    * Insert new category
    * @param  int  unique ID
    * @param  array  data to be updated
    * @return mixed  TRUE if succeeded or FALSE if failed
-   */ 
+   */
    public function insert_category($data, $author_id = 0) {
     $ts = time();
     if($author_id == 0){
@@ -907,8 +907,8 @@ class Retailer_model extends HotCMS_Model {
     else {
       return FALSE;
     }
-  }  
-  
+  }
+
   /**
    * delete a category by id
    * @param  int  $id row id in retailer category table
@@ -948,7 +948,7 @@ class Retailer_model extends HotCMS_Model {
     }
     return FALSE;
   }
-  
+
   /**
    * Get a row from database table by id
    * @param  int $id row id of organization type
@@ -957,7 +957,7 @@ class Retailer_model extends HotCMS_Model {
   function organization_type_load($id) {
     return $this->db->get_where($this->tables['organization_type'], array("id" => $id))->row();
   }
-  
+
   /**
    * Update a row in database table by row id
    * @param  int   row id
@@ -973,8 +973,8 @@ class Retailer_model extends HotCMS_Model {
     $this->db->set('update_timestamp', time());
     $this->db->where('id', $id);
     return $this->db->update($this->tables['organization_type']);
-  } 
-  
+  }
+
   /**
    * Delete a organization type by row id
    * @param  int $id row id in database table
@@ -993,19 +993,19 @@ class Retailer_model extends HotCMS_Model {
     }
     return FALSE;
   }
-  
+
   /**
    * get retailer's store location for state from DB by slug
    * @param  string  id retailer id
    * @param  string  state name
    * @param  array   sorting variables
-   * @return array of retailer's locations , or NULL/FALSE otherwise 
+   * @return array of retailer's locations , or NULL/FALSE otherwise
    */
   public function get_stores_state_list($retailer_id,$state_code,$sorting = 0)
   {
       if(is_array($sorting)){
           $this->db->order_by($sorting['sort_by'],$sorting['sort_direction']);
-      }      
+      }
       $query = $this->db->select('s.*')
         ->join($this->tables['province'] . ' p', 'p.province_code=s.province')
         ->where('s.status',1)
@@ -1013,23 +1013,23 @@ class Retailer_model extends HotCMS_Model {
         ->where('s.province', strtoupper($state_code))
         //->group_by('r.id, r.name, c.country, r.status, r.create_timestamp,r.logo_image_id')
         //->order_by('active_store_count','DESC')
-        ->get($this->tables['store'] . ' s');     
+        ->get($this->tables['store'] . ' s');
     return $query->result();
-  }    
-  
+  }
+
   /**
    * get all cities where retailer has store
    * @param  string  id retailer id
-   * @return array of citis , or NULL/FALSE otherwise 
+   * @return array of citis , or NULL/FALSE otherwise
    */
   public function get_retailer_cities($retailer_id)
   {
     $query = $this->db->distinct('rs.city')
-      ->where('rs.retailer_id', $retailer_id)         
+      ->where('rs.retailer_id', $retailer_id)
       ->order_by('rs.city','ASC')
       ->get($this->tables['store'] . ' rs');
     return $query->result();
-  }       
+  }
 
   /**
    * List provinces where retailer has a store
@@ -1040,28 +1040,28 @@ class Retailer_model extends HotCMS_Model {
   {
 
     //$this->db->where('s.retailer_id', $retailer_id);
-    
-    $query = $this->db->query('SELECT DISTINCT (s.province) FROM (`retailer_store` s) WHERE `s`.`retailer_id` = '.$retailer_id.' and s.status = 1'); 
+
+    $query = $this->db->query('SELECT DISTINCT (s.province) FROM (`retailer_store` s) WHERE `s`.`retailer_id` = '.$retailer_id.' and s.status = 1');
     $states_array = array();
     if ($query->num_rows() > 0) {
       foreach($query->result() as $s){
-          $states_array[$s->province] = $s->province; 
+          $states_array[$s->province] = $s->province;
       }
     }
     return $states_array;
-  }  
+  }
   /**
    * get all active stores
    * @param  string  id retailer id
-   * @return array of citis , or NULL/FALSE otherwise 
+   * @return array of citis , or NULL/FALSE otherwise
    */
   public function get_active_stores()
   {
     $query = $this->db->select('s.*,r.slug as ret_slug')
       ->join($this->tables['retailer'] . ' r', 's.retailer_id = r.id')
-      ->where('s.status', 1)      
+      ->where('s.status', 1)
       ->get($this->tables['store'] . ' s');
     return $query->result();
-  }   
+  }
 }
 ?>

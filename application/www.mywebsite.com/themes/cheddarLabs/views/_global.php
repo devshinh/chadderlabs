@@ -77,7 +77,7 @@ if ($oPage->url == 'home') {
         $user_draws = $userdraws;
     }else{
         $user_draws = 0;
-    }    
+    }
     //$user_info = $this->session->userdata('user_info');
     $this->load->model("account/account_model");
     $user_info = $this->account_model->get_info($this->session->userdata("user_id"));
@@ -104,13 +104,13 @@ if ($oPage->url == 'home') {
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>      
-      
+}(document, 'script', 'facebook-jssdk'));</script>
+
     <div class="navbar navbar-fixed-top" id="main-nav-wrapper">
       <div class="navbar-inner">
         <div class="container">
           <span class="visible-mobile pull-left"><button id="main_menu_button" class="pull-right btn btn-clear" type="button" onclick="toggleVerticalMenu(-2)"><img src="/themes/<?php echo $sTheme; ?>/images/icons/btn-cheddarlabs-menu.png" alt="Menu"></button></span>
-          <a id="main-logo" href="http://<?php echo $sMainDomain; ?>"><img src="/themes/<?php echo $sTheme; ?>/images/logo-cheddar-labs-header.png" alt="cheddarLabs logo" title="cheddarLabs logo"/></a>     
+          <a id="main-logo" href="http://<?php echo $sMainDomain; ?>"><img src="/themes/<?php echo $sTheme; ?>/images/logo-cheddar-labs-header.png" alt="cheddarLabs logo" title="cheddarLabs logo"/></a>
           <div class="hidden-mobile pull-right">
             <?php print $sMainMenu; ?>
             <ul class="nav" id="main-nav-user">
@@ -126,7 +126,7 @@ if ($oPage->url == 'home') {
                     <div class="btn-group" id="button-avatar">
                       <button class="btn dropdown-toggle" data-toggle="dropdown">
                           <?php if(!empty($user_info->avatar_id)){
-                              $avatar = asset_load_item($user_info->avatar_id);                            
+                              $avatar = asset_load_item($user_info->avatar_id);
                               printf('<img height="15px" src="/asset/upload/thumbnail_30x30/%s_thumb.%s"/>',$avatar->name,$avatar->extension);
                           }else{ ?>
                             <img height="15px" src="/asset/upload/thumbnail_30x30/icon-user_thumb.jpg"/>
@@ -186,17 +186,17 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
         array('lyrics'=>"Big Pun the caputera with <i>cheddar</i><br />never settle for second best cause I'm primera",'artist'=>'Big Pun','song' =>'Top of the World (Remix)'),
         array('lyrics'=>"What's up? You all fed up cause I got a little cheddar<br />and my record's movin' out the store? ",'artist'=>'Jay-Z','song' =>"Heart Of The City (Ain't No Love)"),
         array('lyrics'=>"I'm growing my <i>cheddar</i>, my champagne warm<br />I had to struggle to make it, I die for my charm",'artist'=>'Rick Ross','song' =>"B!@#$, Don't Kill My Vibe (Remix)"),
-        array('lyrics'=>"<i>Cheddar</i> on Federer, my champagne warm<br />ball 'till I fall, et cetera, et cetera",'artist'=>'Big Sean','song' =>"24k of Gold"),        
-        array('lyrics'=>"And learn how to earn better<br />I burn <i>cheddar</i>",'artist'=>'Jay-Z','song' =>"All I Need"),  
-        array('lyrics'=>"They told me cheese at the camps and they made me <i>cheddar</i><br />and the green only made me better",'artist'=>'A$AP Rocky','song' =>"BET Cypher 2012: Man With the Iron Fists"),  
-        array('lyrics'=>"Lactose tolerant, addicted to <i>cheddar</i><br />and I spent it on a jacket man I don't know no better",'artist'=>'Childish Gambino','song' =>"Hero"),          
-        array('lyrics'=>"Go getter, with no <i>cheddar</i><br />just a white tee and a swap meet sweater",'artist'=>'Kendrick Lamar','song' =>"Determined"),                  
-        array('lyrics'=>"Don’t end up a dead man for the <i>cheddar</i><br />the way to play is Joey in Def Jam Vendetta",'artist'=>'Joe Budden','song' =>"Pump It Up (Remix)"),         
-        array('lyrics'=>"Whatever rappers getting <i>cheddar</i><br />I'm the king, and they Coretta",'artist'=>'Lil Dicky','song' =>"Sky Hooks"),         
+        array('lyrics'=>"<i>Cheddar</i> on Federer, my champagne warm<br />ball 'till I fall, et cetera, et cetera",'artist'=>'Big Sean','song' =>"24k of Gold"),
+        array('lyrics'=>"And learn how to earn better<br />I burn <i>cheddar</i>",'artist'=>'Jay-Z','song' =>"All I Need"),
+        array('lyrics'=>"They told me cheese at the camps and they made me <i>cheddar</i><br />and the green only made me better",'artist'=>'A$AP Rocky','song' =>"BET Cypher 2012: Man With the Iron Fists"),
+        array('lyrics'=>"Lactose tolerant, addicted to <i>cheddar</i><br />and I spent it on a jacket man I don't know no better",'artist'=>'Childish Gambino','song' =>"Hero"),
+        array('lyrics'=>"Go getter, with no <i>cheddar</i><br />just a white tee and a swap meet sweater",'artist'=>'Kendrick Lamar','song' =>"Determined"),
+        array('lyrics'=>"Don’t end up a dead man for the <i>cheddar</i><br />the way to play is Joey in Def Jam Vendetta",'artist'=>'Joe Budden','song' =>"Pump It Up (Remix)"),
+        array('lyrics'=>"Whatever rappers getting <i>cheddar</i><br />I'm the king, and they Coretta",'artist'=>'Lil Dicky','song' =>"Sky Hooks"),
         array('lyrics'=>"If you really wanna get it, forget it, genetically better<br />then every pathetic competitor nettin' <i>cheddar</i>",'artist'=>'Lil Dicky','song' =>"The Cypher"),
         array('lyrics'=>"Get up like <i>cheddar</i> and get it together<br />get it now or never so you can hold it forever",'artist'=>'Hodgy Beats','song' =>"Black Magic"),
     );
-        
+
     shuffle($texts);
 
     ?>
@@ -209,7 +209,7 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
                         <div id="bubble404">
 
                         </div>
-                          
+
                             <div id="lyrics-wrapper">
                               <?php print $texts[0]['lyrics']; ?>
                              </div>
@@ -217,12 +217,12 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
                           <div id="artist-wrapper">
                               <div style="padding-bottom:0px;"><b><?php print $texts[0]['artist']; ?></b></div>
                               <i><?php print $texts[0]['song']; ?></i>
-                          </div>                      
+                          </div>
                       <div class="clearfix"></div>
-                      
+
                       <p>Sorry but the page you are looking for has not been found. Try checking the URL for errors, then hit the refresh button on your browser. Or just hit the refresh button for another Cheddar Lyric!</p>
                       <p><strong>Alternatively you can use the options below to navigate the site.</strong></p>
-                      
+
                       <div id="menu404-wrapper">
                         <?php print $s404Menu; ?>
                         <?php print $s404MenuFooter; ?>
@@ -230,8 +230,8 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
                   </div><!--/span-->
                 </div><!--/row-->
               </div><!--/.fluid-container-->
-<?php }else{         
-            
+<?php }else{
+
             if (empty($oPage->layout_id)) { ?>
               <!--two column layout left side bigger -->
               <div class="container-fluid" id="mainContent">
@@ -420,7 +420,7 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
                               }
                             }
                         }
-                      }            
+                      }
                     ?>
                   </div><!--/span-->
                 </div><!--/row-->
@@ -480,16 +480,16 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
               <div class="container-fluid" id="mainContent">
                 <div class="row-fluid">
                   <div class="span8">
-                      <?php 
+                      <?php
                       // @TODO remove hero-unit for homepage
                      if ($oPage->url == 'home'){
                          print('<div>');
                      }else{
                          print('<div class="hero-unit">');
                      }
-                     
+
                     ?>
-                    
+
                       <?php
                       $module_view_used = false;
                       //left_zone in template
@@ -641,7 +641,7 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
                 </div><!--/row-->
               </div><!--/.fluid-container-->
             <?php } ?>
-              
+
 <?php } ?>
 
           </div><!-- /.proper-content -->
@@ -682,7 +682,7 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
           <?php } else { ?>
         <div class="media">
           <div class="pull-left">
-            <?php if(isset($avatar)){                     
+            <?php if(isset($avatar)){
                 printf('<img class="media-object" height="15px" src="/asset/upload/thumbnail_30x30/%s_thumb.%s"/>',$avatar->name,$avatar->extension);
             } else { ?>
               <img class="media-object" height="15px" src="/asset/upload/thumbnail_30x30/icon-user_thumb.jpg"/>
@@ -718,7 +718,7 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery.cycle.all.latest.min.js"> </script>
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery.cycle2.min.js"> </script>
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery.cookie.js"></script>
-    <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery.maskedinput.min.js"> </script>    
+    <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery.maskedinput.min.js"> </script>
         <?php
     if (!empty($oPage->javascripts)) {
       foreach ($oPage->javascripts as $file) {
@@ -756,9 +756,9 @@ if ($oPage->url == 'page-not-found' || $oPage->url == null) {
       }
       function checkFocus() {
         if (startFocus instanceof Date) {
-          var curr_time = new Date();                                                                               
+          var curr_time = new Date();
           if((curr_time.getTime() - lastInteraction.getTime()) > (5 * 60 * 1000)) {
-              //No interaction in this tab for last 5 minutes. Probably idle.                                               
+              //No interaction in this tab for last 5 minutes. Probably idle.
               windowUnfocused();
           }
         }

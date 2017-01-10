@@ -4,7 +4,7 @@
   <h2>Frequently Asked Questions</h2>
   <?php foreach ($faq_groups as $group) { ?>
   <div class="faqGroup">
-    <a name="<?php printf('%s', url_title(strtolower($group->name),'dash'))?>">    
+    <a name="<?php printf('%s', url_title(strtolower($group->name),'-'))?>">    
       <h3><?php printf('%s',$group->name)?></h3>
     </a>
     <?php foreach ($faqs as $faq) { ?>
@@ -19,7 +19,7 @@
     <?php } ?>
     <hr />
   </div><!-- end of faqGroup -->
-  <?php } ?>   
+  <?php } ?>
 </div><!-- end of wrapper -->
 
 <div class="clear"></div>

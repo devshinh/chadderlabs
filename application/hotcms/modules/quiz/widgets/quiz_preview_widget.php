@@ -53,7 +53,7 @@ class Quiz_preview_widget extends Widget {
       }
 
       // if anything goes wrong, return 404
-      $this->output->set_status_header('404');
+      $this->output->set_status_header(404);
       return array('content' => '<p>No found quiz.</p>');
     }
 

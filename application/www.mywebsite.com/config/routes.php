@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "page";
+$route['default_controller'] = "page"; //"welcome"; //webpages
 $route['404_override'] = 'errors/error_404';
 
 // predefined shortcuts
@@ -52,8 +52,8 @@ $route['contact-us-confirm'] = 'contact/confirm';
 $route['sign-up'] = 'newsletter/index';
 $route['sign-up-confirm'] = 'newsletter/confirm_signup';
 $route['support/coverage'] = 'coverage/index';
-$route['support/faq(:any)?'] = "faq$1";
-
+$route['support/faq(.+)?'] = "faq$1";
+$route['support/(?!index)(?!delete)(:any)'] = "support/viewticket/$1";
 
 // my-account and user authentication
 $route['login'] = 'account/login';
@@ -62,27 +62,27 @@ $route['register'] = 'account/register';
 $route['register-confirm'] = 'account/confirm_register';
 $route['forgot-password'] = 'account/forgot_password';
 $route['my-account/change-email'] = 'account/change_email';
-$route['my-account/verify-email(:any)?'] = 'account/verify_email$1';
+$route['my-account/verify-email(.+)?'] = 'account/verify_email$1';
 $route['my-account/user-email'] = 'account/get_email';
 $route['my-account/change-password'] = 'account/change_password';
-$route['my-account/reset_password(:any)?'] = 'account/reset_password$1';
-$route['my-account/activate(:any)?'] = 'account/activate$1';
+$route['my-account/reset_password(.+)?'] = 'account/reset_password$1';
+$route['my-account/activate(.+)?'] = 'account/activate$1';
 $route['profile'] = "account/profile";
 $route['profile-update'] = "account/edit_profile";
-$route['my-account/update-contact(:any)?'] = "account/edit_contact$1";
-$route['profile/add_new_contact(:any)?'] = "account/add_new_contact$1";
-$route['profile/delete_contact(:any)?'] ="account/delete_contact$1";
-//$route['profile(:any)?'] = "account$1";
+$route['my-account/update-contact(.+)?'] = "account/edit_contact$1";
+$route['profile/add_new_contact(.+)?'] = "account/add_new_contact$1";
+$route['profile/delete_contact(.+)?'] ="account/delete_contact$1";
+//$route['profile(.+)?'] = "account$1";
 //$route['profile/refer-colleague-history'] = "account/refer_colleague_history";
-$route['public-profile(:any)?'] = "account/public_profile$1";
-$route['profile/order_detail(:any)?'] = "account/order_detail$1";
+$route['public-profile(.+)?'] = "account/public_profile$1";
+$route['profile/order_detail(.+)?'] = "account/order_detail$1";
 
 $route['profile-newsletters-edit'] = "account/newsletter_update";
 
-$route['avatar/upload(:any)?'] = "asset/upload_avatar$1";
+$route['avatar/upload(.+)?'] = "asset/upload_avatar$1";
 
-$route['verification/upload(:any)?'] = "asset/upload_verification$1";
-$route['verification/delete/(:any)?'] = "verification/delete/$1";
+$route['verification/upload(.+)?'] = "asset/upload_verification$1";
+$route['verification/delete/(:any)?'] = "verification/delete$1";
 
 
 // shopping cart
@@ -94,37 +94,37 @@ $route['shop/shipping'] = "shop/checkout_shipping";
 //$route['shop/payment'] = "shop/checkout_payment";
 $route['shop/confirm'] = "shop/checkout_confirm";
 $route['shop/receipt'] = "shop/receipt";
-//$route['shop/add-phone/(:any)'] = "shop/addphone/$1";
+//$route['shop/add-phone/(.+)'] = "shop/addphone/$1";
 $route['shop/(:any)?'] = "shop/$1";
 
 
 $route['contact/add_contact_from_shipping'] = "contact/add_contact_from_shipping";
-//$route['location(:any)?'] = "location/get_location_page$1";
+//$route['location(.+)?'] = "location/get_location_page$1";
 
-//$route['add_keener(:any)?'] = "badge/badge_keener$1";
+//$route['add_keener(.+)?'] = "badge/badge_keener$1";
 
 //temporary routes
-//$route['retailerstorefix(:any)?'] = "account/retailer_store_fix$1";
-//$route['eauserrolefix(:any)?'] = "account/ea_user_role_fix$1";
-//$route['removepointsfromnonbestbuyusers(:any)?'] = "account/removepointsfromnonbestbuyusers$1";
-//$route['fix_screen_name(:any)?'] = "account/fix_screen_name$1";
-//$route['add_swagger(:any)?'] = "account/add_swagger$1";
-//$route['remove_points(:any)?'] = "account/remove_points";
-//$route['fix_quiz_points(:any)?'] = "account/fix_quiz_points";
+//$route['retailerstorefix(.+)?'] = "account/retailer_store_fix$1";
+//$route['eauserrolefix(.+)?'] = "account/ea_user_role_fix$1";
+//$route['removepointsfromnonbestbuyusers(.+)?'] = "account/removepointsfromnonbestbuyusers$1";
+//$route['fix_screen_name(.+)?'] = "account/fix_screen_name$1";
+//$route['add_swagger(.+)?'] = "account/add_swagger$1";
+//$route['remove_points(.+)?'] = "account/remove_points";
+//$route['fix_quiz_points(.+)?'] = "account/fix_quiz_points";
 //$route['add_slug_brands'] = "account/add_slug_brands";
 //$route['gamestop_import'] = "account/gamestop_import";
 
 //$route['fix_uk_counties_slug'] = "account/fix_uk_counties_slug";
 
 //$route['sphero_badge'] = "account/check_sphero_badge_test";
-//$route['points_fix(:any)?'] = "account/points_fix";
+//$route['points_fix(.+)?'] = "account/points_fix";
 
 //$route['pdf_test'] = "account/pdf_create";
 
 // override the underscore route setting
-$route['ajax(:any)?'] = 'ajax$1';
-$route['hotajax(:any)?'] = 'hotajax$1';
-$route['(.+)']           = "page/$1";
+$route['ajax(.+)?'] = 'ajax$1';
+$route['hotajax(.+)?'] = 'hotajax$1';
+$route['(:any)'] = "page/$1";
 
 //$route['language/.+']         = 'language';
 //$route['(ajax\_\_.+)']        = '$1';

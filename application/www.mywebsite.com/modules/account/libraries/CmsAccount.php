@@ -97,7 +97,7 @@ class CmsAccount {
     }
 
     /**
-     * user login 
+     * user login
      */
     public function login() {
        // die('login function form cmsAccount library');
@@ -190,9 +190,9 @@ class CmsAccount {
         $selected_employment = $this->input->post('employment');
         $selected_job_title = $this->input->post('job_title');
         $no_error = $this->input->post('noerror'); // if post from homepage, no need to display errors
-        
-        $promo_code = $this->input->get('promo_code'); 
-       
+
+        $promo_code = $this->input->get('promo_code');
+
         $user_data_array = array(
             'first_name' => $this->input->post('first_name'),
             'last_name' => $this->input->post('last_name'),
@@ -212,13 +212,13 @@ class CmsAccount {
             'retailer_name' => $this->input->post('retailer_name'),
             'retailer_location_name' => $this->input->post('retailer_location_name'),
         );
-        
+
 //        if ($selected_employment == 'Other'){
 //             $user_data_array['employment'] = $this->input->post('employment_type');
 //        }
 //        if ($selected_job_title == 'Other'){
 //             $user_data_array['job_title'] = $this->input->post('job_title_name');
-//        }        
+//        }
 
         if ($this->input->post('form') == 'register') {
             // Validation rules
@@ -226,7 +226,7 @@ class CmsAccount {
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
             $this->form_validation->set_rules('screen_name', 'Screen Name', 'alpha_dash|required|callback__screen_check|is_unique[user_profile.screen_name]');
             //$this->form_validation->set_rules('postal', 'Your Postal Code', 'xss_clean');
-            $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback__email_check');
+            $this->form_validation->set_rules('email', 'Email Address', 'required|filter_var|callback__email_check');
             $this->form_validation->set_rules('email_confirm', 'Confirm Email Address', 'required|matches[email]');
             $this->form_validation->set_rules('password2', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']');
             $this->form_validation->set_rules('password_confirm', 'Confirm Password', 'required|matches[password2]');
@@ -251,7 +251,7 @@ class CmsAccount {
 //            }
 //            if ($selected_job_title == 'Other') {
 //                $this->form_validation->set_rules('job_title_name', 'Job Title Name', 'required|xss_clean');
-//            }            
+//            }
 
 
 //    $contact_data_array = array(
@@ -259,40 +259,40 @@ class CmsAccount {
 //      'cell' => $this->input->post('cell_phone'),
 //    );
 
-            if ($this->form_validation->run()) {               
-                
+            if ($this->form_validation->run()) {
+
                 //campaign monitor
                 //load campaing monitor list ids
                 $this->cm_lists = $this->config->item('cm_lists', 'account');
-                
+
                 $monthly_list_id = $this->cm_lists['monthly'];
                 $new_swag_list_id = $this->cm_lists['swag'];
                 $new_labs_list_id = $this->cm_lists['labs'];
                 $survey_list_id = $this->cm_lists['survey'];
-                
+
                 if($this->input->post('newsletter_monthly')){
                     $subscriber = array(
 			'EmailAddress' => $email,
 			'Name' => $first_name.' '.$last_name
                     );
-		    $result = $this->cmonitor->post_request('subscribers/'.$monthly_list_id.'.json', $subscriber);	
+		    $result = $this->cmonitor->post_request('subscribers/'.$monthly_list_id.'.json', $subscriber);
                 }
-                
+
                 if($this->input->post('newsletter_newswag')){
                     $subscriber = array(
 			'EmailAddress' => $email,
 			'Name' => $first_name.' '.$last_name
                     );
 		   $result = $this->cmonitor->post_request('subscribers/'.$new_swag_list_id.'.json', $subscriber);
-                }  
-                
+                }
+
                 if($this->input->post('newsletter_newlab')){
                     $subscriber = array(
 			'EmailAddress' => $email,
 			'Name' => $first_name.' '.$last_name
                     );
 		   $result = $this->cmonitor->post_request('subscribers/'.$new_labs_list_id.'.json', $subscriber);
-                }   
+                }
 
                 if($this->input->post('newsletter_survey')){
                     $subscriber = array(
@@ -301,9 +301,9 @@ class CmsAccount {
                     );
 		   $result = $this->cmonitor->post_request('subscribers/'.$survey_list_id.'.json', $subscriber);
                 }
-                            
+
                 $id = $this->ion_auth->register($email, $password, $email, $user_data_array, $ref_site_id);
-                if ($id) {             
+                if ($id) {
                     //set basic user role
                     $new_user = $this->ion_auth->get_newest_users(1);
                     $user_id = $new_user[0]->id;
@@ -312,8 +312,8 @@ class CmsAccount {
                     $this->load->model('contact/model_contact');
                     $this->model_contact->insert($user_id, 'user', 'personal');
                     $contact_id = $this->db->insert_id();
-                    
-                    
+
+
                     //new retailer? new store?
                     if (!empty($user_data_array['retailer_name'])) {
                         $this->load->model('retailer/retailer_model');
@@ -346,33 +346,33 @@ class CmsAccount {
                         } else {
                             $new_store_id = $this->retailer_model->store_insert($user_data_array['retailer_id'], $data);
                         }
-                        
+
                         $user_data_array['store_id'] = $new_store_id;
                         $this->account_model->update_user_store($user_id, $new_store_id);
                     }
-                    
+
                     //PROMO CODES
                     //@todo rename input
                     if(!empty($user_data_array['referral_code'])){
                         //log the user attempt
-                        $this->account_model->log_user_promo_code($user_id, $user_data_array['referral_code']);                        
+                        $this->account_model->log_user_promo_code($user_id, $user_data_array['referral_code']);
                         //is the code active?
                         //we have just one now
-                        if(strtolower($user_data_array['referral_code']) == 'morecheddar'){                     
-                            //add 1000 points to user account                           
-                             account_add_points($user_id, 1000, 'award', $ref_table = 'redeem_code_morecheddar', $user_id, 'received 1,000 points for using secret promo code.');                          
+                        if(strtolower($user_data_array['referral_code']) == 'morecheddar'){
+                            //add 1000 points to user account
+                             account_add_points($user_id, 1000, 'award', $ref_table = 'redeem_code_morecheddar', $user_id, 'received 1,000 points for using secret promo code.');
                         }
-                        
-                        if(strtolower($user_data_array['referral_code']) == 'newuser'){                     
-                            //add 1000 points to user account                           
-                             account_add_points($user_id, 1000, 'award', $ref_table = 'redeem_code_morecheddar', $user_id, 'received 1,000 points for registering a new account.');                          
+
+                        if(strtolower($user_data_array['referral_code']) == 'newuser'){
+                            //add 1000 points to user account
+                             account_add_points($user_id, 1000, 'award', $ref_table = 'redeem_code_morecheddar', $user_id, 'received 1,000 points for registering a new account.');
                         }
                     }
 
   account_add_points($user_id, 1000, 'award', $ref_table = 'new_registration', $user_id, 'received 1,000 points for registering a new account.');
-                    
+
                     //account_add_points($user_id, 1000, 'award', $ref_table = 'new_registration', $user_id, 'received 1,000 points for registering a new account.');
-                    
+
                     //$this->model_contact->update_single($contact_id, $contact_data_array);
                     //$this->session->set_flashdata('message', $this->ion_auth->messages());
                     $data['message'] = $this->ion_auth->messages();
@@ -399,8 +399,8 @@ class CmsAccount {
                 $data['error'] = validation_errors();
             }
         }
-        
-        
+
+
         if (is_array($_REQUEST) && array_key_exists('ref', $_REQUEST)) {
             $ref_id = $_REQUEST['ref'];
         } else {
@@ -435,7 +435,7 @@ class CmsAccount {
             $data['province_options'] = array('' => '');
         }
         $data['country_options'] = array('' => 'Please select country' ,'US' => 'USA', 'CA' => 'Canada');
-        
+
         $data['employments'] = array('' => '') + account_employments();
         $data['job_titles'] = array('' => '') + account_job_titles();
         $data['selected_country'] = $country_code;
@@ -519,23 +519,23 @@ class CmsAccount {
             'id' => 'employment_type',
             'type' => 'text',
             'value' => $this->input->post('employment_type'),
-        );        
+        );
         $data['job_title_name'] = array(
             'name' => 'job_title_name',
             'id' => 'job_title_name',
             'type' => 'text',
             'value' => $this->input->post('job_title_name'),
-        );    
-        
+        );
+
         if(!empty($promo_code)){
             $data['referral_code'] = array(
             'name' => 'referral_code',
             'id' => 'referral_code',
             'type' => 'text',
             'value' => $promo_code,
-        ); 
-            
-                  
+        );
+
+
         }
         return $data;
     }
@@ -559,7 +559,7 @@ class CmsAccount {
             return FALSE;
         } else {
             return TRUE;
-        }        
+        }
     }
 
     // email check
@@ -572,14 +572,14 @@ class CmsAccount {
             return TRUE;
         }
     }
-    
+
     /**
      * register a new brand
      * @access public
      * @return void
      */
     public function register_brand() {
-               
+
         $data['sTitle'] = "Brand Sign up";
         $data['message'] = $this->session->flashdata('message');
         $data['error'] = $this->session->flashdata('error');
@@ -600,15 +600,15 @@ class CmsAccount {
         $this->form_validation->set_rules('email', 'Email', 'required|xss_clean');
         $this->form_validation->set_rules('email_confirm', 'Email Confirm', 'required|xss_clean');
         $this->form_validation->set_rules('phone', 'Phone', 'required|xss_clean');
-            
-            
-        if ($this->form_validation->run()) {                                              
+
+
+        if ($this->form_validation->run()) {
               //save data to db
 	      $response_recaptcha=JSON_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfAhwITAAAAAJtE_-1cPQwBfMHCp-exmiwZeL7t&response=".$this->input->post('g-recaptcha-response')."&remoteip=".$_SERVER['REMOTE_ADDR']));
 if(isset($response_recaptcha->success) && $response_recaptcha->success == false) {
 
 	  $data['error'] = 'Are You A Robot?';
-	  
+
 	         $data['first_name'] = array(
             'name' => 'first_name',
             'id' => 'first_name',
@@ -626,37 +626,37 @@ if(isset($response_recaptcha->success) && $response_recaptcha->success == false)
             'id' => 'email',
             'type' => 'text',
             'value' => $this->form_validation->set_value('email'),
-        );  
+        );
         $data['email_confirm'] = array(
             'name' => 'email_confirm',
             'id' => 'email_confirm',
             'type' => 'text',
             'value' => $this->form_validation->set_value('email_confirm'),
-        );                    
+        );
         $data['phone'] = array(
             'name' => 'phone',
             'id' => 'phone',
             'type' => 'text',
             'value' => $this->form_validation->set_value('phone'),
-        );  
+        );
         $data['company'] = array(
             'name' => 'company',
             'id' => 'company',
             'type' => 'text',
             'value' => $this->form_validation->set_value('company'),
-        ); 
+        );
         $data['comments'] = array(
             'name' => 'comments',
             'id' => 'comments',
             'type' => 'text',
             'value' => $this->form_validation->set_value('comments'),
-        ); 
+        );
 
-	  
+
 	  return $data;
 }
 
- 
+
             $brand_info = $this->input->post();
               //save to database
               $this->account_model->save_brand_info($brand_info);
@@ -680,8 +680,8 @@ if(isset($response_recaptcha->success) && $response_recaptcha->success == false)
   </body>
 </html>
 ';
- 
-                   
+
+
             $this->postmark->clear();
             $config['mailtype'] = "html";
             $this->postmark->initialize($config);
@@ -696,11 +696,11 @@ if(isset($response_recaptcha->success) && $response_recaptcha->success == false)
                 //echo TRUE;
             } else {
                 //echo FALSE;
-            } 
-   
+            }
+
               //send email to user
             $first_name_string = ucfirst($brand_info['first_name']);
-            
+
             $message_user = <<<EOF
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -717,7 +717,7 @@ if(isset($response_recaptcha->success) && $response_recaptcha->success == false)
 	      <td width="730px" style="padding-top: 12px; padding-left: 10px">
 		<a href="http://www.cheddarlabs.com"><img width="730px" height="123px" src="http://{$_SERVER['HTTP_HOST']}/asset/images/email/email-header-w1.jpg" alt="Thank you" /></a>
 	      </td>
-	    </tr>             
+	    </tr>
 	    <tr>
 	      <td style="padding-left: 10px; padding-top: 10px; padding-right: 10px; valign="top">
 		<table cellpadding="0" cellspacing=0" align="left" width="730px;" style="background-color: white;">
@@ -730,24 +730,24 @@ if(isset($response_recaptcha->success) && $response_recaptcha->success == false)
 			<tr>
 			  <td style="padding-bottom: 5px;"><p>Dear {$first_name_string}</p></td>
 			</tr>
-                          
+
    	                <tr>
 			  <td style="padding-bottom: 5px;"><p>We’re super excited about your interest in Cheddar Labs! We'll review your information and get back to you as soon as possible.</p></td>
 			</tr>
-                          
+
    	                <tr>
 			  <td style="padding-bottom: 5px;"><p>If you aren’t into the whole waiting for someone to read your email thing, give us a shout at 604-893-8347. We’d love to chat about how we can elevate your brand’s impact at retail.</p></td>
-			</tr>                          
-                                             
+			</tr>
+
 			<tr>
 			  <td style="padding-bottom: 5px;"><p>Sincerely,</p></td>
-			</tr>                           
+			</tr>
 			<tr>
 			  <td style="padding-bottom: 5px;"><p style="line-height:20px; height: 20px;display:block;"><img height='20px' width='18px' src="http://{$_SERVER['HTTP_HOST']}/asset/images/email/icon-cheddar-signature-atom.png" alt="Cheddar Atom" /> The Dept. of Cheddar</p></td>
-			</tr>       
+			</tr>
 			<tr>
 			  <td style="padding-bottom: 20px;"></td>
-			</tr>                             
+			</tr>
 		      </table>
 		    </td>
 		    <td valign="top" style="padding-left: 20px; padding-right: 20px; padding-top: 20px; background-color: white">
@@ -767,7 +767,7 @@ if(isset($response_recaptcha->success) && $response_recaptcha->success == false)
   </body>
 </html>
 EOF;
-                         
+
             $this->postmark->clear();
             $config['mailtype'] = "html";
             $this->postmark->initialize($config);
@@ -781,10 +781,10 @@ EOF;
                 //echo TRUE;
             } else {
                // echo FALSE;
-            }              
-              
-              
-            
+            }
+
+
+
                 redirect('/register-confirm-brand');
             } else {
                 //$this->session->set_flashdata('error', $this->ion_auth->errors());
@@ -808,32 +808,32 @@ EOF;
             'id' => 'email',
             'type' => 'text',
             'value' => $this->form_validation->set_value('email'),
-        );  
+        );
         $data['email_confirm'] = array(
             'name' => 'email_confirm',
             'id' => 'email_confirm',
             'type' => 'text',
             'value' => $this->form_validation->set_value('email_confirm'),
-        );                    
+        );
         $data['phone'] = array(
             'name' => 'phone',
             'id' => 'phone',
             'type' => 'text',
             'value' => $this->form_validation->set_value('phone'),
-        );  
+        );
         $data['company'] = array(
             'name' => 'company',
             'id' => 'company',
             'type' => 'text',
             'value' => $this->form_validation->set_value('company'),
-        ); 
+        );
         $data['comments'] = array(
             'name' => 'comments',
             'id' => 'comments',
             'type' => 'text',
             'value' => $this->form_validation->set_value('comments'),
-        ); 
+        );
         return $data;
     }
-    
+
 }

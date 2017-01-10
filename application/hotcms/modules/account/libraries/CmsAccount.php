@@ -188,7 +188,7 @@ class CmsAccount {
     $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
     $this->form_validation->set_rules('screen_name', 'Screen Name', 'required|callback__screen_check');
     //$this->form_validation->set_rules('postal', 'Your Postal Code', 'xss_clean');
-    $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback__email_check');
+    $this->form_validation->set_rules('email', 'Email Address', 'required|filter_var|callback__email_check');
     $this->form_validation->set_rules('email_confirm', 'Confirm Email Address', 'required|matches[email]');
     $this->form_validation->set_rules('password2', 'Password', 'required|min_length['.$this->config->item('min_password_length', 'ion_auth').']|max_length['.$this->config->item('max_password_length', 'ion_auth').']');
     $this->form_validation->set_rules('password_confirm', 'Confirm Password', 'required|matches[password2]');
@@ -204,7 +204,7 @@ class CmsAccount {
     $email         = $this->input->post('email');
     $password      = $this->input->post('password2');
     $ref_site_id = (int)($this->input->post('ref')) > 0 ? (int)($this->input->post('ref')) : 1;
-    
+
     $first_name    = $this->input->post('first_name');
     $last_name     = $this->input->post('last_name');
     $screen_name   = $this->input->post('screen_name');
@@ -274,7 +274,7 @@ class CmsAccount {
     elseif (validation_errors()>'') {
       $data['error'] = validation_errors();
     }
-    
+
     if (is_array($_REQUEST) && array_key_exists('ref', $_REQUEST)) {
       $ref_id = $_REQUEST['ref'];
     }
@@ -313,7 +313,7 @@ class CmsAccount {
     $data['selected_newsletter_newlab'] = $this->input->post('newsletter_newlab');
     $data['selected_newsletter_newswag'] = $this->input->post('newsletter_newswag');
     $data['selected_newsletter_survey'] = $this->input->post('newsletter_survey');
-    
+
     $data['first_name'] = array('name'    => 'first_name',
       'id'      => 'first_name',
       'type'    => 'text',

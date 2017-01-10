@@ -73,7 +73,7 @@ class Product_category_model extends HotCMS_Model {
     $this->db->set( 'site_id', $this->session->userdata( 'siteID' ) );
 
     $this->db->set( 'name', $this->input->post( 'name' ) );
-    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'dash',TRUE ));
+    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'-',TRUE ));
     $this->db->set( 'description', $this->input->post( 'description' ) );
 
     $this->db->set( 'active', $this->input->post( 'active' ) ? 1 : 0 );

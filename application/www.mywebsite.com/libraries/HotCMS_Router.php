@@ -53,7 +53,7 @@ class HotCMS_Router extends CI_Router {
 
 	public function _validate_request($segments)
 	{
-
+		die('herel');
 		/* locate module controller */
 		if ($located = $this->locate($segments))
 		{
@@ -77,7 +77,7 @@ class HotCMS_Router extends CI_Router {
 		$this->module = '';
 		$this->directory = '';
 		$ext = $this->config->item('controller_suffix') . EXT;
-
+		die("heer");
 		/* use module route if available */
 		if (isset($segments[0]) AND $routes = Modules::parse_routes($segments[0], implode('/', $segments)))
 		{

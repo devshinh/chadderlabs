@@ -33,7 +33,7 @@ class Account_model extends HotCMS_Model {
       ->get($this->tables['user'] . ' u');
     return $query->row();
   }
-  
+
   /**
    * Get user account details by user screen name
    * @param  int  $user_id
@@ -45,12 +45,12 @@ class Account_model extends HotCMS_Model {
       ->where('p.screen_name', $screen_name)
       ->get($this->tables['user'] . ' u');
     return $query->row();
-  }  
+  }
 
   /**
    * Get user default contact details
    * @param  int  $user_id
-   * 
+   *
    * @return array with contact info
    */
   public function get_user_default_contact($user_id)
@@ -62,8 +62,8 @@ class Account_model extends HotCMS_Model {
       ->where('c.default', 1)
       ->get($this->tables['user'] . ' u');
     return $query->row();
-  }  
-  
+  }
+
   /**
    * Get user account public details
    * @param  int  $screenname
@@ -76,7 +76,7 @@ class Account_model extends HotCMS_Model {
       ->get($this->tables['user'] . ' u');
     return $query->row();
   }
-  
+
   /**
    * Get user account retailer details
    * @param  int  $user_id
@@ -127,7 +127,7 @@ class Account_model extends HotCMS_Model {
     $this->db->where('user_id', $user_id);
     return $this->db->update($this->tables['user_profile'], $data);
   }
-  
+
   /**
    * update user retailer id
    * @param  int  $user_id
@@ -141,7 +141,7 @@ class Account_model extends HotCMS_Model {
     $this->db->where('user_id', $user_id);
     return $this->db->update($this->tables['user_profile'], $data);
   }
-  
+
   /**
    * update user store_id
    * @param  int  $user_id
@@ -154,8 +154,8 @@ class Account_model extends HotCMS_Model {
     );
     $this->db->where('user_id', $user_id);
     return $this->db->update($this->tables['user_profile'], $data);
-  }  
-  
+  }
+
 
   /**
    * set basic role(s) for new users
@@ -163,13 +163,13 @@ class Account_model extends HotCMS_Model {
   public function set_member_role($user_id, $ref_site_id = 1)
   {
     //all users are registered only from the primary site
-    //load member role for user's site_id (system = 3) and for main 
+    //load member role for user's site_id (system = 3) and for main
     $query = $this->db->select('id')
       ->where_in('site_id', array($ref_site_id, 1))
       ->where('active', 1)
       ->where('system', 3)
       ->get($this->tables['role']);
-    
+
     //insert member role for user site and for main site
     if ($query->num_rows() > 0) {
       foreach ($query->result() as $role) {
@@ -177,7 +177,7 @@ class Account_model extends HotCMS_Model {
         $this->db->set('role_id', $role->id);
         $this->db->insert($this->tables['user_role']);
       }
-    } 
+    }
     return TRUE;
   }
 
@@ -211,7 +211,7 @@ class Account_model extends HotCMS_Model {
         ->where('user_id', $user_id)
         ->where('points >', 0)
         ->where('point_type', 'EA')
-        ->where('ref_table', 'EA')              
+        ->where('ref_table', 'EA')
         ->get($this->tables['points']);
     } else {
       $query = $this->db->select('points')
@@ -222,9 +222,9 @@ class Account_model extends HotCMS_Model {
         return $query->row()->points;
     }else{
         return 0;
-    }  
+    }
   }
-  
+
   /**
    * Get a user's current draws
    * @param int user_id
@@ -240,14 +240,14 @@ class Account_model extends HotCMS_Model {
         ->get($this->tables['draws']);
     } else {
 //      $last_live_draw = $this->db->order_by("create_timestamp", "desc")->get_where($this->tables["draw_history"], array("type" => "life"))->row();
-//      $last_monthly_draw = $this->db->order_by("create_timestamp", "desc")->get_where($this->tables["draw_history"], array("type" => "monthly"))->row(); 
+//      $last_monthly_draw = $this->db->order_by("create_timestamp", "desc")->get_where($this->tables["draw_history"], array("type" => "monthly"))->row();
 //      $last_second =  mktime(23, 59, 59, $last_monthly_draw->monthly_month+1, 0, $last_monthly_draw->monthly_year);
 //      if (!empty($last_live_draw) && $last_live_draw->create_timestamp > $last_second) {
 //        $last_draw = $last_live_draw->create_timestamp;
 //      } else {
 //        $last_draw = $last_second;
 //      }
-      //reset contest entries on evry 1st of the month  
+      //reset contest entries on evry 1st of the month
       $last_draw = strtotime(date('01-m-Y 00:00:01'));
 
       $query = $this->db->select_sum('draws')
@@ -255,19 +255,19 @@ class Account_model extends HotCMS_Model {
         ->where('create_timestamp >', $last_draw)
         ->get($this->tables['draws']);
     }
-    
+
     if ($query->num_rows() > 0){
       return $query->row()->draws;
     }else{
         return 0;
     }
-  }  
-  
+  }
+
   /**
    * UNUSED
    * get_user_points_rows($user_id) - number of rows in user_points table
    * ignoring record from EA import
-   * 
+   *
    * @param int user_id
    * @retun int
    */
@@ -279,13 +279,13 @@ class Account_model extends HotCMS_Model {
         ->where_not_in('point_type', 'ea')
         ->get($this->tables['user_points']);
     return $query->num_rows();
-  }  
-  
+  }
+
   /**
    * UNUSED
    * get_user_draws_rows($user_id) - number of rows in user_points table
    * ignoring record from EA import
-   * 
+   *
    * @param int user_id
    * @retun int
    */
@@ -297,12 +297,12 @@ class Account_model extends HotCMS_Model {
         ->where_not_in('point_type', 'ea')
         ->get($this->tables['draws']);
     return $query->num_rows();
-  }    
-  
+  }
+
   /**
-   * get_user_points_orders($user_id) 
+   * get_user_points_orders($user_id)
    * get users prders
-   * 
+   *
    * @param int user_id
    * @retun object
    */
@@ -313,7 +313,7 @@ class Account_model extends HotCMS_Model {
         ->where('user_id', $user_id)
         ->get($this->tables['user_order']);
     return $query->result();
-  }    
+  }
 
   /**
    * Adds points to a user
@@ -395,7 +395,7 @@ class Account_model extends HotCMS_Model {
     }
     return $result;
   }
-  
+
   /**
    * Adds contest/draw entries to a user
    * @param  int  $user_id
@@ -408,21 +408,21 @@ class Account_model extends HotCMS_Model {
    */
   public function add_user_ce($user_id, $ce, $type, $ref_table = '', $ref_id = 0, $description = '')
   {
-      
+
       //HACK -> check it there is upload_avat event for user_id
       if($type == 'upload_avat'){
-          
+
       $query = $this->db->select('id')
         ->where('point_type', 'upload_avat')
         ->where('user_id', $user_id)
         ->get($this->tables['draws']);
       if($query->num_rows() > 0){
-            
+
              return false;
-        }          
-          
+        }
+
       }
-      
+
     $result = FALSE;
     if ($ce == 0) {
       return $result;
@@ -441,8 +441,8 @@ class Account_model extends HotCMS_Model {
     }
 
     return $result;
-  }  
-  
+  }
+
   /**
    * Recalculate user contest entires and sync with the user's profile
    * @param  int  $user_id
@@ -463,7 +463,7 @@ class Account_model extends HotCMS_Model {
       $this->session->set_userdata('user_draws', $draws);
     }
     return $result;
-  }  
+  }
 
   /**
    * List retailers
@@ -494,19 +494,19 @@ class Account_model extends HotCMS_Model {
     }
     if ($province_code != 999999) {
       $this->db->where('province', $province_code);
-    }   
+    }
     /*
     if ($country_code != 0) {
       $this->db->where('country_code', $country_code);
-    } 
-    */    
+    }
+    */
     $query = $this->db->select('id, retailer_id, store_name, store_num')
       ->where('status', 1)
       ->order_by('store_name')
       ->get($this->tables['store']);
     return $query->result();
   }
-  
+
   /**
    * List provinces
    * @param  str  $country_code
@@ -515,12 +515,12 @@ class Account_model extends HotCMS_Model {
   public function list_provinces($country_code = 'us')
   {
     $this->db->where('country_code', $country_code);
-    
+
     $query = $this->db->select('province_code, province_name')
       ->order_by('province_name')
       ->get($this->tables['province']);
     return $query->result();
-  }  
+  }
 
   /**
    * Get Site Name
@@ -534,63 +534,63 @@ class Account_model extends HotCMS_Model {
       ->get('site');
     return $query->row();
   }
-  
+
   /**
    * Get user account badges
    * @param  int  user_id
    */
   public function get_account_badges($user_id)
   {
-      //TODO join to badge to load badge info 
-      
+      //TODO join to badge to load badge info
+
     $query = $this->db->select('ref_id')
       ->where('user_id', $user_id)
       ->where('point_type', 'badge')
       ->get($this->tables['user_points']);
-    
+
     $points_badge = $query->result();
-    
+
     $query2 = $this->db->select('ref_id')
       ->where('user_id', $user_id)
       ->where('point_type', 'badge')
-      ->get($this->tables['draws']);    
-    
+      ->get($this->tables['draws']);
+
     $draws_badge = $query2->result();
-    
+
     $result = array_merge($points_badge, $draws_badge);
-    
+
     return $result;
-  }  
-  
+  }
+
   public function get_shops(){
     $query = $this->db->select('*')
             ->order_by('id')
       ->get('retailer_store');
-      return $query->result();      
+      return $query->result();
   }
-  
+
   public function update_shop_id($old_id, $new_id){
     $this->db->set('store_id', $new_id);
     $this->db->where('store_id', $old_id);
-    $result = $this->db->update('user_profile');  
+    $result = $this->db->update('user_profile');
 
     return $result;
-  }  
-  
+  }
+
   public function delete_shop_id($id){
     $this->db->where('id', $id);
-    $result = $this->db->delete('retailer_store');  
-    
+    $result = $this->db->delete('retailer_store');
+
     return $result;
-  }    
-  
+  }
+
   public function get_users($store_id){
     $query = $this->db->select('u.username, u.id')
       ->join('user as u','u.id = up.user_id')
       ->where('up.store_id', $store_id)
       ->get('user_profile up');
-      return $query->result();      
-  }  
+      return $query->result();
+  }
 
   /**
    * email unverify info
@@ -621,7 +621,7 @@ class Account_model extends HotCMS_Model {
 	      <td width="730px" style="padding-top: 12px; padding-left: 10px">
 		<a href="http://www.cheddarlabs.com"><img width="730px" height="175px" src="http://{$_SERVER['HTTP_HOST']}/asset/images/email/img-user-notification.jpg" alt="User notification" /></a>
 	      </td>
-	    </tr>                
+	    </tr>
 	    <tr>
 	      <td style="padding-left: 10px; padding-top: 10px; padding-right: 10px; valign="top">
 		<table cellpadding="0" cellspacing=0" align="left" width="730px;" style="background-color: white;">
@@ -637,16 +637,16 @@ Don't wait too long, there's cheddar waiting for you!</p></td>
 			</tr>
 			<tr>
 			  <td style="padding-bottom: 5px;"><p><a href="http://www.cheddarlabs.com">www.cheddarlabs.com</a></p></td>
-			</tr>                              
+			</tr>
 			<tr>
 			  <td style="padding-bottom: 15px;"></td>
-			</tr>                           
+			</tr>
 			<tr>
 			  <td style="padding-bottom: 5px;"><p style="line-height:20px; height: 20px;display:block;"><img height='20px' width='18px' src="http://{$_SERVER['HTTP_HOST']}/asset/images/email/icon-cheddar-signature-atom.png" alt="Cheddar Atom" /> The Cheddar Labs Team.</p></td>
-			</tr>       
+			</tr>
 			<tr>
 			  <td style="padding-bottom: 20px;"></td>
-			</tr>                             
+			</tr>
 		      </table>
 		    </td>
 		    <td valign="top" style="padding-left: 20px; padding-right: 20px; padding-top: 20px; background-color: white">
@@ -680,12 +680,12 @@ EOF;
             return TRUE;
         } else {
             return FALSE;
-        }      
-  }  
+        }
+  }
   /*
    * get users which are verified more than year ago
    */
-  
+
   public function get_accounts_with_expired_verification(){
       // 1 year in seconds = 31556940
       $ts = time();
@@ -694,7 +694,7 @@ EOF;
 //              ->where('verified_date !=', 0 )
               ->where('verified_date <=', ($ts - 31556940) )
               ->get($this->tables['user_profile']);
-      return $query->result();    
+      return $query->result();
   }
 
   /**
@@ -826,7 +826,7 @@ EOF;
     }
     if ( !isset($esfp_key)) {
       $this->load->helper("string");
-      $esfp_key = random_string("unique");
+      $esfp_key = random_string();
     }
     $this->db->set("period_id", $period_id);
     $this->db->set("esfp_key", $esfp_key);
@@ -844,7 +844,7 @@ EOF;
 
   /**
    * Start a period of user session log.
-   * @return int 
+   * @return int
    */
   private function _start_period() {
     $period_id = $this->_new_session_for_period();
@@ -950,19 +950,19 @@ EOF;
     }
     return ($this->db->where("finish_timestamp >", 0)->get_where($this->tables["quiz_history"]." qh", array("qh.user_id" => $user_id))->num_rows() > 0);
   }
-  
+
   /**
    * Log promo codes entered in registration proces
-   */  
-  
+   */
+
   function log_user_promo_code($user_id = 0, $promo_code){
     $this->db->set('user_id', $user_id);
     $this->db->set('promo_code', $promo_code);
     $this->db->set('create_timestamp', time());
     $this->db->set('update_timestamp', time());
-    $result = $this->db->insert('user_promo_code_log');      
+    $result = $this->db->insert('user_promo_code_log');
   }
-  
+
 
   /**
    * Save brand info to db
@@ -983,27 +983,27 @@ EOF;
     return $result;
   }
 
-  
+
   /**
    * Add info about issued certificate
    * @param  string  certicate name
    * @param  string  cetrificate filename
-   */  
-  
+   */
+
   function add_user_certificate($cert_name, $filename, $user_id){
     $this->db->set('user_id', $user_id);
     $this->db->set('certificate_name', $cert_name);
     $this->db->set('certificate_filename', $filename);
     $this->db->set('update_timestamp', time());
     $this->db->set('create_timestamp', time());
-    $result = $this->db->insert('user_certificate');      
-  } 
-  
-  
+    $result = $this->db->insert('user_certificate');
+  }
+
+
   /**
-   * get_user_certificates($user_id) 
+   * get_user_certificates($user_id)
    * get users certificates
-   * 
+   *
    * @param int user_id
    * @retun object
    */
@@ -1014,6 +1014,6 @@ EOF;
         ->where('user_id', $user_id)
         ->get('user_certificate');
     return $query->result();
-  }  
+  }
 }
 ?>
