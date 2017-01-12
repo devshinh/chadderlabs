@@ -79,7 +79,7 @@ class Location_model extends HotCMS_Model {
     $this->db->set('site_id', $this->session->userdata('siteID'));
     $this->db->set('author_id', $this->session->userdata('user_id'));
     $this->db->set('name', $this->input->post('name'));
-    $this->db->set('slug', strtolower(url_title($this->input->post('name'), '-')));
+    $this->db->set('slug', strtolower(url_title($this->input->post('name'), 'dash')));
     //$this->db->set('website', $this->input->post('website'));
     $this->db->set('main_email', $this->input->post('main_email'));
     $this->db->set('main_phone', $this->input->post('main_phone'));
@@ -94,7 +94,7 @@ class Location_model extends HotCMS_Model {
     $this->db->set('page_location_description', $this->input->post('page_location_description'));
     $this->db->set('page_location_services', $this->input->post('page_location_services'));
     //country
-    //headquarterss
+    //headquarters
     //organization_id
   }
 

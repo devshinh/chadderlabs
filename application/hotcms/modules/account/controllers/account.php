@@ -196,7 +196,7 @@ class Account extends HotCMS_Controller {
     $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
     $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
     //$this->form_validation->set_rules('postal', 'Your Postal Code', 'xss_clean');
-    $this->form_validation->set_rules('email', 'Email Address', 'required|filter_var|callback__email_check');
+    $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback__email_check');
     $this->form_validation->set_rules('email_confirm', 'Confirm Email Address', 'required|matches[email]');
     $this->form_validation->set_rules('password', 'Password', 'required|min_length['.$this->config->item('min_password_length', 'ion_auth').']|max_length['.$this->config->item('max_password_length', 'ion_auth').']');
     $this->form_validation->set_rules('password_confirm', 'Confirm Password', 'required|matches[password]');
@@ -339,7 +339,7 @@ class Account extends HotCMS_Controller {
     $this->data['message'] = $this->session->flashdata('message');
     $this->data['error'] = $this->session->flashdata('error');
 
-    $this->form_validation->set_rules('email', 'New Email', 'required|filter_var|callback__email_check');
+    $this->form_validation->set_rules('email', 'New Email', 'required|valid_email|callback__email_check');
     $this->form_validation->set_rules('email_confirm', 'Confirm Email', 'required|matches[email]');
 
     $user = $this->ion_auth->get_user($this->session->userdata('user_id'));
@@ -469,7 +469,7 @@ class Account extends HotCMS_Controller {
     $this->data['sTitle'] = "Forgot Password";
     $this->data['message'] = $this->session->flashdata('message');
     $this->data['error'] = $this->session->flashdata('error');
-		$this->form_validation->set_rules('email', 'Email Address', 'required|filter_var');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
 	  if ($this->form_validation->run()) {
       //run the forgotten password method to email an activation code to the user
       $mailsent = $this->ion_auth->forgotten_password($this->input->post('email'));
@@ -576,7 +576,7 @@ class Account extends HotCMS_Controller {
     //validate form input
     $this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
     $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
-    $this->form_validation->set_rules('email', 'Email Address', 'required|filter_var');
+    $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
     $this->form_validation->set_rules('city', 'City', 'required|xss_clean');
     $this->form_validation->set_rules('province', 'Province', 'required|xss_clean');
     $this->form_validation->set_rules('password', 'Password', 'required|min_length['.$this->config->item('min_password_length', 'ion_auth').']|max_length['.$this->config->item('max_password_length', 'ion_auth').']|matches[password_confirm]');
@@ -784,7 +784,7 @@ class Account extends HotCMS_Controller {
           'twitter' => $this->input->post('twitter'),
           'website' => $this->input->post('website'),
       );
-
+      
       $this->model_contact->update_single($item_id,$contact_data_array);
 
       $user = $this->account_model->get_user($userid);

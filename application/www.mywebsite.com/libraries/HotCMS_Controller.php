@@ -24,9 +24,7 @@ class HotCMS_Controller extends CI_Controller {
 
     // load firephp debug library
     $this->load->config('fireignition');
-    
     if ($this->config->item('fireignition_enabled')) {
-
       if (floor(phpversion()) < 5) {
         log_message('error', 'PHP 5 is required to run fireignition');
       } else {
@@ -68,7 +66,7 @@ class HotCMS_Controller extends CI_Controller {
     $this->aData['sSiteName'] = $site->name;
     $this->aData['sSiteDomain'] = $site->domain;
     $this->aData['sSiteID'] = $site->id;
-    $aSite = explode('.',$site->domain);
+    $aSite = explode('.',$site->domain); 
     $this->aData['sMainDomain'] = 'www.'.$aSite[1].'.'.$aSite[2];
     $this->aData['sDomain'] = $aSite[1].'.'.$aSite[2];
   }
@@ -172,7 +170,7 @@ class HotCMS_Controller extends CI_Controller {
         $aPage['id'] = 0;
       }
       $this->aData['oPage'] = self::array2Object($aPage);
-      $this->aData['oPage']->aBreadCrumb = $aPage['aBreadCrumb'];
+      $this->aData['oPage']->aBreadCrumb = $aPage['aBreadCrumb'];     
       //self::setImageInfo( $aPage['aBreadCrumb'], $oModule );
       // set additional info
       self::loadMenu();
@@ -399,7 +397,7 @@ class HotCMS_Controller extends CI_Controller {
         if($item->path=='training-labs' && !$this->ion_auth->logged_in()){
             continue;
         }
-
+        
       $class = '';
       $i++;
 
@@ -453,7 +451,7 @@ class HotCMS_Controller extends CI_Controller {
           $class .= " twoLines";
         } else {
           $class = "twoLines";
-        }
+        }          
       }
 
       if (strcasecmp($menuID, "mobile-nav") === 0) {
@@ -477,7 +475,7 @@ class HotCMS_Controller extends CI_Controller {
     }
     return $sMenu;
   }
-
+  
   private function render404Menu($aMenu = array(), $menuID = '', $parent_item = 0, $parent_group = 0) {
 
     $sMenu = '';
@@ -488,7 +486,7 @@ class HotCMS_Controller extends CI_Controller {
     $i = 0;
     $class = '';
     $a_uri = explode('/', $_SERVER['REQUEST_URI']);
-
+ 
     foreach ($aMenu as $item) {
         if($item->path=='training-labs' && !$this->ion_auth->logged_in()){
             continue;
@@ -504,21 +502,21 @@ class HotCMS_Controller extends CI_Controller {
       }
       $parent_link = '';
 
-
+      
         $subMenu = $this->model->list_sub_menu($item->id);
 
         $subMenu = '';
         $sMenu .= '<li class="' . $class . '"> <a href="' . $parent_link . '' . $link . '" class="' . $class . '" title="' . strip_tags($item->title) . '"' . ($item->external == 1 ? ' target="_blank"' : '') . '>';
 
-
+       
       $sMenu .= $item->title;
       $sMenu .= '</a>';
       $sMenu .= "</li>\n";
     }
     $sMenu = "<ul class='nav' id='" . $menuID . "'>\n" . $sMenu . "</ul>\n";
-
-    return $sMenu;
-
+    
+    return $sMenu;      
+      
   }
   /*
     protected function setMenuInfo() {
@@ -677,7 +675,7 @@ class HotCMS_Controller extends CI_Controller {
         $this->aData['oModule'] = $module;
         if(empty($module->url)) {
             $this->aData['oModule']->name = $module->name;
-
+        
         }elseif ($module->url == 'page-not-found') {
             $this->load->library('page/CmsPage');
             $page = new CmsPage('page-not-found');
@@ -687,8 +685,8 @@ class HotCMS_Controller extends CI_Controller {
         }else{
             $this->aData['oModule']->name = $module->name;
         }
-
-
+ 
+        
       }
       // assign data
       if (is_array($oData)) {

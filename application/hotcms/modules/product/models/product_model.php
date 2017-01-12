@@ -222,7 +222,7 @@ class Product_model extends HotCMS_Model {
   {
     // assign values
     $this->db->set( 'name', $this->input->post( 'name' ) );
-    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'-',TRUE ));
+    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'dash',TRUE ));
     //$this->db->set( 'short_description', $this->input->post( 'short_description' ) );
     $this->db->set( 'description', html_entity_decode($this->input->post( 'description' )) );
     $this->db->set( 'category_id', $this->input->post( 'category' ) );
@@ -255,9 +255,9 @@ class Product_model extends HotCMS_Model {
     $this->db->where( 'id', $id );
     $this->db->update( $table );
   }
-
+  
   /**
-   *
+   * 
    * returns 0 if the product does not exist
    */
   public function get_product_by_id($id)

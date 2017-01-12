@@ -34,7 +34,7 @@
       <?php
       }
     }
-    ?>
+    ?>         
 
     <script type="text/javascript" src="asset/js/jquery-1.6.2.min.js"></script>
     <script type="text/javascript" src="asset/js/tinymce/jquery.tinymce.js"></script>
@@ -61,7 +61,7 @@
         if (save_flag) {
           return 'Warning: Your changes to sitemap will be lost.  Continue?';
         }
-      }
+      }  
     </script>
 
 
@@ -83,7 +83,7 @@
       <?php
       }
     }
-    ?>
+    ?>     
 
 
     <?php
@@ -104,11 +104,11 @@
       <?php
       }
     }
-    ?>
+    ?>       
 
     <link rel="stylesheet" type="text/css" href="asset/css/ui-lightness/jquery-ui-1.8.16.custom.css" media="screen" />
-
-<!-- bugHerd javascript -->
+    
+<!-- bugHerd javascript -->        
 <script type='text/javascript'>
 (function (d, t) {
   var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -116,7 +116,7 @@
   bh.src = '//www.bugherd.com/sidebarv2.js?apikey=bwhpqaoh3x2rfh8enabh6a';
   s.parentNode.insertBefore(bh, s);
   })(document, 'script');
-</script>
+</script>        
 
 
   </head>
@@ -148,7 +148,7 @@
                 <li><b><?php echo $user->first_name . ' ' . $user->last_name ?> </b>/ <em><?php echo $this->session->userdata('user_email') ?></em></li>
                 <li class="separator">/</li>
                 <li><a id="aLogout" href="/hotcms/dashboard/logout">Logout</a></li>
-<?php } ?>
+<?php } ?>        
             </ul>
           </div>
         </div>
@@ -175,7 +175,7 @@
                 <li><a href="/hotcms/product">Product</a></li>-->
                 <li class=""><a href="/hotcms/retailer">Retailers</a></li>
                 <li class="last"><a href="/hotcms/product">Products</a></li>
-                <!--<li><a href="/hotcms/organization">Organization [beta]</a></li>
+                <!--<li><a href="/hotcms/organization">Organization [beta]</a></li>    
                 <li class="last"><a href="/hotcms/news">News</a></li>-->
               </ul>
 <?php } else { ?>
@@ -183,7 +183,7 @@
               <div id="logoBig">
                <a href="/hotcms/">
                 <img src="asset/images/logo_htc.png" alt="HTC logo" width="215" height="115" />
-               </a>
+               </a>      
               </div>-->
           <?php } ?>
           </div>
@@ -196,7 +196,7 @@
           <div id="logoBig">
            <a href="/hotcms/">
             <img src="asset/images/logo_htc.png" alt="HTC logo" width="215" height="115" />
-           </a>
+           </a>      
           </div>
             -->
 <?php } ?>
@@ -219,7 +219,7 @@ $this->load->view($left_view, $left_data);
                     </div>
               <?php } ?>
                   <div class="<?php echo!empty($message) ? ' hide' : '' ?>"><!----></div>
-                </div>
+                </div>   
               </div>
 <?php
 $this->load->view($right_view, $right_data);
@@ -243,6 +243,6 @@ $this->load->view($right_view, $right_data);
             bh.src = '//www.bugherd.com/sidebarv2.js?apikey=3rtvnbaukvzxazlvhnyxba';
             s.parentNode.insertBefore(bh, s);
           })(document, 'script');
-          </script>
+          </script>      
   </body>
 </html>

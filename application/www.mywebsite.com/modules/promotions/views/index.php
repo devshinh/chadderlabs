@@ -7,19 +7,19 @@
     </a>
   </div>
   <div class="clear"></div>
-  <?php
+  <?php 
   $i = 0;
   foreach($small_promotions as $promo) {
     $i++;
     if ($i>1){
     ?>
     <div class="smallPromotion <?php echo $promo->nSequence%2==0?'marginRight':''?>">
-      <a href="/promotions/<?php printf('%s', strtolower(url_title($promo->sName,'-'))) ?>">
+      <a href="/promotions/<?php printf('%s', strtolower(url_title($promo->sName,'dash'))) ?>">
         <img src="/asset/upload/image/Promotion/<?php  printf('%d-%s-441x252.%s', $promo->nImageID, $promo->sFileName, $promo->sExtension) ?>" alt="<?php printf('%s', $main_promotion[0]->sFileName)?>" />
       </a>
     </div>
-    <?php }?>
-  <?php }?>
+    <?php }?>   
+  <?php }?>    
 </div>
 
 <div class="clear"></div>

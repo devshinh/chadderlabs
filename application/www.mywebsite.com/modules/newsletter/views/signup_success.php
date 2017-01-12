@@ -5,27 +5,27 @@
 <script type="text/javascript">
 var aCarousel_promos    = [ <?php $index = 0; foreach ($oCarousel->aPromos as $row){ ?>
 <?php $image = sprintf('%d-%s-598x250.%s',$row->nImageID, $row->sFileName, $row->sExtension) ?>
-{ id: <?php echo $row->nCarouselContentID ?>, src: "<?php echo $image?>",title: "<?php echo  $row->sName  ?>", url: "<?php echo $row->sLink ?>" }<?php if (++$index < count( $oCarousel->aPromos )): ?>, <?php endif ?> 
+{ id: <?php echo $row->nCarouselContentID ?>, src: "<?php echo $image?>",title: "<?php echo  $row->sName  ?>", url: "<?php echo $row->sLink ?>" }<?php if (++$index < count( $oCarousel->aPromos )): ?>, <?php endif ?>
 
-<?php } ?>        
-];  
+<?php } ?>
+];
 var aCarousel_statements    = [ <?php $index = 0; foreach ($oCarousel->aStatements as $row){ ?>
 <?php $image = sprintf('%d-%s-930x100.%s',$row->nImageID, $row->sFileName, $row->sExtension) ?>
-{ id: <?php echo $row->nStatementID ?>, src: "<?php echo $image?>",title: "<?php echo  $row->sName  ?>", url: "<?php echo $row->sLink ?>" }<?php if (++$index < count( $oCarousel->aStatements )): ?>, <?php endif ?> 
+{ id: <?php echo $row->nStatementID ?>, src: "<?php echo $image?>",title: "<?php echo  $row->sName  ?>", url: "<?php echo $row->sLink ?>" }<?php if (++$index < count( $oCarousel->aStatements )): ?>, <?php endif ?>
 
-<?php } ?>        
-];  
+<?php } ?>
+];
 </script>
 
 <div class="mainPromo">
 
   <div id="divHomePromoCarousel">
     <div class="carousel_outer">
-      
+
       <div class="carousel_inner carousel_promos">
         <ul><li><!-- --></li></ul>
-      </div>  
-      
+      </div>
+
       <div class="indicator"><!-- --></div>
     </div><!-- end of carousel_outer -->
   </div>
@@ -39,8 +39,8 @@ var aCarousel_statements    = [ <?php $index = 0; foreach ($oCarousel->aStatemen
     </a>
   <?php }?>
   </div>
-  
-</div><!-- end of mainPromo -->  
+
+</div><!-- end of mainPromo -->
 
 <div class="clear"> </div>
 
@@ -58,7 +58,7 @@ var aCarousel_statements    = [ <?php $index = 0; foreach ($oCarousel->aStatemen
     <?php }?>
   <?php } ?>
   </div> <!-- end of flipBox -->
-  
+
 </div> <!-- end of divHomeTextCarousel -->
 
 <div class="clear"> </div>

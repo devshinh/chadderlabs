@@ -15,7 +15,6 @@ class site_config_hook {
   {
     global $CFG;
     var_dump($CFG);
-    die('test');
     $this->CI =& get_instance();
     $this->load->model('model__global', 'model');
     $site = $this->model->get_site();

@@ -45,13 +45,12 @@
 */
 
 $active_group = 'default';
-//$active_record = TRUE;
-$query_builder = TRUE;
+$active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'pasS';
-$db['default']['database'] = 'db_cheddar_new';
+$db['default']['database'] = 'db_chlabs';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;

@@ -4,7 +4,7 @@ class Newsletter extends HotCMS_Controller {
 
   // module information
   protected $aModuleInfo;
-
+    
   /**
    * Constructor method
    * @access public
@@ -18,7 +18,7 @@ class Newsletter extends HotCMS_Controller {
     $this->load->config('newsletter', TRUE);
     //$this->load->library('session');
     $this->load->model('model_newsletter');
-
+    
     // prepare module information
     $this->aModuleInfo = array(
       'sName'            => 'newsletter',
@@ -29,7 +29,7 @@ class Newsletter extends HotCMS_Controller {
       'sStyleSheet'      => $this->config->item('css', 'newsletter'),
       'sJavaScript'      => $this->config->item('js', 'newsletter')
     );
-
+    
     @include(APPPATH.'config/routes.php');
   }
 
@@ -43,11 +43,11 @@ class Newsletter extends HotCMS_Controller {
     $this->data['sTitle'] = "Be Notified About Our Specials and New Releases";
     $this->data['message'] = $this->session->flashdata('message');
     $this->data['error'] = $this->session->flashdata('error');
-
+    
     // Validation rules
     $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|xss_clean');
     //$this->form_validation->set_rules('lastname',  'Last Name', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('email',     'Email', 'trim|required|filter_var|xss_clean');
+    $this->form_validation->set_rules('email',     'Email', 'trim|required|valid_email|xss_clean');
     $this->form_validation->set_rules('terms',     'Terms',      'callback__validator_terms' );
     
     if ($this->form_validation->run())
@@ -59,7 +59,7 @@ class Newsletter extends HotCMS_Controller {
       $phone = $this->input->post('phone');
       $nonumber = $this->input->post('nonumber');
       $terms = $this->input->post('terms');
-
+      
       if($result = $this->model_newsletter->register($firstname, $lastname, $email, $postal, $phone, $nonumber))
       {
       	$this->session->set_flashdata('postalcode', $postal);
@@ -75,7 +75,7 @@ class Newsletter extends HotCMS_Controller {
       if (validation_errors()>''){
         $this->data['error'] = validation_errors();
       }
-
+      
       $this->data['firstname'] = array('name' => 'firstname',
                                 'id'      => 'firstname',
                                 'type'    => 'text',
@@ -115,7 +115,7 @@ class Newsletter extends HotCMS_Controller {
       self::loadModuleView( $this->aModuleInfo, $this->data );
     }
   }
-
+  
   /**
    * Confirm sign up displaying method
    * @access public
@@ -126,7 +126,7 @@ class Newsletter extends HotCMS_Controller {
     $this->data['message'] = $this->session->flashdata('message');
     $this->data['error'] = $this->session->flashdata('error');
     $this->data['postalcode'] = $this->session->flashdata('postalcode');
-
+    
 		// load promo image
 		$this->load->model( 'model_ad' );
 		$adID = 2;
@@ -138,21 +138,21 @@ class Newsletter extends HotCMS_Controller {
 		$this->load->model( 'model_carousel_content' );
 		$moduleID = $this->model->select_row( 'dModule', 4, 'carousel_content' )->nModuleID;
 		foreach ($this->model_carousel_content->select_result( 'dCarouselContent', 1, array( $this->session->userdata( 'siteID' ), $moduleID, 'main' )) as $row) {
-			$this->data['oCarousel']->aPromos[] = $row;
+			$this->data['oCarousel']->aPromos[] = $row; 
 		}
 		// load text carousel
-		$this->data['oCarousel']->aStatements = array();
+		$this->data['oCarousel']->aStatements = array();   
 		$this->load->model( 'model_statement' );
 		$moduleID = 21; //$this->model->select_row( 'dModule', 4, 'statement' )->nModuleID;
 		$imageTypeID = 4;
-		foreach ($this->model_statement->select_result( 'dStatement', 1, array( $this->session->userdata( 'siteID' ), $moduleID, 'product', $imageTypeID )) as $row) {
-			$this->data['oCarousel']->aStatements[] = $row;
-		}
-
+		foreach ($this->model_statement->select_result( 'dStatement', 1, array( $this->session->userdata( 'siteID' ), $moduleID, 'product', $imageTypeID )) as $row) { 
+			$this->data['oCarousel']->aStatements[] = $row; 
+		} 
+        
 		// load module view
     self::loadModuleView( $this->aModuleInfo, $this->data, 'signup_success' );
-  }
-
+  }    
+  
   public function _validator_terms() {
     $isValid = true;
     // if terms not checked / accepted
@@ -163,6 +163,6 @@ class Newsletter extends HotCMS_Controller {
     }
     return $isValid;
   }
-
+    
 }
 ?>

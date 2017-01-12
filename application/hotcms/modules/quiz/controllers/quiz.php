@@ -304,7 +304,7 @@ class Quiz extends HotCMS_Controller {
     $result = FALSE;
     $messages = '';
     $question_form = '';
-    if ($this->input->post() !== FALSE || is_null($this->input->post() )) {
+    if ($this->input->post() !== FALSE) {
       $id = (int) ($this->input->post('quiz_id'));
       $section_id = (int) $section_id;
       $type_id = (int) $type_id;
@@ -871,7 +871,7 @@ class Quiz extends HotCMS_Controller {
       $data['points_pre_expiry_' . $id] = $this->_create_text_input('points_pre_expiry_' . $id, $type->points_pre_expiry, 100, 20, '');
       $data['points_post_expiry_' . $id] = $this->_create_text_input('points_post_expiry_' . $id, $type->points_post_expiry, 100, 20, '');
       $data['contest_entries_pre_expiry_' . $id] = $this->_create_text_input('contest_entries_pre_expiry_' . $id, $type->contest_entries_pre_expiry, 100, 20, '');
-      $data['contest_entries_post_expiry_' . $id] = $this->_create_text_input('contest_entries_post_expiry_' . $id, $type->contest_entries_post_expiry, 100, 20, '');
+      $data['contest_entries_post_expiry_' . $id] = $this->_create_text_input('contest_entries_post_expiry_' . $id, $type->contest_entries_post_expiry, 100, 20, '');      
       foreach ($type->sections as $section) {
         $data['question_pool_' . $section->id] = $this->_create_text_input('question_pool_' . $section->id, $section->question_pool, 100, 20, 'required');
         $data['questions_per_quiz_' . $section->id] = $this->_create_text_input('questions_per_quiz_' . $section->id, $section->questions_per_quiz, 100, 20, 'required');

@@ -14,29 +14,7 @@
 | path to your installation.
 |
 */
-
-$allowed_domains = array('www.cheddarlabs.com', 'cheddarlabs');
-$default_domain  = 'www.cheddarlabs.com';
-
-if (in_array($_SERVER['HTTP_HOST'], $allowed_domains, TRUE))
-{
-        $domain = $_SERVER['HTTP_HOST'];
-}
-else
-{
-        $domain = $default_domain;
-}
-
-if ( ! empty($_SERVER['HTTPS']))
-{
-        $config['base_url'] = 'https://'.$domain;
-}
-else
-{
-        $config['base_url'] = 'http://'.$domain;
-}
-
-#$config['base_url']	= 'http://www.cheddarlabs.com/';
+$config['base_url']	= 'http://www.cheddarlabs.com/';
 
 $config['environment']	= 'front_end';
 $config['theme']	= 'cheddarLabs';
@@ -58,6 +36,8 @@ $config['landing_page']	= 'home';
 
 $config['timestamp_format'] = 'Y-m-d H:i:s';
 $config['timestamp_format_without_time'] = 'Y/m/d';
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -100,7 +80,7 @@ $config['index_page'] = '';
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']	= 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
@@ -184,7 +164,7 @@ $config['modules_locations'] = array( APPPATH.'modules/' => '../modules/' );
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-#$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 
 
 /*
@@ -303,15 +283,13 @@ $config['encryption_key'] = 'h0t0m4l1h0tCMS';
 |
 */
 $config['sess_cookie_name']		= 'cisession';
-$config['sess_expiration']		= 0;
-#$config['sess_expire_on_close']	= FALSE;
-#$config['sess_encrypt_cookie']	= FALSE;
-$config['sess_driver'] = 'database';
-$config['sess_save_path'] = 'ci_sessions';
-#$config['sess_use_database']	= 'database';
-#$config['sess_table_name']		= 'ci_sessions';
+$config['sess_expiration']		= 7200;
+$config['sess_expire_on_close']	= FALSE;
+$config['sess_encrypt_cookie']	= FALSE;
+$config['sess_use_database']	= TRUE;
+$config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
-#$config['sess_match_useragent']	= FALSE;
+$config['sess_match_useragent']	= FALSE;
 $config['sess_time_to_update']	= 300;
 
 /*
@@ -339,7 +317,6 @@ $config['cookie_secure']	= FALSE;
 | COOKIE data is encountered
 |
 */
-# Deprecated in v3.x
 $config['global_xss_filtering'] = FALSE;
 
 /*
@@ -376,7 +353,7 @@ $config['csrf_expire'] = 7200;
 | by the output class.  Do not 'echo' any values with compression enabled.
 |
 */
-$config['compress_output'] = FALSE;
+$config['compress_output'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

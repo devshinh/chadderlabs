@@ -98,7 +98,7 @@ class Modules
 		if (empty($class)) return;
 
 		/* set the module directory */
-		$path = APPPATH.'controllers/'. $this->router->directory;
+		$path = APPPATH.'controllers/'.CI::$APP->router->fetch_directory();
 
 		/* load the controller class */
 		$class = $class.CI::$APP->config->item('controller_suffix');

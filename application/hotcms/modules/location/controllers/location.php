@@ -85,7 +85,7 @@ class Location extends HotCMS_Controller {
   public function validate_location() {
     // assign validation rules
     $this->form_validation->set_rules('name', strtolower($this->lang->line('hotcms_name')), 'trim|required');
-    $this->form_validation->set_rules('main_email', 'main email', 'trim|required|filter_var');
+    $this->form_validation->set_rules('main_email', 'main email', 'trim|required|valid_email');
   }
 
   /**

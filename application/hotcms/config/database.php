@@ -48,10 +48,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'cheddar_db_user';
-$db['default']['password'] = 'W3d55L65X20l158';
-$db['default']['database'] = 'cheddarlabs';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'pasS';
+$db['default']['database'] = 'db_chlabs';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = FALSE;

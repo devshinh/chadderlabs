@@ -22,7 +22,7 @@ class Account extends HotCMS_Controller {
         $this->load->helper('account/account');
         $this->load->helper('quiz/quiz');
         $this->load->helper('user/user');
-
+        
         /**
          * prepare module information
          * can be overriden in each function
@@ -37,7 +37,7 @@ class Account extends HotCMS_Controller {
             'css' => $this->config->item('css', 'account'),
             'javascript' => $this->config->item('js', 'account')
         );
-
+        
         //load campaing monitor list ids
         $this->cm_lists = $this->config->item('cm_lists', 'account');
     }
@@ -59,7 +59,7 @@ class Account extends HotCMS_Controller {
         $data['sTitle'] = $this->aModuleInfo['meta_title'] = "User Login";
         $data['error'] = $this->session->flashdata('error');
         $data['message'] = $this->session->flashdata('message');
-
+                   
         if ($this->ion_auth->logged_in()) {
             redirect('/');
         }
@@ -114,8 +114,8 @@ class Account extends HotCMS_Controller {
                     $this->session->set_userdata('user_info', $user_info);
 
                     //$retailer_role = $this->account_model->get_user_retailer_role($user_id);
-                    //$this->session->set_userdata('retailer_role', $retailer_role->role_id);
-
+                    //$this->session->set_userdata('retailer_role', $retailer_role->role_id);                     
+                    
                     //logged in first time? has no badge? add rookie badge
                     $badges = account_get_badges($user_id);
                     if (empty($badges)) {
@@ -149,7 +149,7 @@ class Account extends HotCMS_Controller {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
                 //redirect them back to the landing page
                 $redirect_to = $this->session->userdata('redirect_to');
-
+                
                 //$redirect_to = $default_landing_page;
                 if ($redirect_to > '') {
                     $redirect_to = ltrim($redirect_to, '/');
@@ -171,7 +171,7 @@ class Account extends HotCMS_Controller {
                 redirect('/login');
             }
         } else {  //the user is not logging in so display the login page
-            //set the flash data error or notice messages if any
+            //set the flash data error or notice messages if any    
             if (validation_errors() > '') {
                 $data['error'] .= validation_errors();
             }
@@ -228,7 +228,7 @@ class Account extends HotCMS_Controller {
         // load module view
         self::loadModuleView($this->aModuleInfo, $this->data, 'register_success');
     }
-
+    
     //get email
     public function get_email() {
         if (!$this->ion_auth->logged_in()) {
@@ -250,7 +250,7 @@ class Account extends HotCMS_Controller {
         $this->data['message'] = $this->session->flashdata('message');
         $this->data['error'] = $this->session->flashdata('error');
 
-        $this->form_validation->set_rules('email', 'New Email', 'required|filter_var|callback__email_check');
+        $this->form_validation->set_rules('email', 'New Email', 'required|valid_email|callback__email_check');
         $this->form_validation->set_rules('email_confirm', 'Confirm Email', 'required|matches[email]');
 
         $user = $this->ion_auth->get_user($this->session->userdata('user_id'));
@@ -401,7 +401,7 @@ class Account extends HotCMS_Controller {
         $this->data['sTitle'] = $this->aModuleInfo['meta_title'] = "Forgot Password";
         $this->data['message'] = $this->session->flashdata('message');
         $this->data['error'] = $this->session->flashdata('error');
-        $this->form_validation->set_rules('email', 'Email Address', 'required|filter_var');
+        $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
         if ($this->form_validation->run()) {
             //run the forgotten password method to email an activation code to the user
             $mailsent = $this->ion_auth->forgotten_password($this->input->post('email'));
@@ -545,7 +545,7 @@ class Account extends HotCMS_Controller {
     public function profile() {
 
         $this->data['message'] = $this->session->flashdata('message');
-
+        
 
         $this->data['title'] = "User Profile";
 
@@ -572,7 +572,7 @@ class Account extends HotCMS_Controller {
             $this->data['user_draws']['current'] = $user_draws;
             $user_draws_lifetime = $this->account_model->get_user_draws($userid, 'lifetime');
             $this->data['user_draws']['lifetime'] = $user_draws_lifetime;
-
+          
             $orders = $this->account_model->get_user_orders($userid);
             $this->data['orders'] = $orders;
             $args_leaderboard['widget_type'] = 'home';
@@ -589,19 +589,19 @@ class Account extends HotCMS_Controller {
 
             //# of quizzes
             $this->data['quiz_number'] = quiz_get_number_of_user_quizzes($userid);
-
+             
             //verification
-            $verifications = $this->verification_model->verification_load_by_user_id($userid);
+            $verifications = $this->verification_model->verification_load_by_user_id($userid); 
             $this->load->model('retailer/retailer_model');
             if(!empty($verifications)){
-
+                
                 foreach($verifications as $verification){
                     //load asset img
                     $verification->image = asset_load_item($verification->asset_id);
                     //load retailer info
                     $verification->retailer_name = $this->retailer_model->retailer_load($verification->retailer_id, FALSE)->name;
                 }
-
+                
                 $this->data['verifications'] = $verifications;
             }else{
                 $this->data['verifications'] = '';
@@ -610,28 +610,28 @@ class Account extends HotCMS_Controller {
             $args['title'] = 'Retailers';
             $args['user_id'] = $userid;
             $retailers_info = widget::run('retailer/retailer_user_widget', $args);
-
+            
             //load sites (brands)
             $sites = account_get_sites($userid,false);
-            $this->data['sites'] = $sites;
+            $this->data['sites'] = $sites;         
 //            $this->data['trainings'] = $this->session->userdata("trainings");
 //            $this->data['targets'] = $this->session->userdata("targets");
 
-            $this->data['retailers_info'] = $retailers_info;
-
+            $this->data['retailers_info'] = $retailers_info;     
+            
             //load ref colleague widget
             $args_refer = array();
             if(!empty($_POST)){
               $args_refer['postback']= $_POST;
             }
             $refer_colleague = widget::run('refer_colleague/refer_colleague_form_widget', $args_refer);
-            $this->data['refer_colleague_widget'] = $refer_colleague;
-
+            $this->data['refer_colleague_widget'] = $refer_colleague; 
+            
             //refer colleague history
             $args['title'] = 'Refer Colleague History';
-            $refer_colleague_history = widget::run('refer_colleague/refer_colleague_history_widget', $args);
-            $this->data['refer_colleague_history'] = $refer_colleague_history;
-
+            $refer_colleague_history = widget::run('refer_colleague/refer_colleague_history_widget', $args);            
+            $this->data['refer_colleague_history'] = $refer_colleague_history; 
+            
             //reports info
             if (!has_permission('view_report')) {
               $this->data['retailers_reports'] = '';
@@ -668,8 +668,8 @@ class Account extends HotCMS_Controller {
             $certificates = $this->account_model->get_user_certificates($userid);
             $this->data['certificates'] = $certificates;
 
-                    //$this->session->set_userdata('permissions', $permissions);
-
+                    //$this->session->set_userdata('permissions', $permissions);            
+            
             self::loadModuleView($this->aModuleInfo, $this->data, 'profile');
 //      $this->load->view('profile', $this->data);
         }
@@ -689,7 +689,7 @@ class Account extends HotCMS_Controller {
         $user_points_lifetime = $this->account_model->get_user_points($user->user_id, 'lifetime');
         $this->data['user_points']['current'] = $user_points_current;
         $this->data['user_points']['lifetime'] = $user_points_lifetime;
-
+        
         $user_draws = $this->account_model->get_user_draws($user->user_id);
         $this->data['user_draws']['current'] = $user_draws;
 
@@ -697,14 +697,14 @@ class Account extends HotCMS_Controller {
         $args['user_info'] = $user;
         $activity_feed = widget::run('user/user_activity_widget', $args);
         $this->data['activity_feed'] = $activity_feed;
-
+        
         //load badges
         $badges = account_get_badges($user->user_id);
         $this->data['badges'] = $badges;
-
+        
         //# of quizzes
         $this->data['quiz_number'] = quiz_get_number_of_user_quizzes($user->user_id);
-
+        
         //retailers
         $args['title'] = 'Retailers';
         $args['user_id'] = $user->user_id;
@@ -713,8 +713,8 @@ class Account extends HotCMS_Controller {
         // Accessable brand list
         $this->data['sites'] = account_get_sites($user->user_id, TRUE);
 
-        $this->data['retailers_info'] = $retailers_info;
-
+        $this->data['retailers_info'] = $retailers_info;       
+        
         $this->aModuleInfo['meta_title'] =  sprintf("%s's Public Profile ",  ucfirst($user->screen_name));
 
         self::loadModuleView($this->aModuleInfo, $this->data, 'profile_public');
@@ -750,8 +750,8 @@ class Account extends HotCMS_Controller {
             if ($this->input->post('profile_edit') || $this->input->get('profile_edit')) {
                 $this->form_validation->set_rules('first_name', 'First Name', 'required');
                 $this->form_validation->set_rules('last_name', 'Last Name', 'required');
-
-
+                
+               
                 if($user->screen_name !=$orig_screenname){
                   $this->form_validation->set_rules('screen_name', 'Screen Name', 'alpha_dash|required|callback__screen_check|is_unique[user_profile.screen_name]');
                 }else{
@@ -827,12 +827,12 @@ class Account extends HotCMS_Controller {
                 } else {
                     //verifiried user changed retailer id?
                     $user = $this->account_model->get_user($userid);
-
+                    
                 if($user->verified == 1){
                     //retailer id change -> unverify user
                     $message = '';
                     if ($this->input->post('retailer') != $orig_retailer_id){
-
+                        
                         $this->verification_model->unverify_user($userid);
                         $message = '<b>Profile was unverified.</b><br />';
                         //send email to user
@@ -840,8 +840,8 @@ class Account extends HotCMS_Controller {
 
                         $old_retailer = $this->retailer_model->retailer_load($orig_retailer_id);
                         $new_retailer = $this->retailer_model->retailer_load($this->input->post('retailer'));
-
-
+                        
+                        
 
                         $this->account_model->email_unverify($user,$old_retailer, $new_retailer);
 
@@ -859,7 +859,7 @@ class Account extends HotCMS_Controller {
 
                 // load dropdown options
                     $this->data['country_options'] = array('' => 'Please select country' ,'US' => 'USA', 'CA' => 'Canada');
-                    $this->data['selected_country']= $user->country_code;
+                    $this->data['selected_country']= $user->country_code;                
 
                 $retailers = account_retailers($user->country_code);
                 $retailer_verified = FALSE;
@@ -1040,9 +1040,9 @@ class Account extends HotCMS_Controller {
     }
 
     /**
-     * order_detail($order_id)
+     * order_detail($order_id) 
      * get user's order details
-     *
+     * 
      * @param int order_id
      * @retun object
      */
@@ -1055,34 +1055,34 @@ class Account extends HotCMS_Controller {
         $this->data['orderDetails'] = $order;
         self::loadModuleView($this->aModuleInfo, $this->data, 'profile_order_details');
     }
-
+    
     /**
-     * order_detail($order_id)
+     * order_detail($order_id) 
      * get user's order details
-     *
+     * 
      * @param int order_id
      * @retun object
      */
     public function refer_colleague_history() {
-
+        
         //load ref colleague widget
         if(!empty($_POST)){
           $args_refer['postback']= $_POST;
         }
         $refer_colleague = widget::run('refer_colleague/refer_colleague_form_widget', $args_refer);
-        $this->data['refer_colleague_widget'] = $refer_colleague;
+        $this->data['refer_colleague_widget'] = $refer_colleague; 
 
         //refer colleague history
         $args['title'] = 'Refer Colleague History';
-        $refer_colleague_history = widget::run('refer_colleague/refer_colleague_history_widget', $args);
-        $this->data['refer_colleague_history'] = $refer_colleague_history;
-
+        $refer_colleague_history = widget::run('refer_colleague/refer_colleague_history_widget', $args);            
+        $this->data['refer_colleague_history'] = $refer_colleague_history; 
+        
 
         self::loadModuleView($this->aModuleInfo, $this->data, 'profile_refer_history');
-    }
-
+    }    
+    
     public function newsletter_update(){
-
+        
         $userid = $this->session->userdata('user_id');
         if ($userid < 1) {
             //redirect them to the login page
@@ -1095,14 +1095,14 @@ class Account extends HotCMS_Controller {
         $new_swag_list_id = $this->cm_lists['swag'];
         $new_labs_list_id = $this->cm_lists['labs'];
         $survey_list_id = $this->cm_lists['survey'];
-
+        
         $subsciber = array('EmailAddress' => $user->email, 'Resubscribe' => true);
         $subsciber_un = array('EmailAddress' => $user->email);
-
+        
         $monthly = $this->input->post('newsletter-monthly');
 $msg = '';
         if($monthly === 'on'){
-            $result = $this->cmonitor->post_request('subscribers/'.$monthly_list_id.'.json', $subsciber);
+            $result = $this->cmonitor->post_request('subscribers/'.$monthly_list_id.'.json', $subsciber); 
             if($result->was_successful()){
                 $msg .= 'Monthly Newsletters - Subscribed. <br />';
             }
@@ -1110,67 +1110,67 @@ $msg = '';
             $result = $this->cmonitor->post_request('subscribers/'.$monthly_list_id.'/unsubscribe.json', $subsciber_un);
             if($result->was_successful()){
                 $msg .= 'Monthly Newsletters - Unsubscribed. <br />';
-            }
+            }     
         }
-
+        
         $swag = $this->input->post('newsletter-new-swag');
         if($swag  === 'on'){
-            $result = $this->cmonitor->post_request('subscribers/'.$new_swag_list_id.'.json', $subsciber);
+            $result = $this->cmonitor->post_request('subscribers/'.$new_swag_list_id.'.json', $subsciber); 
             if($result->was_successful()){
                 $msg .= 'Alerts about new SWAG - Subscribed. <br />';
-            }
+            }            
         }else{
             $result = $this->cmonitor->post_request('subscribers/'.$new_swag_list_id.'/unsubscribe.json', $subsciber_un);
             if($result->was_successful()){
                 $msg .= 'Alerts about new SWAG - Unsubscribed. <br />';
-            }
-        }
-
+            }  
+        }  
+ 
         $lab = $this->input->post('newsletter-new-lab');
         if($lab  === 'on'){
-            $result = $this->cmonitor->post_request('subscribers/'.$new_labs_list_id.'.json', $subsciber);
+            $result = $this->cmonitor->post_request('subscribers/'.$new_labs_list_id.'.json', $subsciber); 
             if($result->was_successful()){
                 $msg .= 'Alerts about new Labs - Subscribed. <br />';
-            }
+            }              
         }else{
             $result = $this->cmonitor->post_request('subscribers/'.$new_labs_list_id.'/unsubscribe.json', $subsciber_un);
             if($result->was_successful()){
                 $msg .= 'Alerts about new Labs - Unsubscribed. <br />';
-            }
-        }
-
+            }               
+        }  
+        
         $survey = $this->input->post('newsletter-survey');
         if($survey  === 'on'){
-            $result = $this->cmonitor->post_request('subscribers/'.$survey_list_id.'.json', $subsciber);
+            $result = $this->cmonitor->post_request('subscribers/'.$survey_list_id.'.json', $subsciber); 
             if($result->was_successful()){
                 $msg .= 'Survey Invitations - Subscribed. <br />';
-            }
+            }               
         }else{
             $result = $this->cmonitor->post_request('subscribers/'.$survey_list_id.'/unsubscribe.json', $subsciber_un);
             if($result->was_successful()){
                 $msg .= 'Survey Invitations - Unsubscribed. <br />';
-            }
-        }
+            }            
+        }     
 
         $this->session->set_flashdata('message',$msg);
-
+        
         redirect('/profile/communication-preferences');
-    }
-
-
-/// PATCHes functions
+    }    
+    
+    
+/// PATCHes functions 
     public function retailer_store_fix(){
-
+        
         //get all duplicated shop id's
         $shops = $this->account_model->get_shops();
-
+        
         $same_shops = array();
         $i = 0;
         foreach($shops as $s1){
-                $i++;
+                $i++;            
             foreach($shops as $s2){
                 if(($s1->id != $s2->id) &&($s1->retailer_id == $s2->retailer_id) && ($s1->store_name == $s2->store_name) && ($s1->store_num == $s2->store_num)&& ($s1->province == $s2->province)){
-
+                    
                     if(!array_key_exists($s2->id, $same_shops)){
                     $same_shops[$s1->id] = (int) $s2->id;
   //                  $same_shops[$s1->id] = (int) $s2->id;
@@ -1182,7 +1182,7 @@ $msg = '';
 //            $res[$i] = $same_shops;
             //}
         }
-
+        
 //        var_dump($same_shops);
 //       die();
         $users = '';
@@ -1195,7 +1195,7 @@ $msg = '';
             }
             //update user with $v store id to $k
             $this->account_model->update_shop_id($k, $v);
-
+            
             //delete $v store
             $this->account_model->delete_shop_id($k);
         }
@@ -1207,48 +1207,48 @@ $msg = '';
       $query = $this->db->select(' u.id')
        ->where('ip_address','1.1.1.1')
       ->get('user u');
-
+      
       foreach ($query->result() as $user){
           //var_dump($user->id);
           $this->db->set('role_id', 9);
           $this->db->set('user_id', $user->id);
-          $this->db->insert('user_role');
-      }
+          $this->db->insert('user_role');  
+      } 
     }
-
+    
     //addind memeber user role imported ea users
     public function removepointsfromnonbestbuyusers(){
       $query = $this->db->select('*')
        ->where('retailer_id !=','1')
       ->get('user_profile u');
-
+      
       foreach ($query->result() as $user){
           var_dump($user->user_id);
-
+          
           $query1 = $this->db->set('points', 0)
           ->where('user_id', $user->user_id)
-          ->update('user_profile');
+          ->update('user_profile');  
           var_dump($this->db->last_query());
 
           $query2 = $this->db->where('user_id', $user->user_id)
-          ->delete('user_points');
+          ->delete('user_points');  
           var_dump($this->db->last_query());
 
-      }
-    }
-
+      } 
+    }    
+    
     public function fix_screen_name(){
       $query = $this->db->select('id,user_id,screen_name,points,draws')
        ->like('screen_name', '_@2')
        ->get('user_profile u');
-
+      
             foreach ($query->result() as $user){
           //var_dump($user->user_id);
           //var_dump($user->screen_name);
           //var_dump($user->points);
           $org_screenname = substr($user->screen_name, 0, -3);
           //var_dump($org_screenname);
-
+          
            $query = $this->db->select('id,user_id,screen_name,points,draws')
        ->where('screen_name', $org_screenname)
        ->get('user_profile u');
@@ -1259,16 +1259,16 @@ $msg = '';
              echo '<br>';
              var_dump($user2);
              $scren_name = $user2->screen_name;
-
+             
              $query = $this->db->where('id', $user2->id)
-             ->delete('user_profile');
-
+             ->delete('user_profile');   
+             
              $query = $this->db->set('screen_name',$scren_name)
                      ->where('id', $user->id)
              ->update('user_profile');
-
-
-             //$user2_table = $query2->row();
+             
+             
+             //$user2_table = $query2->row();   
              //var_dump($user2_table);
              echo '<br>';
              echo '<br>';
@@ -1276,13 +1276,13 @@ $msg = '';
           //die();
             }
     }
-
+    
     public function add_swagger(){
-        die('aaaaa');
-//load all orders
+        die('aaaaa');   
+//load all orders        
             $this->load->helper('badge/badge');
-
-
+    
+        
        $query = $this->db->select('id,user_id,create_timestamp')
        ->get('order');
        foreach ($query->result() as $order){
@@ -1290,7 +1290,7 @@ $msg = '';
            var_dump($order);
            $has_swagger = check_user_badge($order->user_id,'swagger');
            var_dump($has_swagger);
-
+           
           if(!$has_swagger){
                 $data = array(
                     'user_id' => $order->user_id,
@@ -1299,18 +1299,18 @@ $msg = '';
                     'ref_table' => 'badge',
                     'ref_id' => '2',
                     'create_timestamp' => $order->create_timestamp
-                );
-
+                );                
+                
                 $data['description'] = 'placed first Swag order and received the Swagger Badge, plus 10 contest entries!';
                 $this->db->insert('user_draws', $data);
           }
            echo '<br/>';
-
-
+           
+           
        }
         die('a');
     }
-
+    
     public function remove_points(){
         die('old');
        $query = $this->db->select('id,points,user_id')
@@ -1319,37 +1319,37 @@ $msg = '';
                 ->get('user_points');
 
        foreach ($query->result() as $points_row){
-
+           
            $ts = time();
            $data = array();
 
                 $data = array(
                     'points_reversed' => -$points_row->points,
                     'reverse_timestamp' => $ts
-                );
+                );                                
                 var_dump($points_row);
                 var_dump($data);
-                $this->db->where('id', $points_row->id);
+                $this->db->where('id', $points_row->id);   
                 $this->db->update('user_points', $data);
                 $this->_sync_user_points($points_row->user_id);
-
+       
 var_dump($this->db->last_query());
                 echo '<br/>';
           }
            echo '<br/>';
-
-
+           
+           
        }
-
+       
     public function points_fix(){
-       //die('a');
+       //die('a'); 
        $query = $this->db->select('id,points,user_id')
                //->where('point_type !=','order')
                ->where('points !=','0')
                 ->get('user_profile');
 
        foreach ($query->result() as $profile_row){
-
+           
            //find EA transfer line
                   $query2 = $this->db->select('id')
                ->where('user_id =', $profile_row->user_id)
@@ -1367,22 +1367,22 @@ var_dump($this->db->last_query());
                 $data = array(
                     'points_reversed' => -$profile_row->points,
                     'reverse_timestamp' => $ts
-                );
-
+                );       
+                
                 var_dump($profile_row);
                 var_dump($data);
-                $this->db->where('id', $row_id->id);
+                $this->db->where('id', $row_id->id);   
                 $this->db->update('user_points', $data);
                 $this->_sync_user_points($profile_row->user_id);
-
+       
 
                 echo '<br/>';
           }
            echo '<br/>';
        }
-
-       }
-
+                      
+       }       
+   
   /**
    * Recalculate user points and sync with the user's profile
    * @param  int  $user_id
@@ -1400,12 +1400,12 @@ var_dump($this->db->last_query());
     $result = $this->db->update('user_profile');
 
     return $result;
-  }
-
+  }       
+  
     public function fix_quiz_points(){
-
-//      $query = $this->db->select('r.*')
-//        ->get('retailer r');
+         
+//      $query = $this->db->select('r.*')        
+//        ->get('retailer r');             
 //       foreach($query->result() as $retailer){
 //           //var_dump($retailer->name);
 //            //$this->db->set('slug', strtolower(url_title($retailer->name)));
@@ -1417,8 +1417,8 @@ var_dump($this->db->last_query());
 //          //  $this->db->set('name', 'Main Office');
 //          //  $this->db->insert('contact');
 //       }
-      $query = $this->db->select('s.*')
-        ->get('retailer_store s');
+      $query = $this->db->select('s.*')        
+        ->get('retailer_store s');             
        foreach($query->result() as $store){
            //var_dump($store->store_name);
             //$this->db->set('store_name', trim($store->store_name));
@@ -1430,9 +1430,9 @@ var_dump($this->db->last_query());
           //  $this->db->set('connection_name', 'organization');
           //  $this->db->set('name', 'Main Office');
           //  $this->db->insert('contact');
-       }
-
-
+       }        
+      
+       
         die('b');
        $query = $this->db->select('*')
                ->where('points >','0')
@@ -1451,7 +1451,7 @@ var_dump($this->db->last_query());
                   $order_sum = 0;
                   $points_EA = 0;
        foreach ($query2->result() as $points_row){
-
+           
            if($points_row->point_type == 'order'){
                $order_sum = $order_sum + $points_row->points;
            }
@@ -1464,36 +1464,36 @@ var_dump($this->db->last_query());
            echo '<br/>';
        }
        //var_dump($points_EA, $order_sum);
-
+       
        $real_reserved = ($points_EA + $order_sum);
                          $query3 = $this->db->select('*')
                                  ->where('point_type =','EA')
                ->where('user_id =', $profile_row->user_id)
                 ->get('user_points');
-
+                         
                 $ea_points_row = $query3->row();
-        */
+        */                 
            $ts = time();
            $data = array();
 
                 $data = array(
                     'points_reversed' => -$points_row->points,
                     'reverse_timestamp' => $ts
-                );
-                $this->db->where('id', $points_row->id);
+                );   
+                $this->db->where('id', $points_row->id);   
                 $this->db->update('user_points', $data);
                 $this->_sync_user_points($points_row->user_id);
-
+                
         //var_dump($ea_points_row);
            //die();
 //var_dump($this->db->last_query());
                 echo '<br/>';
           }
            echo '<br/>';
-
-
-       }
-
+           
+           
+       } 
+       
        public function gamestop_import(){
 die('aa');
            //$file = file_get_contents('/stores-gamestop.txt');
@@ -1554,22 +1554,22 @@ die('aa');
                     echo('</br>');
                     $postal = $state_postal[2];
                     echo $postal;
-                    echo('</br>');
-
+                    echo('</br>');                      
+                       
                    }
                    //phone
                    //var_dump($store_info[3]);
-                   $phone_tmp= str_replace(' Phone: (','', $store_info[3]);
+                   $phone_tmp= str_replace(' Phone: (','', $store_info[3]); 
                    $phone_tmp = str_replace(') ','-',$phone_tmp);
                    $phone = str_replace('--- ','',$phone_tmp);
                    echo $phone;
                    echo('</br>');
-
+                   
                                  //check if store # is in DB
                $query = $this->db->select('id')
                ->where('store_num =', $store_number)
                ->where('retailer_id =',5)
-               ->get('retailer_store');
+               ->get('retailer_store');  
                $store_id = $query->row()->id;
                 if(!empty($store_id)){
                     echo 'UPDATE '.$store_id ;
@@ -1577,9 +1577,9 @@ die('aa');
 //                    $query = $this->db->select()
 //                    ->where('store_num =', $store_number)
 //                    ->where('retailer_id =',5)
-//                    ->get('retailer_store');
+//                    ->get('retailer_store');  
 //                    $old_store = $query->row();
-
+                    
                     $data = array(
                       'street_1' => $street_1,
                       'street_2' => $street_2,
@@ -1588,15 +1588,15 @@ die('aa');
                       'postal_code' => $postal,
                       'country_code' => 'US',
                       'status' => 1,
-                      'phone' => $phone
+                      'phone' => $phone 
                     );
-                    $this->db->where('id', $store_id);
+                    $this->db->where('id', $store_id); 
                     $this->db->update('retailer_store', $data);
                 }else{
                     echo 'INSERT';
                     echo ($this->getStateCode($state));
                     $data = array(
-                      'retailer_id' => 5,
+                      'retailer_id' => 5, 
                       'store_name' => $store_name,
                       'slug' => url_title(strtolower($store_name)),
                       'store_num' => $store_number,
@@ -1606,7 +1606,7 @@ die('aa');
                       'province' => $this->getStateCode($state),
                       'postal_code' => $postal,
                       'country_code' => 'US',
-                      'phone' => $phone,
+                      'phone' => $phone,  
                       'status' => 1
                     );
                     $this->db->insert('retailer_store', $data);
@@ -1617,12 +1617,12 @@ die('aa');
 
            die('0');
        }
-
+       
        private function getStateCode($province_name){
                 $query = $this->db->select('province_code')
                ->where('country_code =', 'US')
                ->where('province_name =',$province_name)
-               ->get('province');
+               ->get('province');  
                 $code = $query->row()->province_code;
                 if(!empty($code)){
                   return $code;
@@ -1630,59 +1630,59 @@ die('aa');
                     return 'unknown';
                 }
        }
-
+       
        function fix_uk_counties_slug(){
        //    fix province table
-        $query = $this->db->select()
+        $query = $this->db->select()    
         ->where('country_code =', 'UK')
-        ->get('province');
+        ->get('province');             
        foreach($query->result() as $province){
            //var_dump($province->province_code);
           $query1 = $this->db->set('province_code', url_title(strtolower($province->province_code)))
           ->where('province_name', $province->province_name)
-          ->update('province');
+          ->update('province');  
           //var_dump($this->db->last_query());
        }
-
+       
        //fix created stores
-        $query = $this->db->select()
+        $query = $this->db->select()    
         ->where('retailer_id =', '339')
-        ->get('retailer_store');
+        ->get('retailer_store');             
        foreach($query->result() as $store){
            //var_dump($province->province_code);
           $query1 = $this->db->set('province', url_title(strtolower($store->province)))
           ->where('id', $store->id)
-          ->update('retailer_store');
+          ->update('retailer_store');  
           //var_dump($this->db->last_query());
        }
-
+       
        }
-
-
+       
+       
        public function check_sphero_badge_test(){
            $this->load->helper('quiz/quiz');
-
+        
            var_dump(check_sphero_badge(46));
        }
-
+       
        public function pdf_create(){
-
+           
                $this->load->helper('pdf_helper');
       if($this->session->userdata("user_id") != false){
-
+          
           $user_info = $this->account_model->get_info($this->session->userdata("user_id"));
 
               $data['first_name'] = $user_info->first_name;
               $data['last_name'] = $user_info->last_name;
-
-              $data['screen_name'] = $user_info->screen_name;
+             
+              $data['screen_name'] = $user_info->screen_name;    
               $data['date_issued'] =  date('m-d-Y', time());
-
+           
               $cert['sphero']  = $this->load->view('sphero_cert', $data, true);
-
+  
 $this->load->view('pdf/pdfreport', $cert);
       }else{
           print 'pLs LOg In.';
       }
-       }
+       }     
 }

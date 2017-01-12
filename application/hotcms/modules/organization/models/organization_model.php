@@ -117,7 +117,7 @@ class Organization_model extends HotCMS_Model {
     // assign values
 
     $this->db->set( 'name', $this->input->post( 'name' ) );
-    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'-',TRUE ));
+    $this->db->set( 'slug', url_title($this->input->post( 'name' ),'dash',TRUE ));
     $this->db->set( 'phone', $this->input->post( 'phone' ) );
     $this->db->set( 'email', $this->input->post( 'email' ) );
     $this->db->set('author_id', $this->session->userdata('user_id'));

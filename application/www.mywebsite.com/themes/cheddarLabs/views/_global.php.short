@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->session->userdata('langCode') ?>" lang="<?php echo $this->session->userdata('langCode') ?>">
+  <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+  <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+  <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+  <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><?php
+if ($oPage->url == 'home') {
+  echo htmlspecialchars($sSiteName) . ' | ' . htmlspecialchars($oPage->meta_title);
+} elseif ($oPage->url == null) {
+    echo ('404 Page not Found | ' . htmlspecialchars($sSiteName));
+}else {
+  echo (!empty($oPage->meta_subtitle) ? $oPage->meta_subtitle : '') . htmlspecialchars($oPage->meta_title) . ' | ' . htmlspecialchars($sSiteName);
+}
+?></title>
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="description" content="<?php echo htmlspecialchars($oPage->meta_description) ?>" />
+    <meta name="keywords" content="<?php echo htmlentities($oPage->meta_keyword) ?>" />
+    <meta name="author" content="Hot Tomali Communications Inc." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<?php echo (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . '/'; ?>" />
+    <link rel="shortcut icon" href="/themes/<?php echo $sTheme; ?>/images/favicon.ico" />
+
+
+
+  
+
+<!--[if IE 8]><link rel="stylesheet" type="text/css" media="all" href="themes/<?php echo $sTheme; ?>/css/ie8.css"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="themes/<?php echo $sTheme; ?>/css/ie7.css"><![endif]-->
+    <meta name="google-site-verification" content="" />
+    <?php
+// Google Analytics code
+    if (!empty($aAnalytics['google'])) {
+      ?>
+      <?php //echo $aAnalytics['google']->sCode    ?>
+      <?php
+    }
+    $user_id = $this->session->userdata('user_id');
+    if(!empty($userpoints)) {
+        $user_points = $userpoints;
+    }else{
+        $user_points = 0;
+    }
+    if(!empty($userdraws)) {
+        $user_draws = $userdraws;
+    }else{
+        $user_draws = 0;
+    }
+    //$user_info = $this->session->userdata('user_info');
+  //  $this->load->model("account/account_model");
+//    $user_info = $this->account_model->get_info($this->session->userdata("user_id"));
+    ?>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36727939-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+<div id="fb-root"></div>
+
+
+    <h1 > Hello </h1>
+
+
+  </body>
+</html>

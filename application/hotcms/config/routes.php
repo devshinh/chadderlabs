@@ -46,49 +46,49 @@ $route['hotcms/login'] = "account/login";
 $route['hotcms/logout'] = "account/logout";
 $route['hotcms/forgot-password'] = 'account/forgot_password';
 $route['hotcms/my-account/change-email'] = 'account/change_email';
-$route['hotcms/my-account/verify-email(.+)?'] = 'account/verify_email$1';
+$route['hotcms/my-account/verify-email(:any)?'] = 'account/verify_email$1';
 $route['hotcms/my-account/user-email'] = 'account/get_email';
 $route['hotcms/my-account/change-password'] = 'account/change_password';
 $route['hotcms/my-account/profile'] = "account/profile";
 $route['hotcms/my-account/update'] = "account/update_profile";
-$route['hotcms/my-account(.+)?'] = "account$1";
+$route['hotcms/my-account(:any)?'] = "account$1";
 
-$route['hotcms/user(.+)?'] = "user$1";
-$route['hotcms/site(.+)?'] = "site$1";
-$route['hotcms/page(.+)?'] = "page$1";
-$route['hotcms/module(.+)?'] = "module$1";
-$route['hotcms/role(.+)?'] = "role$1";
-$route['hotcms/media-library(.+)?'] = "asset$1";
-$route['hotcms/menu(.+)?'] = "menu$1";
-$route['hotcms/product(.+)?'] = "product$1";
-$route['hotcms/news(.+)?'] = "news$1";
-$route['hotcms/quiz(.+)?'] = "quiz$1";
-$route['hotcms/organization(.+)?'] = "retailer$1";
-$route['hotcms/order(.+)?'] = "order$1";
-$route['hotcms/verification(.+)?'] = "verification$1";
+$route['hotcms/user(:any)?'] = "user$1";
+$route['hotcms/site(:any)?'] = "site$1";
+$route['hotcms/page(:any)?'] = "page$1";
+$route['hotcms/module(:any)?'] = "module$1";
+$route['hotcms/role(:any)?'] = "role$1";
+$route['hotcms/media-library(:any)?'] = "asset$1";
+$route['hotcms/menu(:any)?'] = "menu$1";
+$route['hotcms/product(:any)?'] = "product$1";
+$route['hotcms/news(:any)?'] = "news$1";
+$route['hotcms/quiz(:any)?'] = "quiz$1";
+$route['hotcms/organization(:any)?'] = "retailer$1";
+$route['hotcms/order(:any)?'] = "order$1";
+$route['hotcms/verification(:any)?'] = "verification$1";
 
-$route['hotcms/badge(.+)?'] = "badge$1";
+$route['hotcms/badge(:any)?'] = "badge$1";
 
-$route['hotcms/training(.+)?'] = "training$1";
+$route['hotcms/training(:any)?'] = "training$1";
 
-$route['hotcms/auction(.+)?'] = "auction$1";
+$route['hotcms/auction(:any)?'] = "auction$1";
 
-$route['hotcms/contact(.+)?'] = "contact$1";
-$route['hotcms/operation_hours(.+)?'] = "operation_hours$1";
+$route['hotcms/contact(:any)?'] = "contact$1";
+$route['hotcms/operation_hours(:any)?'] = "operation_hours$1";
 
-$route['hotcms/location(.+)?'] = "location$1";
-//$route['hotcms/organization(.+)?'] = "organization$1";
-//$route['hotcms/member(.+)?'] = "member$1";
-$route['hotcms/dashboard(.+)?'] = "dashboard$1";
-$route['hotcms/ajax/(.+)?'] = 'ajax/$1';
+$route['hotcms/location(:any)?'] = "location$1";
+//$route['hotcms/organization(:any)?'] = "organization$1";
+//$route['hotcms/member(:any)?'] = "member$1";
+$route['hotcms/dashboard(:any)?'] = "dashboard$1";
+$route['hotcms/ajax/(:any)?'] = 'ajax/$1';
 
-$route['hotcms/draw(.+)?'] = "draw$1";
+$route['hotcms/draw(:any)?'] = "draw$1";
 
-$route['hotcms/target(.+)?'] = "target$1";
+$route['hotcms/target(:any)?'] = "target$1";
 
 
 
-$route['hotcms(.+)?'] = "dashboard";
+$route['hotcms(:any)?'] = "dashboard";
 
 //$route['hotcms/eaimport'] = "news/eaImport";
 

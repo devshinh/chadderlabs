@@ -6,7 +6,7 @@
   <!--[if gt IE 8]> <html class="no-js" lang="en"> <![endif]-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php 
+    <title><?php
 if ($oPage->url == 'home') {
   echo htmlspecialchars($sSiteName) . ' | ' . htmlspecialchars($oPage->meta_title);
 } else {
@@ -23,6 +23,7 @@ if ($oPage->url == 'home') {
     <base href="<?php echo (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . '/'; ?>" />
     <link rel="shortcut icon" href="/themes/<?php echo $sTheme; ?>/images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" media="all" href="/themes/<?php echo $sTheme; ?>/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/themes/<?php echo $sTheme; ?>/css/trainingFront.css?t=<?php echo time(); ?>" />
     <link rel="stylesheet" type="text/css" media="all" href="/themes/<?php echo $sTheme; ?>/css/jquery/ui-lightness/jquery-ui-1.8.16.custom.css" media="screen" />
@@ -78,7 +79,7 @@ if ($oPage->url == 'home') {
     }
     $user_info = $this->session->userdata('user_info');
     ?>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
@@ -97,15 +98,15 @@ if ($oPage->url == 'home') {
   <body>
     <div class="navbar-fixed-top" >
       <div class="navbar navbar-inverse" id="navbarUser">
-        <div class="navbar-inner">            
+        <div class="navbar-inner">
           <div class="container-fluid" >
           <div id="global-cheddar">
             <a href="http://<?php echo $sMainDomain;?>"><img src="/themes/cheddarLabs/images/logo-cheddar-labs-w1.png" alt="cheddarLab logo" title="cheddarLab Global menu"/></a>
-          </div>        
+          </div>
               <div class="pull-right">
               <?php if (isset($sGlobalMenu) && $sGlobalMenu > '') { ?>
-                <?php print($sGlobalMenu); ?>              
-              <?php } ?>    
+                <?php print($sGlobalMenu); ?>
+              <?php } ?>
                 <ul class="nav" id="main-nav-user">
                   <?php if (!empty($user_id)) { ?>
                     <li>
@@ -117,7 +118,7 @@ if ($oPage->url == 'home') {
                         <div class="btn-group" id="button-avatar">
                           <button class="btn dropdown-toggle" data-toggle="dropdown">
                             <?php if(!empty($user_info->avatar_id)){
-                                $avatar = asset_load_item($user_info->avatar_id);                            
+                                $avatar = asset_load_item($user_info->avatar_id);
                                 printf('<img height="15px" src="/asset/upload/thumbnail_30x30/%s_thumb.%s"/>',$avatar->name,$avatar->extension);
                             }else{ ?>
                               <img height="15px" src="/asset/upload/thumbnail_30x30/icon-user_thumb.jpg"/>
@@ -140,7 +141,7 @@ if ($oPage->url == 'home') {
                         </div>
                       </div></li>
                   <?php } ?>
-                </ul>                 
+                </ul>
             </div>
           </div>
         </div>
@@ -444,8 +445,8 @@ if ($oPage->url == 'home') {
         </div> <!-- /.footer-wrapper -->
       </div><!-- /.content -->
     </div>   <!-- /.container -->
-    
-    <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/bootstrap/js/bootstrap.min.js"></script>   
+
+    <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/jquery/reflection.js"></script>
     <script type="text/javascript" src="/themes/<?php echo $sTheme; ?>/js/global.js?t=<?php echo time(); ?>"></script>
     <script type="text/javascript" src="http://cdn.sublimevideo.net/js/djr103cr-beta.js"></script>

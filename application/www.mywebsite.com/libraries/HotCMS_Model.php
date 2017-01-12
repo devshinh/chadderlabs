@@ -13,8 +13,7 @@ class HotCMS_Model extends CI_Model {
       $query = $this->db->select()->where('active', 1)->get('site');
       $rows = array();
       foreach ($query->result() as $row) {
-        $rows[$row->domain] = $row;
-//	echo $row->domain."<br/>";
+        $rows[$row->domain] = $row;	       
       }
       self::$sites = $rows;
     }

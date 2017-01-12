@@ -103,14 +103,15 @@ class CmsAccount {
        // die('login function form cmsAccount library');
         $data = array();
         $data['sTitle'] = "User Login";
-        $data['error'] = $this->session->flashdata('error');
-        $data['message'] = $this->session->flashdata('message');
+
+      //  $data['error'] = $this->session->flashdata('error');
+      //  $data['message'] = $this->session->flashdata('message');
 
         //$data['java_script'] = $this->aModuleInfo['js'];
         //validate form input
-        $this->form_validation->set_rules('username', strtolower('lang:hotcms_name_user'), 'trim|required');
-        $this->form_validation->set_rules('password', strtolower('lang:hotcms_password'), 'required');
-
+        //$this->form_validation->set_rules('username', strtolower('lang:hotcms_name_user'), 'trim|required');
+        //$this->form_validation->set_rules('password', strtolower('lang:hotcms_password'), 'required');
+/*
         if ($this->form_validation->run()) { //check to see if the user is logging in
             $remember_me = $this->input->post('remember') == 1;
             if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'), $remember_me)) {
@@ -134,7 +135,7 @@ class CmsAccount {
                   }
                   else {
                   $redirect_to = $default_landing_page;
-                  } */
+                  } 
                 //die(var_dump($default_landing_page));
                 redirect('overview');
             } else { //if the login was un-successful
@@ -161,6 +162,7 @@ class CmsAccount {
             );
             return $data;
         }
+        */
     }
 
     /**
@@ -226,7 +228,7 @@ class CmsAccount {
             $this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
             $this->form_validation->set_rules('screen_name', 'Screen Name', 'alpha_dash|required|callback__screen_check|is_unique[user_profile.screen_name]');
             //$this->form_validation->set_rules('postal', 'Your Postal Code', 'xss_clean');
-            $this->form_validation->set_rules('email', 'Email Address', 'required|filter_var|callback__email_check');
+            $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback__email_check');
             $this->form_validation->set_rules('email_confirm', 'Confirm Email Address', 'required|matches[email]');
             $this->form_validation->set_rules('password2', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']');
             $this->form_validation->set_rules('password_confirm', 'Confirm Password', 'required|matches[password2]');
